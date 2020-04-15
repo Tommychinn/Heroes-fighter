@@ -1,0 +1,8 @@
+.navigation {
+    /*background-color: lightgrey;*/
+   width: 100px;
+   height: 100vw;
+   border-right: solid lightgrey;
+   justify-content: space-evenly;
+   
+}
