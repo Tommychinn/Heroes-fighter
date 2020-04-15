@@ -1,7 +1,7 @@
 .navigation {
-    /*background-color: lightgrey;*/
+   padding-bottom: 20px;
    width: 100px;
-   height: 100vw;
+   height: 90vw;
    border-right: solid lightgrey;
    justify-content: space-evenly;
    
