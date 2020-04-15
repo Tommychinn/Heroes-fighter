@@ -1,0 +1,23 @@
+h6 a{
+    color : black;
+    text-align : center;
+}
+h6 {
+    text-align : center;
+}
+
+.gamerules {
+    color : #ED1D24;
+    padding-top : 1vw;
+}
+.menu {
+    margin-bottom : 5px;
+    margin-left : 0 !important;
+    margin-right : 0 !important;
+}
+.gamerules img {
+    width : 3vw;
+}
+.menu col {
+    width:100%
+}
