@@ -1,11 +1,11 @@
 import React from 'react';
-import GameRules from './components/GameRules';
 import './App.css';
+import SimpleSlider from './components/HomeAreneCont';
 
 function App() {
   return (
     <div className="App">
-      <GameRules />
+      <SimpleSlider />
     </div>
   );
 }
