@@ -1,10 +1,8 @@
 import React from "react";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col } from "reactstrap";
 
 import styles from './MenuRules.module.css'
-import "./MenuRules.css";
 
 function MenuRules() {
   return (

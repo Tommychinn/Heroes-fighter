@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, ModalHeader, ModalBody, Row, Col } from "reactstrap";
 
 import fond1 from "./img/fond-1small.jpg";
@@ -7,10 +6,9 @@ import MenuRules from './MenuRules';
 import ModalBodyRules from './ModalBodyRules'
 
 import styles from './GameRules.module.css';
-import './GameRules.css'
 
-const GameRules = (props) => {
-  const { buttonLabel, className } = props;
+
+function GameRules(){
 
   const [modal, setModal] = useState(false);
 
