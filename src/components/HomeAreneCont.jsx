@@ -1,72 +1,52 @@
-import React from "react";
+import React, { Component } from "react";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import styles from './HomeAreneCont.module.css';
 
-class SimpleSlider extends React.Component {
-    render() {
-        let settings = {
-          dots: true,
-          infinite: false,
-          speed: 500,
-          slidesToShow: 4,
-          slidesToScroll: 4,
-          initialSlide: 0,
-          responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-              }
-            },
-            {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                initialSlide: 2
-              }
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
-            }
-          ]
-        };
+
+class SimpleSlider extends Component {
+  render() {
+    const settings = {
+      className: "center",
+      infinite: true,
+      centerPadding: "60px",
+      slidesToShow: 4,
+      swipeToSlide: true,
+      afterChange: function(index) {
+        console.log(
+          `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
+        );
+      }
+    };
         return (
-          <div>
+          <div className={styles.arene_container}>
             <h2>Les arènes</h2>
             <Slider {...settings}>
               <div>
-                <img src="arena01.jpg" alt=""/>
+                <img src={require('./arena-images/arena01.jpg')} alt="arena01"/>
               </div>
               <div>
-                <h3>2</h3>
+                <img src={require('./arena-images/arena02.jpg')} alt='arena02' />
               </div>
               <div>
-                <h3>3</h3>
+                <img src={require('./arena-images/arena03.png')} alt='arena03' />
               </div>
               <div>
-                <h3>4</h3>
+                <img src={require('./arena-images/arena04.jpg')} alt='arena04' />
               </div>
               <div>
-                <h3>5</h3>
+                <img src={require('./arena-images/arena05.png')} alt='arena05' />
               </div>
               <div>
-                <h3>6</h3>
+                <img src={require('./arena-images/arena06.jpg')} alt='arena06' />
               </div>
               <div>
-                <h3>7</h3>
+                <img src={require('./arena-images/arena07.png')} alt='arena07' />
               </div>
               <div>
-                <h3>8</h3>
+                <img src={require('./arena-images/arena08.jpg')} alt='arena08' />
               </div>
             </Slider>
           </div>
@@ -74,4 +54,4 @@ class SimpleSlider extends React.Component {
       }
     }
 
-export default SimpleSlider;
+    export default SimpleSlider
