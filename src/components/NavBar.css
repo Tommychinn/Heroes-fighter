@@ -1,8 +1,16 @@
 .navigation {
    padding-bottom: 20px;
    width: 100px;
-   height: 90vw;
+   height: 100vh;
    border-right: solid lightgrey;
    justify-content: space-evenly;
-   
+      
 }
+.navlogo {
+   margin-bottom: 50px;
+}
+.navlink {
+   margin: 50px 0 70px 0;   
+}
+
+
