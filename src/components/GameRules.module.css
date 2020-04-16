@@ -1,0 +1,21 @@
+.row2 {
+    padding : 0;
+}
+.img {
+    width : 50px;
+}
+.avengers {
+    width:100%;
+}
+.alignbutton {
+    justify-content : space-around;
+    margin-left:0 ;
+    padding-top : 40px;
+    width:100%;
+}
+.bigbutton {
+    width:100px;
+    background-color: #ED1D24 !important ;
+    border-radius : 200px !important;
+    border-color :  #ED1D24;
+}
