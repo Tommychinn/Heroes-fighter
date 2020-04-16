@@ -6,26 +6,3 @@
     border-radius : 20px !important;
 }
 
-img {
-    width : 50px;
-}
-
-.avengers {
-    width:100%;
-}
-.row2 {
-    padding : 0;
-}
-/*button*/
-.alignbutton {
-    justify-content : space-around;
-    margin-left:0 !important;
-    padding-top : 40px;
-    width:100%;
-}
-.bigbutton Button {
-    width:100px;
-    background-color: #ED1D24 !important;
-    border-radius : 200px !important;
-    border-color :  #ED1D24;
-}

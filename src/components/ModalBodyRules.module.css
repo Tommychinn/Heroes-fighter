@@ -1,0 +1,22 @@
+.rules {
+    padding-left :0
+}
+
+.text {
+    padding : 15px;
+}
+
+.prules {
+    text-indent : 40px;
+    text-align : justify;
+}
+.h5{
+    text-indent : 40px;
+    color : #ED1D24;
+ }
+ .modalbody{
+    overflow : auto;
+    max-height : 300px !important;
+    padding : 0;
+    border-left : 1px solid lightgrey
+}

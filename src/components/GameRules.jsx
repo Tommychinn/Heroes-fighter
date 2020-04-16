@@ -6,7 +6,8 @@ import fond1 from "./img/fond-1small.jpg";
 import MenuRules from './MenuRules';
 import ModalBodyRules from './ModalBodyRules'
 
-import "./GameRules.css";
+import styles from './GameRules.module.css';
+import './GameRules.css'
 
 const GameRules = (props) => {
   const { buttonLabel, className } = props;
@@ -18,7 +19,7 @@ const GameRules = (props) => {
   return (
     <div>
       <div onClick={toggle}>
-        <img src="https://image.flaticon.com/icons/svg/2004/2004760.svg" />
+        <img className={styles.img} src="https://image.flaticon.com/icons/svg/2004/2004760.svg" />
         <p>
           Game <br />
           Rules
@@ -26,14 +27,14 @@ const GameRules = (props) => {
       </div>
       <Modal isOpen={modal} toggle={toggle} className="{className}">
         <ModalHeader toggle={toggle}>
-          <img src={fond1} alt="avengers" className="avengers" />
+          <img src={fond1} alt="avengers" className={styles.avengers} />
         </ModalHeader>
-        <Row className="row2">
+        <Row className={styles.row2}>
           <Col sm="4">
             <MenuRules />
-            <Row className="alignbutton">
-              <Col className="bigbutton text-center">
-                <Button onClick={toggle}>Start</Button>
+            <Row className={styles.alignbutton}>
+              <Col className="text-center">
+                <Button className={styles.bigbutton} onClick={toggle}>Start</Button>
               </Col>
             </Row>
           </Col>
