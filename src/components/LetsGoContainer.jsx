@@ -4,7 +4,7 @@ import { Button, Card, Row, Col, Container } from 'reactstrap';
 import styles from './letsGoContainer.module.css';
 
 
-const LetsGoContainer = () {
+function LetsGoContainer() {
     return (
     <Container>
         <Card className={styles.img_bkg}>
@@ -17,12 +17,6 @@ const LetsGoContainer = () {
         </Card>
     </Container>
 )};
-
-
-
-
-
-
 
 export default LetsGoContainer;
 

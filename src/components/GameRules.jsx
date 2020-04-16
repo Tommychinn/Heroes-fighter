@@ -3,7 +3,7 @@ import "./GameRules.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
-const GameRules = (props) => {
+function GameRules(props) {
   const { buttonLabel, className } = props;
 
   const [modal, setModal] = useState(false);
