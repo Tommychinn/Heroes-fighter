@@ -1,30 +1,4 @@
-.letsGoContainer{
-    background: linear-gradient(to right, rgba(255,255,255,0)40% , rgba(255,255,255,.1)50%,
-     rgba(255,255,255,.7)60%, rgba(255,255,255,1)80%), url(https://zupimages.net/up/20/16/uuym.jpg) ;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 50px!important;
-    height: 200px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
-}
 .info_box{
-    align-items: flex-end;
+    padding: 5%;
 }
 
-p.textColor{
-    color: #ED1D24!important;
-}
-button{
-    width: 150px;
-    background-color: #ED1D24!important;
-    border: 2px solid #ED1D24 !important;
-    border-radius: 500px!important;
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, .4)!important;
-}
-
-button:hover{
-    background-color: transparent!important;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, .1)!important;
-    color: #ED1D24!important;
-    transition: all .4s ease-out;;
-}
