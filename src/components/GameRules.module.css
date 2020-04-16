@@ -9,13 +9,13 @@
 }
 .alignbutton {
     justify-content : space-around;
-    margin-left:0 !important;
+    margin-left:0 ;
     padding-top : 40px;
     width:100%;
 }
 .bigbutton {
     width:100px;
-    background-color: #ED1D24 !important;
-    border-radius : 200px !important;
+    background-color: #ED1D24 ;
+    border-radius : 200px;
     border-color :  #ED1D24;
 }

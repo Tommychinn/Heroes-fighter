@@ -16,7 +16,7 @@
  }
  .modalbody{
     overflow : auto;
-    max-height : 300px !important;
+    max-height : 300px;
     padding : 0;
     border-left : 1px solid lightgrey
 }
