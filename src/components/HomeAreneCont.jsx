@@ -5,8 +5,19 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from './HomeAreneCont.module.css';
 
+const imgArena = [
+      { imageSrc: './arena-images/arena01.jpg', titleImg: 'arena01' },
+      { imageSrc: './arena-images/arena02.jpg', titleImg: 'arena02' },
+      { imageSrc: './arena-images/arena03.png', titleImg: 'arena03' },
+      { imageSrc: './arena-images/arena04.jpg', titleImg: 'arena04' },
+      { imageSrc: './arena-images/arena05.png', titleImg: 'arena05' },
+      { imageSrc: './arena-images/arena06.jpg', titleImg: 'arena06' },
+      { imageSrc: './arena-images/arena07.png', titleImg: 'arena07' },
+      { imageSrc: './arena-images/arena08.jpg', titleImg: 'arena08' }
+      ]
 
 class SimpleSlider extends Component {
+  
   render() {
     const settings = {
       className: "center",
@@ -24,34 +35,16 @@ class SimpleSlider extends Component {
           <div className={styles.arene_container}>
             <h2>Les arènes</h2>
             <Slider {...settings}>
+              {imgArena.map(arena => (
               <div>
-                <img src={require('./arena-images/arena01.jpg')} alt="arena01"/>
+                <img src={arena.imageSrc} alt={arena.titleImg} key={arena.titleImg} />
               </div>
-              <div>
-                <img src={require('./arena-images/arena02.jpg')} alt='arena02' />
-              </div>
-              <div>
-                <img src={require('./arena-images/arena03.png')} alt='arena03' />
-              </div>
-              <div>
-                <img src={require('./arena-images/arena04.jpg')} alt='arena04' />
-              </div>
-              <div>
-                <img src={require('./arena-images/arena05.png')} alt='arena05' />
-              </div>
-              <div>
-                <img src={require('./arena-images/arena06.jpg')} alt='arena06' />
-              </div>
-              <div>
-                <img src={require('./arena-images/arena07.png')} alt='arena07' />
-              </div>
-              <div>
-                <img src={require('./arena-images/arena08.jpg')} alt='arena08' />
-              </div>
+              ))}
+
             </Slider>
           </div>
         );
       }
     }
 
-    export default SimpleSlider
+    export default SimpleSlider;
