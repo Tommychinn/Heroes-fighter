@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./NavBar.css"
 import {  Nav,  NavItem,  NavLink,} from 'reactstrap';
 import GameRules from './GameRules';
 
-const NavBar= (props) => {
+function NavBar (props) {
   return (
     <div className="navigation">      
       <Nav vertical>
