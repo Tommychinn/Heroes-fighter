@@ -15,7 +15,7 @@
 }
 .bigbutton {
     width:100px;
-    background-color: #ED1D24 ;
-    border-radius : 200px;
+    background-color: #ED1D24 !important ;
+    border-radius : 200px !important;
     border-color :  #ED1D24;
 }
