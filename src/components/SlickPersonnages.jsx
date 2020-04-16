@@ -1,271 +1,57 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import {
-    Container,
-    Row,
-    Col,
-    Card,
-    Button,
-    CardImg,
-    CardTitle,
-    CardText,
-    CardGroup,
-    CardSubtitle,
-    CardBody,
-} from "reactstrap";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
+import React, { Component } from "react";
 import Slider from "react-slick";
 
-class SlickPersonnages extends React.Component {
-    render() {
-        var settings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-        };
-        return (
-            <Slider {...settings}>
-                <div className="container">
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>1</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>2</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>3</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>4</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                </div>
-                <div>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>1</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>2</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>3</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>4</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                </div>
-                <div>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>1</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>2</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>3</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                    <Card className="col-lg-2">
-                        <CardImg
-                            top
-                            width="100%"
-                            src="https://via.placeholder.com/318x180.png"
-                            alt="Card image cap"
-                        />
-                        <CardBody>
-                            <CardTitle>4</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>
-                                This is a wider card with supporting text below
-                                as a natural lead-in to additional content. This
-                                card has even longer content than the first to
-                                show that equal height action.
-                            </CardText>
-                            <Button>Button</Button>
-                        </CardBody>
-                    </Card>
-                </div>
-            </Slider>
-        );
-    }
-}
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+//import styles from './HomeAreneCont.module.css';
 
-export default SlickPersonnages;
+
+class SlickPersonnages extends Component {
+  render() {
+    const settings = {
+      className: "center",
+      infinite: true,
+      centerPadding: "60px",
+      slidesToShow: 4,
+      swipeToSlide: true,
+      afterChange: function(index) {
+        console.log(
+          `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
+        );
+      }
+    };
+        return (
+          <div>
+            <h2>Les arènes</h2>
+            <Slider {...settings}>
+              <div>
+                <img src="https://via.placeholder.com/318x180.png" alt="arena01"/>
+              </div>
+              <div>
+                <img src="https://via.placeholder.com/318x180.png" alt='arena02' />
+              </div>
+              <div>
+                <img src="https://via.placeholder.com/318x180.png" alt='arena03' />
+              </div>
+              <div>
+                <img src="https://via.placeholder.com/318x180.png" alt='arena04' />
+              </div>
+              <div>
+                <img src="https://via.placeholder.com/318x180.png" alt='arena05' />
+              </div>
+              <div>
+                <img src="https://via.placeholder.com/318x180.png" alt='arena06' />
+              </div>
+              <div>
+                <img src="https://via.placeholder.com/318x180.png" alt='arena07' />
+              </div>
+              <div>
+                <img src="https://via.placeholder.com/318x180.png" alt='arena08' />
+              </div>
+            </Slider>
+          </div>
+        );
+      }
+    }
+
+    export default SlickPersonnages
