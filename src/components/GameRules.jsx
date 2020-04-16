@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, Row, Col } from "reactstrap";
 
 import fond1 from "./img/fond-1small.jpg";
 import MenuRules from './MenuRules';
-import ModalBodyRules from './ModalBodyRules'
+import ModalBodyRules from './ModalBodyRules';
 
 import styles from './GameRules.module.css';
 
