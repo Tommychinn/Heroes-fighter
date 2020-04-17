@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -16,35 +16,32 @@ const imgArena = [
       { imageSrc: './arena-images/arena08.jpg', titleImg: 'arena08' }
       ]
 
-class SimpleSlider extends Component {
-  
-  render() {
-    const settings = {
-      className: "center",
-      infinite: true,
-      centerPadding: "60px",
-      slidesToShow: 4,
-      swipeToSlide: true,
-      afterChange: function(index) {
-        console.log(
-          `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-        );
-      }
-    };
-        return (
-          <div className={styles.arene_container}>
-            <h2>Les arènes</h2>
-            <Slider {...settings}>
-              {imgArena.map(arena => (
-              <div>
-                <img src={arena.imageSrc} alt={arena.titleImg} key={arena.titleImg} />
-              </div>
-              ))}
-
-            </Slider>
-          </div>
-        );
-      }
+function SimpleSlider() {
+  const settings = {
+    className: "center",
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 4,
+    swipeToSlide: true,
+    afterChange: function(index) {
+      console.log(
+        `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
+      );
     }
+  };
+  return (
+    <div className={styles.arene_container}>
+      <h2>Les arènes</h2>
+      <Slider {...settings}>
+          {imgArena.map(arena => (
+       <div>
+          <img src={arena.imageSrc} alt={arena.titleImg} key={arena.titleImg} />
+        </div>
+      ))}
 
-    export default SimpleSlider;
+      </Slider>
+    </div>
+  );
+}
+  
+export default SimpleSlider;
