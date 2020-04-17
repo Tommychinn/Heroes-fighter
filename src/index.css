@@ -12,6 +12,28 @@ code {
   monospace;
 }
 
+
+/* general stylesheet marie homePage */
+p.textColor{
+  color: #ED1D24!important;
+}
+
+button{
+  width: 150px;
+  background-color: #ED1D24!important;
+  border: 2px solid #ED1D24 !important;
+  border-radius: 500px!important;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, .4)!important;
+}
+
+button:hover{
+  background-color: transparent!important;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, .1)!important;
+  color: #ED1D24!important;
+  transition: all .4s ease-out;
+}
+/* END general stylesheet marie homePage */
+
 .modal-dialog {
   max-width: 800px !important;
   max-height : 300px !important;
@@ -19,4 +41,5 @@ code {
 .modal-content {
   border-radius : 20px !important;
 }
+
 

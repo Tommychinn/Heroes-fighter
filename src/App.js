@@ -1,11 +1,15 @@
 import React from 'react';
-import GameRules from './components/GameRules';
+
+import LetsGoContainer from './components/LetsGoContainer';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <GameRules />
+
+      <LetsGoContainer />
+
     </div>
   );
 }
