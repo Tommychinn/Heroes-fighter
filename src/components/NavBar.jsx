@@ -1,18 +1,18 @@
 import React from 'react';
-import "./NavBar.css"
+import styles from "./NavBar.module.css";
 import {  Nav,  NavItem,  NavLink,} from 'reactstrap';
 import GameRules from './GameRules';
 
 function NavBar (props) {
   return (
-    <div className="navigation">      
+    <div className={styles.navigation}>      
       <Nav vertical>
-         <NavItem className="navlogo">           
+         <NavItem className={styles.navlogo}>           
           <NavLink href="#">
             <img src="https://zupimages.net/up/20/16/ko7g.png" alt="home logo"></img>
             </NavLink>
         </NavItem>
-        <NavItem className="navlink">
+        <NavItem className={styles.navlink}>
           <NavLink href="#">
           <img src="https://img.icons8.com/color/48/000000/hulk.png" alt="hulk logo player section"></img>
           </NavLink>
@@ -23,5 +23,3 @@ function NavBar (props) {
   );
 }
 export default NavBar;
-
-
