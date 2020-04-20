@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
-import SimpleSlider from './components/HomeAreneCont';
+import LetsGoContainer from './components/LetsGoContainer';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <SimpleSlider />
-    </div>
+      <NavBar /> 
+      <LetsGoContainer />
+   </div>
   );
 }
 
