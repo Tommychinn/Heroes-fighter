@@ -1,16 +1,14 @@
 import React from 'react';
-
-import LetsGoContainer from './components/LetsGoContainer';
-
 import './App.css';
+import LetsGoContainer from './components/LetsGoContainer';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
-
+      <NavBar /> 
       <LetsGoContainer />
-
-    </div>
+   </div>
   );
 }
 
