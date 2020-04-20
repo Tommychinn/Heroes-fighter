@@ -57,7 +57,7 @@ class SlickPersonnages extends Component {
                                         <Progress value="4" max="5" />
                                     </div>
                                 </div>
-                                <Button>Play</Button>
+                                <Button className={styles.button}>Play</Button>
                             </CardBody>
                         </Card>
                     </div>
@@ -89,7 +89,7 @@ class SlickPersonnages extends Component {
                                         <Progress value="4" max="5" />
                                     </div>
                                 </div>
-                                <Button>Play</Button>
+                                <Button className={styles.button}>Play</Button>
                             </CardBody>
                         </Card>
                     </div>
@@ -121,7 +121,7 @@ class SlickPersonnages extends Component {
                                         <Progress value="4" max="5" />
                                     </div>
                                 </div>
-                                <Button>Play</Button>
+                                <Button className={styles.button}>Play</Button>
                             </CardBody>
                         </Card>
                     </div>
@@ -153,7 +153,7 @@ class SlickPersonnages extends Component {
                                         <Progress value="4" max="5" />
                                     </div>
                                 </div>
-                                <Button>Play</Button>
+                                <Button className={styles.button}>Play</Button>
                             </CardBody>
                         </Card>
                     </div><div className={styles.persoCartes}>
@@ -184,7 +184,7 @@ class SlickPersonnages extends Component {
                                         <Progress value="4" max="5" />
                                     </div>
                                 </div>
-                                <Button>Play</Button>
+                                <Button className={styles.button}>Play</Button>
                             </CardBody>
                         </Card>
                     </div>
@@ -216,7 +216,7 @@ class SlickPersonnages extends Component {
                                         <Progress value="4" max="5" />
                                     </div>
                                 </div>
-                                <Button>Play</Button>
+                                <Button className={styles.button}>Play</Button>
                             </CardBody>
                         </Card>
                     </div><div className={styles.persoCartes}>
@@ -247,7 +247,7 @@ class SlickPersonnages extends Component {
                                         <Progress value="4" max="5" />
                                     </div>
                                 </div>
-                                <Button>Play</Button>
+                                <Button className={styles.button}>Play</Button>
                             </CardBody>
                         </Card>
                     </div>
@@ -279,7 +279,7 @@ class SlickPersonnages extends Component {
                                         <Progress value="4" max="5" />
                                     </div>
                                 </div>
-                                <Button>Play</Button>
+                                <Button className={styles.button}>Play</Button>
                             </CardBody>
                         </Card>
                     </div><div className={styles.persoCartes}>
@@ -310,7 +310,7 @@ class SlickPersonnages extends Component {
                                         <Progress value="4" max="5" />
                                     </div>
                                 </div>
-                                <Button>Play</Button>
+                                <Button className={styles.button}>Play</Button>
                             </CardBody>
                         </Card>
                     </div>
