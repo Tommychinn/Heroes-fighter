@@ -1,0 +1,22 @@
+.menu {
+    margin-bottom : 5px;
+    margin-left : 0 ;
+    margin-right : 0;
+}
+.h6a{
+    color : black;
+    text-align : center;
+}
+.h6 {
+    text-align : center;
+}
+.menu .col {
+    width:100%
+}
+.gamerules {
+    color : #ED1D24;
+    padding-top : 1vw;
+}
+.gamerulesimg {
+    width : 3vw;
+}
