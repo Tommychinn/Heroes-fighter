@@ -1,0 +1,13 @@
+.img_bkg{
+    background: linear-gradient(to right, rgba(255,255,255,0)40% , rgba(255,255,255,.1)50%,
+     rgba(255,255,255,.7)60%, rgba(255,255,255,1)80%), url(https://zupimages.net/up/20/16/uuym.jpg) no-repeat!important;
+    background-size: cover!important;
+    height: 200px!important;
+    align-items: flex-end!important;
+    border-radius: 50px!important;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+}
+
+.info_box{
+    padding: 5%;
+}
