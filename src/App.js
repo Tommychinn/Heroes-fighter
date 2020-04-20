@@ -9,10 +9,6 @@ import SlickPersonnages from './components/SlickPersonnages'
 function App() {
   return (
     <div className="App">
-      <GameRules />
-      
-      <ContainerPersonnages />
-      <Personnages />
       <SlickPersonnages />
     </div>
   );
