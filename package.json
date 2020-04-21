@@ -10,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-native-image-gradient": "^2.2.5",
     "react-scripts": "3.4.1",
     "react-slick": "^0.25.2",
     "reactstrap": "^8.4.1",
