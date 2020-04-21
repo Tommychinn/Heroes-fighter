@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ModalBody, Col } from "reactstrap";
 
 import styles from './ModalBodyRules.module.css';

@@ -4,6 +4,7 @@
    height: 100vh;
    border-right: solid lightgrey;
    justify-content: space-evenly;
+   position:fixed;
       
 }
 .navlogo {

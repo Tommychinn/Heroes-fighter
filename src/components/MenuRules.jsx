@@ -10,7 +10,7 @@ function MenuRules() {
       <Col className={styles.col}>
         <h4 className={styles.gamerules}>
           {" "}
-          <img className={styles.gamerulesimg} src="https://image.flaticon.com/icons/svg/2004/2004760.svg" />{" "}
+          <img className={styles.gamerulesimg} src="https://image.flaticon.com/icons/svg/2004/2004760.svg" alt="Avengers"/>{" "}
           Game Rules
         </h4>
         <h6 className={styles.h6}>
