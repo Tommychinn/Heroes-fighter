@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Button, Modal, ModalHeader, ModalBody, Row, Col } from "reactstrap";
+import { Button, Modal, ModalHeader, Row, Col } from "reactstrap";
 
 import fond1 from "./img/fond-1small.jpg";
 import MenuRules from './MenuRules';
@@ -18,7 +18,7 @@ function GameRules(){
   return (
     <div>
       <div onClick={toggle}>
-        <img className={styles.img} src="https://image.flaticon.com/icons/svg/2004/2004760.svg" />
+        <img className={styles.img} src="https://image.flaticon.com/icons/svg/2004/2004760.svg" alt="Logo"/>
         <p>
           Game <br />
           Rules

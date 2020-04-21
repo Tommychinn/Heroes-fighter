@@ -1,16 +1,10 @@
 import React from "react";
 import {
-    Container,
-    Row,
-    Col,
     Progress,
     Card,
     Button,
     CardImg,
     CardTitle,
-    CardText,
-    CardGroup,
-    CardSubtitle,
     CardBody,
 } from "reactstrap";
 import styles from "./Personnages.module.css";

@@ -2,20 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import Capmarvel from "./images/Capmarvel.jpg";
 import Drmanhatten from "./images/Drmanhatten.jpg";
-import {
-    Container,
-    Row,
-    Col,
-    Progress,
-    Card,
-    Button,
-    CardImg,
-    CardTitle,
-    CardText,
-    CardGroup,
-    CardSubtitle,
-    CardBody,
-} from "reactstrap";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./Personnages.module.css";
