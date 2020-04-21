@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       <SlickPersonnages />
-
-
+      <NavBar /> 
+      <LetsGoContainer />
    </div>
   );
 }
