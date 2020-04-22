@@ -48,33 +48,24 @@ class SlickPersonnages extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            hero:{
-                id: 1,
-                name:'',
-                powerstats:{
-                    intelligence:'',
-                    strength:'',
-                    speed:'',
-                    durability:'',
-                    power:'',
-                    combat:'',
-                }, 
-                image:{
-                    url:''
-                },  
-            }
+            hero:[]
         }
     }
 
-    id = Math.floor((Math.random()*731))
-
-    getHero (id) {
-        axios.get(`https://superheroapi.com/api.php/1274121622792743/${id}`)
-        .then(response => response.data)
-        .then(data => {
-            this.setState({hero: data})
-        })
+    componentDidMount(){
+        this.getHero();
     }
+
+    getHero () {
+        
+            axios.get(`https://superheroapi.com/api.php/1274121622792743/${Math.floor((Math.random()*731))}`)
+            .then(res => {
+                this.setState({hero: res.data})
+                console.log(res)
+            })
+        
+    }
+    
 
     settings = {
         className: "center",
@@ -88,9 +79,11 @@ class SlickPersonnages extends React.Component {
             <div className={styles.personnages}>
                 <h2>Les personnages</h2>
                 <Slider {...this.settings}>
-                        {this.heroes.map((hero) => (
-                            <SlickPersoProps name={hero.name} image={hero.image} />
-                        ))}
+                        <SlickPersoProps hero={this.state.hero} />
+                        <SlickPersoProps hero={this.state.hero} />
+                        <SlickPersoProps hero={this.state.hero} />
+                        <SlickPersoProps hero={this.state.hero} /> 
+                        <SlickPersoProps hero={this.state.hero} />
                 </Slider>
             </div>
         );
