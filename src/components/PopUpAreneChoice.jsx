@@ -16,7 +16,7 @@ function PopUpAreneChoice(props) {
         Choose your arena
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+        <ModalHeader toggle={toggle}>CHOISIR VOTRE ARENE</ModalHeader>
         <ModalBody>
         <HomeAreneCont slide={3}/>
         </ModalBody>

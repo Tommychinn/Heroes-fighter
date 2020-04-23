@@ -21,7 +21,6 @@ function HomeAreneCont({slide}) {
     className: "center",
     infinite: true,
     centerPadding: "60px",
-    // slidesToShow: 4,
     swipeToSlide: true,
     afterChange: function(index) {
       console.log(
