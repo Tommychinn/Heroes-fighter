@@ -16,12 +16,12 @@ const imgArena = [
       { imageSrc: './arena-images/arena08.jpg', titleImg: 'arena08' }
       ]
 
-function SimpleSlider() {
+function HomeAreneCont({slide}) {
   const settings = {
     className: "center",
     infinite: true,
     centerPadding: "60px",
-    slidesToShow: 4,
+    // slidesToShow: 4,
     swipeToSlide: true,
     afterChange: function(index) {
       console.log(
@@ -32,7 +32,7 @@ function SimpleSlider() {
   return (
     <div className={styles.arene_container}>
       <h2>Les arènes</h2>
-      <Slider {...settings}>
+      <Slider {...settings} slidesToShow={slide}>
           {imgArena.map(arena => (
        <div>
           <img src={arena.imageSrc} alt={arena.titleImg} key={arena.titleImg} />
@@ -44,4 +44,4 @@ function SimpleSlider() {
   );
 }
   
-export default SimpleSlider;
+export default HomeAreneCont;
