@@ -9,7 +9,9 @@ import {
 } from "reactstrap";
 import styles from "./Personnages.module.css";
 
+
 function SlickPersoProps({hero}) {
+
     return (
         <div className={styles.persoCartes}>
             <Card className={styles.perso}>
@@ -23,6 +25,7 @@ function SlickPersoProps({hero}) {
                 <CardBody>
                     <CardTitle className={styles.cardTitle}>
                         {hero.name}
+
                     </CardTitle>
                     <div>
                         <p>Intelligence</p>
