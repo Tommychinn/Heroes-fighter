@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import SlickPersonnages from "./components/SlickPersonnages";
+import LetsGoContainer from "./components/LetsGoContainer";
+import NavBar from "./components/NavBar";
+import HomeAreneCont from "./components/HomeAreneCont";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <div className="body">
+        <LetsGoContainer />
+        <SlickPersonnages />
+        <HomeAreneCont />
+      </div>
     </div>
   );
 }
