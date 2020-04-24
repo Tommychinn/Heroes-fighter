@@ -10,7 +10,7 @@ import {
 import styles from "./Personnages.module.css";
 
 
-function SlickPersoProps({hero}) {
+function SlickPersoProps({name, image}) {
 
     return (
         <div className={styles.persoCartes}>
@@ -19,12 +19,12 @@ function SlickPersoProps({hero}) {
                     className={styles.persoImage}
                     top
                     width="100%"
-                    src={hero.image && hero.image.url}
+                    src={image && image.url}
                     alt="Card image cap"
                 />
                 <CardBody>
                     <CardTitle className={styles.cardTitle}>
-                        {hero.name}
+                        {name}
 
                     </CardTitle>
                     <div>

@@ -7,41 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "./Personnages.module.css";
 import SlickPersoProps from "./SlickPersoProps";
 
-// const heroes = [
-//     {
-//         name: "Captain Marvel",
-//         image: Capmarvel,
-//     },
-//     {
-//         name: "Dr Manhatten",
-//         image: Drmanhatten,
-//     },
-//     {
-//         name: "Captain marvel",
-//         image: Capmarvel,
-//     },
-//     {
-//         name: "Dr manhatten",
-//         image: Drmanhatten,
-//     },
-//     {
-//         name: "Captain Marvel",
-//         image: Capmarvel,
-//     },
-//     {
-//         name: "Dr Manhatten",
-//         image: Drmanhatten,
-//     },
-//     {
-//         name: "Captain marvel",
-//         image: Capmarvel,
-//     },
-//     {
-//         name: "Dr manhatten",
-//         image: Drmanhatten,
-//     },
-// ];
-
 class SlickPersonnages extends React.Component {
   constructor(props) {
     super(props);
@@ -56,17 +21,13 @@ class SlickPersonnages extends React.Component {
 
   getHero() {
     axios
-      .get(
-        "https://superheroapi.com/api.php/1274121622792743/search/a"
-      )
-      .then(res => res.data)
-      .then(data => {
+      .get("https://superheroapi.com/api.php/1274121622792743/search/a")
+      .then(({ data }) => {
         this.setState({ hero: data.results });
         console.log(this.state.hero);
       });
   }
-  //${Math.floor(
-    //Math.random() * 731
+ 
     settings = {
     className: "center",
     infinite: true,
@@ -82,7 +43,7 @@ class SlickPersonnages extends React.Component {
         <Slider {...this.settings}>
           {
             this.state.hero.map(hero => {
-              return(<SlickPersoProps hero={hero} />
+              return(<SlickPersoProps {...hero}/>
                 )
               
             })
