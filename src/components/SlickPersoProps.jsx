@@ -9,7 +9,9 @@ import {
 } from "reactstrap";
 import styles from "./Personnages.module.css";
 
+
 function SlickPersoProps({name, image}) {
+
     return (
         <div className={styles.persoCartes}>
             <Card className={styles.perso}>
@@ -17,12 +19,13 @@ function SlickPersoProps({name, image}) {
                     className={styles.persoImage}
                     top
                     width="100%"
-                    src={image}
+                    src={image && image.url}
                     alt="Card image cap"
                 />
                 <CardBody>
                     <CardTitle className={styles.cardTitle}>
                         {name}
+
                     </CardTitle>
                     <div>
                         <p>Intelligence</p>
