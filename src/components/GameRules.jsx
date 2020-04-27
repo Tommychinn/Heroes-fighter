@@ -15,6 +15,8 @@ function GameRules(){
 
   const toggle = () => setModal(!modal);
 
+  const closeBtn = <a className="close" onClick={toggle}>&times;</a>;
+
   return (
     <div>
       <div onClick={toggle}>
@@ -25,7 +27,7 @@ function GameRules(){
         </p>
       </div>
       <Modal isOpen={modal} toggle={toggle} className="{className}">
-        <ModalHeader toggle={toggle}>
+        <ModalHeader toggle={toggle} close={closeBtn}>
           <img src={fond1} alt="avengers" className={styles.avengers} />
         </ModalHeader>
         <Row className={styles.row2}>
