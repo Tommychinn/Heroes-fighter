@@ -44,3 +44,6 @@
 .button {
     margin-top: 20px;
 }
+.row {
+    align-items: last baseline;
+}
