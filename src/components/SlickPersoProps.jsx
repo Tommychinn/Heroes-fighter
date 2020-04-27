@@ -8,9 +8,10 @@ import {
     CardBody,
 } from "reactstrap";
 import styles from "./Personnages.module.css";
+import ModalDetailsPerso from "./ModalDetailsPerso";
 
 
-function SlickPersoProps({name, image}) {
+function SlickPersoProps({...hero}) {
 
     return (
         <div className={styles.persoCartes}>
@@ -19,12 +20,12 @@ function SlickPersoProps({name, image}) {
                     className={styles.persoImage}
                     top
                     width="100%"
-                    src={image && image.url}
+                    src={hero.image && hero.image.url}
                     alt="Card image cap"
                 />
                 <CardBody>
                     <CardTitle className={styles.cardTitle}>
-                        {name}
+                        {hero.name}
 
                     </CardTitle>
                     <div>
@@ -44,6 +45,7 @@ function SlickPersoProps({name, image}) {
                         </div>
                     </div>
                     <Button className={styles.button}>Play</Button>
+                    <ModalDetailsPerso {...hero}/>
                 </CardBody>
             </Card>
         </div>
