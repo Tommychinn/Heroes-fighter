@@ -21,10 +21,9 @@
 
 
 .areneNormal:hover {
-	-webkit-transform: scale(1.3);
-    transform: scale(1.3);
-    transition: .3s ease-in-out;
-    border-radius: 20px;
+    width : 20vw;
+    height: 20vw;
+    position: relative
 }
 
 /* .slick-slider {

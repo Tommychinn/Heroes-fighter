@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import HomeAreneCont from "./HomeAreneCont";
-import styles from "./PopUpAreneChoice.module.css";
 
-function PopUpAreneChoice(props) {
-  const { buttonLabel, className } = props;
+function PopUpAreneChoice({ className }) {
 
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
+
+  const closeBtn = <a className="close" onClick={toggle}>&times;</a>
 
   return (
     <div>
@@ -16,7 +16,7 @@ function PopUpAreneChoice(props) {
         Choose your arena
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>CHOISIR VOTRE ARENE</ModalHeader>
+        <ModalHeader toggle={toggle} close={closeBtn}>CHOISIR VOTRE ARENE</ModalHeader>
         <ModalBody>
         <HomeAreneCont slide={3}/>
         </ModalBody>
