@@ -21,18 +21,7 @@
 
 
 .areneNormal:hover {
-    width : 20vw;
-    height: 20vw;
-    position: relative
+    cursor : pointer;
+    opacity : 0.7;
 }
 
-/* .slick-slider {
-    width: 60vw;
-    margin-left: -5vw;
-}
-
-.slick-list {
-    height: 30vh;
-    padding: 6vh 6vw 6 vh 6vw;
-    width: 60vw;
-} */
