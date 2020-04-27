@@ -8,10 +8,15 @@ import {
   CardBody,
   Row,
   Col,
+  CardText,
 } from "reactstrap";
 import styles from "./Personnages.module.css";
 
 function SlickPersoProps({ name, image, powerstats }) {
+  let powerstat = Object.keys(powerstats)
+    .map((stat) => [stat, powerstats[stat]])
+    .slice(0, 3);
+
   return (
     <div className={styles.persoCartes}>
       <Card className={styles.perso}>
@@ -22,28 +27,20 @@ function SlickPersoProps({ name, image, powerstats }) {
           src={image && image.url}
           alt="Card image cap"
         />
-        <CardBody>
+        <CardBody className={styles.cardbody}>
           <CardTitle className={styles.cardTitle}>{name}</CardTitle>
-          <Row className={styles.row}>
-            <Col xs="5">
-              <p>Intelligence</p>
-            </Col>
-            <Col xs="7">
-              <Progress value={parseInt(powerstats.intelligence)} max="100" />
-            </Col>
-          </Row>
-          <Row className={styles.row}>
-            <Col xs="5">Strength</Col>
-            <Col xs="7">
-              <Progress value={parseInt(powerstats.strength)} max="100" />
-            </Col>
-          </Row>
-          <Row className={styles.row}>
-            <Col xs="5">Power</Col>
-            <Col xs="7">
-              <Progress value={parseInt(powerstats.power)} max="100" />
-            </Col>
-          </Row>
+          <CardText>
+            {powerstat.map((stat) => (
+              <Row>
+                <Col xs="5" className={styles.stat}>
+                  {(stat[0] + "").charAt(0).toUpperCase() + stat[0].substr(1)}
+                </Col>
+                <Col xs="7">
+                  <Progress value={parseInt(stat[1])} max="100" />
+                </Col>
+              </Row>
+            ))}
+          </CardText>
           <Button className={styles.button}>Play</Button>
         </CardBody>
       </Card>
