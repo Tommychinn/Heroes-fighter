@@ -56,14 +56,14 @@ class SlickPersonnages extends React.Component {
     return (
       <div className={styles.personnages}>
         <Row>
-          <Col xs="9"><h2>{this.props.title}</h2></Col>
-          <Col xs="3"><h6 className={styles.h6}>{this.props.subtitle}</h6></Col>
+          <Col xs="9"><h2>Les Personnages</h2></Col>
+          <Col xs="3"><h6 className={styles.h6}>Tous les personnages</h6></Col>
         </Row>
         <Slider {...this.settings}>
           {
             this.state.hero.map(hero => {
               return(<SlickPersoProps {...hero}/>
-    )
+             )
             })
           }
         </Slider>
