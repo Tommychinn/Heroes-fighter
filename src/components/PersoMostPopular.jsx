@@ -32,7 +32,6 @@ class PersoMostPopular extends React.Component {
         this.setState({ hero: data });
       });
   }
- 
 
     settings = {
     className: "center",
@@ -40,7 +39,8 @@ class PersoMostPopular extends React.Component {
     centerPadding: "60px",
     slidesToShow: 4,
     swipeToSlide: true
-}
+    }
+
   render() {
     return (
       <div className={styles.personnages}>
