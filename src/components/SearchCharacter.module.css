@@ -11,3 +11,6 @@
 .input {
     padding-left : 5vw !important;
 }
+.button {
+    align-self : end !important;
+}

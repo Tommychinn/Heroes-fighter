@@ -1,27 +1,28 @@
-import React from 'react';
+import React from "react";
 import {
-    Row,
-    Col,
-    Button,
-    Progress,
-    Card,
-    CardImg,
-    CardBody,
-    CardTitle,
-    CardText,
-  } from "reactstrap";
+  Row,
+  Col,
+  Button,
+  Progress,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardText,
+} from "reactstrap";
 
-  import styles from "./Personnages.module.css";
+import styles from "./SearchByName.module.css";
 
-function SearchByName({ name, powerstats, image}){
-    let powerstat = Object.keys(powerstats)
+function SearchByName({ name, powerstats, image }) {
+  let powerstat = Object.keys(powerstats)
     .map((stat) => [stat, powerstats[stat]])
     .slice(0, 3);
 
-    return(
-        <Card className={styles.perso}>
+  return (
+    <Col xs="3">
+      <Card className={styles.card}>
         <CardImg
-          className={styles.persoImage}
+          className={styles.persoImg}
           top
           width="100%"
           src={image && image.url}
@@ -32,10 +33,10 @@ function SearchByName({ name, powerstats, image}){
           <CardText>
             {powerstat.map((stat) => (
               <Row>
-                <Col xs="5" className={styles.stat}>
+                <Col xs="6" className={styles.stat}>
                   {(stat[0] + "").charAt(0).toUpperCase() + stat[0].substr(1)}
                 </Col>
-                <Col xs="7">
+                <Col xs="6">
                   <Progress value={parseInt(stat[1])} max="100" />
                 </Col>
               </Row>
@@ -44,7 +45,8 @@ function SearchByName({ name, powerstats, image}){
           <Button className={styles.button}>Play</Button>
         </CardBody>
       </Card>
-    )
+    </Col>
+  );
 }
 
 export default SearchByName;

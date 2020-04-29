@@ -1,15 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {
-  Row,
-  Col,
-  Input,
-  Label,
-  Button,
-  Collapse,
-} from "reactstrap";
+import { Row, Col, Input, Label, Button, Collapse } from "reactstrap";
 
-import SearchByName from './SearchByName'
+import SearchByName from "./SearchByName";
 import styles from "./SearchCharacter.module.css";
 
 class SearchCharacter extends Component {
@@ -18,20 +11,18 @@ class SearchCharacter extends Component {
     this.state = {
       isOpen: false,
       hero: [],
-      value: 0
+      value: 0,
     };
     this.setIsOpen = this.setIsOpen.bind(this);
-    this.handleChange = this.handleChange.bind(this)
-  }
- 
-
-  
-  handleChange(e){
-    this.setState({value : e.target.value})
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount(){
-    this.getHero()
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+
+  componentDidMount() {
+    this.getHero();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -39,14 +30,14 @@ class SearchCharacter extends Component {
       this.getHero(this.state.value);
     }
   }
-  
+
   getHero() {
-    const { value } = this.state
+    const { value } = this.state;
     axios
       .get(`https://superheroapi.com/api.php/1274121622792743/search/${value}`)
       .then(({ data }) => {
-        this.setState({ hero: data.results })
-        console.log(this.state.hero)
+        this.setState({ hero: data.results });
+        console.log(this.state.hero);
       });
   }
 
@@ -54,13 +45,7 @@ class SearchCharacter extends Component {
     this.setState({ isOpen: true });
   }
 
-  
   toggle = () => this.setIsOpen(!this.state.isOpen);
-
-
-
-
-  
 
   render() {
     const { isOpen, hero } = this.state;
@@ -70,10 +55,17 @@ class SearchCharacter extends Component {
         <Row>
           <Col xs="3" className={styles.input}>
             <Label for="search"></Label>
-            <Input type="text" value={this.state.value} onChange={this.handleChange} name="text" id="search" />
+            <Input
+              type="text"
+              value={this.state.value}
+              onChange={this.handleChange}
+              name="text"
+              id="search"
+            />
           </Col>
-          <Col xs="1">
-          <Button
+          <Col xs="1" >
+            <Button
+              
               color="primary"
               onClick={this.toggle}
               style={{ marginBottom: "1rem" }}
@@ -81,15 +73,18 @@ class SearchCharacter extends Component {
               OK
             </Button>
           </Col>
-          <Collapse isOpen ={isOpen}>{
-            hero && hero.map(hero => {
-              return(<SearchByName {...hero}/>)})
-              }
+          <Collapse isOpen={isOpen}>
+            <Row>
+              {hero &&
+                hero.map((hero) => {
+                  return <SearchByName {...hero} />;
+                })}
+            </Row>
           </Collapse>
         </Row>
       </div>
-    )
-}
+    );
+  }
 }
 
 export default SearchCharacter;
