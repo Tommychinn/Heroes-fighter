@@ -1,0 +1,13 @@
+.row {
+    align-items: flex-end;
+}
+
+.refine {
+    color : red
+}
+.refine:hover {
+    cursor : pointer;
+}
+.input {
+    padding-left : 5vw !important;
+}
