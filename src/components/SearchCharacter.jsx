@@ -53,7 +53,7 @@ class SearchCharacter extends Component {
     return (
       <div>
         <Row>
-          <Col xs="3" className={styles.input}>
+          <Col xs="5" className={styles.input}>
             <Label for="search"></Label>
             <Input
               type="text"
@@ -63,9 +63,9 @@ class SearchCharacter extends Component {
               id="search"
             />
           </Col>
-          <Col xs="1" >
+          <Col xs="1" className={styles.colbutton}>
             <Button
-              
+              className={styles.buttonok}
               color="primary"
               onClick={this.toggle}
               style={{ marginBottom: "1rem" }}

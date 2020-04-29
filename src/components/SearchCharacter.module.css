@@ -9,8 +9,12 @@
     cursor : pointer;
 }
 .input {
-    padding-left : 5vw !important;
+    padding-left : 15vw !important;
+    width : 10vw
 }
-.button {
-    align-self : end !important;
+.buttonok {
+    margin-bottom : 0 !important;
+}
+.colbutton {
+    align-self: self-end;
 }
