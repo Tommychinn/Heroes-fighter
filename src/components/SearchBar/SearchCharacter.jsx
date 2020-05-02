@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Row, Col, Input, Label, Button, Collapse } from "reactstrap";
+import { Row, Col, Label } from "reactstrap";
+import { DebounceInput } from "react-debounce-input";
 
-import SearchByName from "./SearchByName";
+import SearchAdvanced from "./SearchAdvanced";
+import SearchCard from "./SearchCard";
 import styles from "./SearchCharacter.module.css";
 
 class SearchCharacter extends Component {
@@ -11,9 +13,8 @@ class SearchCharacter extends Component {
     this.state = {
       isOpen: false,
       hero: [],
-      value: 0,
+      value: "",
     };
-    this.setIsOpen = this.setIsOpen.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -41,46 +42,33 @@ class SearchCharacter extends Component {
       });
   }
 
-  setIsOpen() {
-    this.setState({ isOpen: true });
-  }
-
-  toggle = () => this.setIsOpen(!this.state.isOpen);
-
   render() {
-    const { isOpen, hero } = this.state;
+    const { hero } = this.state;
 
     return (
       <div>
         <Row>
-          <Col xs="5" className={styles.input}>
+          <Col xs="5">
             <Label for="search"></Label>
-            <Input
-              type="text"
+            <DebounceInput
+              className={styles.input}
+              minLength={2}
+              debounceTimeout={300}
               value={this.state.value}
               onChange={this.handleChange}
               name="text"
               id="search"
+              placeholder="Recherche..."
             />
           </Col>
-          <Col xs="1" className={styles.colbutton}>
-            <Button
-              className={styles.buttonok}
-              color="primary"
-              onClick={this.toggle}
-              style={{ marginBottom: "1rem" }}
-            >
-              OK
-            </Button>
-          </Col>
-          <Collapse isOpen={isOpen}>
-            <Row>
-              {hero &&
-                hero.map((hero) => {
-                  return <SearchByName {...hero} />;
-                })}
-            </Row>
-          </Collapse>
+
+          <SearchAdvanced />
+        </Row>
+        <Row className={styles.searchresults}>
+          {hero &&
+            hero.map((hero) => {
+              return <SearchCard {...hero} />;
+            })}
         </Row>
       </div>
     );

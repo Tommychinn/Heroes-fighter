@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import SearchCharacter from "./components/SearchCharacter";
+import SearchCharacter from "./components/SearchBar/SearchCharacter";
 // import SlickPersonnages from "./components/SlickPersonnages";
 // import LetsGoContainer from "./components/LetsGoContainer";
 // import NavBar from "./components/NavBar";

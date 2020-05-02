@@ -11,15 +11,15 @@ import {
   CardText,
 } from "reactstrap";
 
-import styles from "./SearchByName.module.css";
+import styles from "./SearchCard.module.css";
 
-function SearchByName({ name, powerstats, image }) {
+function SearchCard({ name, powerstats, image }) {
   let powerstat = Object.keys(powerstats)
     .map((stat) => [stat, powerstats[stat]])
     .slice(0, 3);
 
   return (
-    <Col xs="3">
+    <Col className={styles.col} xs="3">
       <Card className={styles.card}>
         <CardImg
           className={styles.persoImg}
@@ -49,4 +49,4 @@ function SearchByName({ name, powerstats, image }) {
   );
 }
 
-export default SearchByName;
+export default SearchCard;
