@@ -24,7 +24,7 @@ class SlickPersonnages extends React.Component {
       .get("https://superheroapi.com/api.php/1274121622792743/search/a")
       .then(({ data }) => {
         this.setState({ hero: data.results });
-        console.log(this.state.hero);
+        //console.log(this.state.hero);
       });
   }
  
@@ -39,7 +39,7 @@ class SlickPersonnages extends React.Component {
     
     return (
       <div className={styles.personnages}>
-        <h2>Les personnages</h2>
+                <h2>Les personnages</h2>
         <Slider {...this.settings}>
           {
             this.state.hero.map(hero => {

@@ -1,23 +1,23 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import NavBar from './NavBar'
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import SlickPersoProps from './SlickPersoProps';
-import App from '../App';
+import SlickPersoProps from "./SlickPersoProps";
+import App from "../App";
+import NavBar from "./NavBar";
 
-
-export default function RouterApp () {
-    return ( 
-        <div>       
-            <Router>            
-                <NavBar />
-                <Switch>
-                    <Route exact path="/" component = {App} />
-                    <Route path="/personnage" component = {''} />
-                    <Route exact path="/personnage/:name" component = {SlickPersoProps} />                
-                </Switch>
-            </Router>
-        </div>
-        
-    )
-    }
+export default function RouterApp() {
+    return (
+        <BrowserRouter>
+            <NavBar />
+            <Switch>
+                <Route exact path="/" component={App} />
+                <Route path="/characters" component={""} />
+                <Route
+                    exact
+                    path="/personnage/:name"
+                    component={SlickPersoProps}
+                />
+            </Switch>
+        </BrowserRouter>
+    );
+}
