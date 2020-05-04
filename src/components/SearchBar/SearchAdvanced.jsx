@@ -5,6 +5,14 @@ import SearchCard from "./SearchCard";
 import styles from "./SearchAdvanced.module.css";
 import Axios from "axios";
 
+const stat = [
+  {id : "toggler", title : "plus intelligents", ID :"#toggler"},
+  {id : "toggler1", title : "plus forts", ID :"#toggler1"},
+  {id : "toggler2", title : "plus puissants", ID :"#toggler2"},
+  {id : "toggler3", title : "meilleurs au combat", ID :"#toggler3"},
+  {id : "toggler4", title : "plus rapides", ID :"#toggler4"},
+  {id : "toggler5", title : "plus résistants", ID :"#toggler5"},
+]
 class SearchAdvanced extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +34,7 @@ class SearchAdvanced extends Component {
   }
 
 
+
   render() {
     const { heroes } = this.state;
     
@@ -41,38 +50,14 @@ class SearchAdvanced extends Component {
         </h4>
         <UncontrolledCollapse toggler="#toggler0">
           <Row>
-            <Col>
-              <h5 id="toggler" className={styles.h5}>
-                Les plus intelligents
+            {stat.map(stat => { return (
+            <Col xs="4">
+              <h5 id={stat.id} className={styles.h5}>
+                Les {stat.title}
               </h5>
             </Col>
-            <Col>
-              <h5 id="toggler1" className={styles.h5}>
-                Les plus forts
-              </h5>
-            </Col>
-            <Col>
-              <h5 id="toggler2" className={styles.h5}>
-                Les plus puissants
-              </h5>
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <h5 id="toggler3" className={styles.h5}>
-                Les meilleurs au combat
-              </h5>
-            </Col>
-            <Col>
-              <h5 id="toggler4" className={styles.h5}>
-                Les plus rapides
-              </h5>
-            </Col>
-            <Col>
-              <h5 id="toggler5" className={styles.h5}>
-                Les plus tenaces
-              </h5>
-            </Col>
+            )})
+            }
             <UncontrolledCollapse
               className={styles.collapse}
               toggler="#toggler"

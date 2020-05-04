@@ -38,7 +38,6 @@ class SearchCharacter extends Component {
       .get(`https://superheroapi.com/api.php/1274121622792743/search/${value}`)
       .then(({ data }) => {
         this.setState({ hero: data.results });
-        console.log(this.state.hero);
       });
   }
 
