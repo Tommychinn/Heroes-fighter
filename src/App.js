@@ -14,7 +14,7 @@ function App() {
         <SlickPersonnages />
         <HomeAreneCont />
       </div>
-    </div>
+   </div>
   );
 }
 
