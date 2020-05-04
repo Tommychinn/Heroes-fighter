@@ -3,7 +3,6 @@ import axios from "axios";
 import { Row, Col, Label } from "reactstrap";
 import { DebounceInput } from "react-debounce-input";
 
-import SearchAdvanced from "./SearchAdvanced";
 import SearchCard from "./SearchCard";
 import styles from "./SearchCharacter.module.css";
 
@@ -61,7 +60,6 @@ class SearchCharacter extends Component {
             />
           </Col>
 
-          <SearchAdvanced />
         </Row>
         <Row className={styles.searchresults}>
           {hero &&
