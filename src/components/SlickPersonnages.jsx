@@ -8,50 +8,45 @@ import styles from "./Personnages.module.css";
 import SlickPersoProps from "./SlickPersoProps";
 
 class SlickPersonnages extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hero: []
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            hero: [],
+        };
+    }
 
-  componentDidMount() {
-    this.getHero();
-  }
+    componentDidMount() {
+        this.getHero();
+    }
 
-  getHero() {
-    axios
-      .get("https://superheroapi.com/api.php/1274121622792743/search/a")
-      .then(({ data }) => {
-        this.setState({ hero: data.results });
-        //console.log(this.state.hero);
-      });
-  }
- 
+    getHero() {
+        axios
+            .get("https://superheroapi.com/api.php/1274121622792743/search/a")
+            .then(({ data }) => {
+                this.setState({ hero: data.results });
+                //console.log(this.state.hero);
+            });
+    }
+
     settings = {
-    className: "center",
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 4,
-    swipeToSlide: true
-}
-  render() {
-    
-    return (
-      <div className={styles.personnages}>
-                <h2>Les personnages</h2>
-        <Slider {...this.settings}>
-          {
-            this.state.hero.map(hero => {
-              return(<SlickPersoProps {...hero}/>
-                )
-              
-            })
-          }
-        </Slider>
-      </div>
-    );
-  }
+        className: "center",
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 4,
+        swipeToSlide: true,
+    };
+    render() {
+        return (
+            <div className={styles.personnages}>
+                <h2>Les personnages </h2>
+                <Slider {...this.settings}>
+                    {this.state.hero.map((hero) => {
+                        return <SlickPersoProps {...hero} />;
+                    })}
+                </Slider>
+            </div>
+        );
+    }
 }
 
 export default SlickPersonnages;
