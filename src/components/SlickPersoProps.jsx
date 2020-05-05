@@ -1,4 +1,6 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   Progress,
   Card,
@@ -9,11 +11,11 @@ import {
   Row,
   Col,
   CardText,
-} from "reactstrap";
-import styles from "./Personnages.module.css";
+} from 'reactstrap';
+import styles from './Personnages.module.css';
 
 function SlickPersoProps({ name, image, powerstats }) {
-  let powerstat = Object.keys(powerstats)
+  const powerstat = Object.keys(powerstats)
     .map((stat) => [stat, powerstats[stat]])
     .slice(0, 3);
 
@@ -33,10 +35,10 @@ function SlickPersoProps({ name, image, powerstats }) {
             {powerstat.map((stat) => (
               <Row>
                 <Col xs="5" className={styles.stat}>
-                  {(stat[0] + "").charAt(0).toUpperCase() + stat[0].substr(1)}
+                  {stat[0].charAt(0).toUpperCase() + stat[0].substr(1)}
                 </Col>
                 <Col xs="7">
-                  <Progress value={parseInt(stat[1])} max="100" />
+                  <Progress value={parseInt(stat[1], 10)} max="100" />
                 </Col>
               </Row>
             ))}
@@ -47,5 +49,10 @@ function SlickPersoProps({ name, image, powerstats }) {
     </div>
   );
 }
+SlickPersoProps.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  powerstats: PropTypes.string.isRequired,
+};
 
 export default SlickPersoProps;
