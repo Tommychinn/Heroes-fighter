@@ -4,19 +4,17 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SlickPersoProps from "./SlickPersoProps";
 import App from "../App";
 import NavBar from "./NavBar";
+import Home from "./Home";
+import SlickPersonnages from "./SlickPersonnages";
 
 export default function RouterApp() {
     return (
         <BrowserRouter>
             <NavBar />
             <Switch>
-                <Route exact path="/" component={App} />
-                <Route path="/characters" component={""} />
-                <Route
-                    exact
-                    path="/personnage/:name"
-                    component={SlickPersoProps}
-                />
+                <Route exact path="/" component={Home} />
+                <Route path="/characters" component={SlickPersonnages} />
+                <Route path="/personnage/:name" component={SlickPersoProps} />
             </Switch>
         </BrowserRouter>
     );
