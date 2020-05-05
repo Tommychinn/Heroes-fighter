@@ -1,24 +1,19 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Row, Col, Label } from "reactstrap";
-import { DebounceInput } from "react-debounce-input";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Row, Col, Label } from 'reactstrap';
+import { DebounceInput } from 'react-debounce-input';
 
-import SearchCard from "./SearchCard";
-import styles from "./SearchCharacter.module.css";
+import SearchCard from './SearchCard';
+import styles from './SearchCharacter.module.css';
 
 class SearchCharacter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false,
       hero: [],
-      value: "",
+      value: '',
     };
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e) {
-    this.setState({ value: e.target.value });
   }
 
   componentDidMount() {
@@ -26,8 +21,9 @@ class SearchCharacter extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.value !== this.state.value) {
-      this.getHero(this.state.value);
+    const { value } = this.state;
+    if (prevState.value !== value) {
+      this.getHero(value);
     }
   }
 
@@ -40,32 +36,39 @@ class SearchCharacter extends Component {
       });
   }
 
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+
   render() {
     const { hero } = this.state;
-
+    const { value } = this.state;
     return (
       <div>
         <Row>
           <Col xs="5">
-            <Label for="search"></Label>
+            <Label for="search" />
             <DebounceInput
               className={styles.input}
               minLength={2}
               debounceTimeout={300}
-              value={this.state.value}
+              value={value}
               onChange={this.handleChange}
               name="text"
               id="search"
               placeholder="Recherche..."
             />
           </Col>
-
         </Row>
         <Row className={styles.searchresults}>
           {hero &&
-            hero.map((hero) => {
-              return <SearchCard {...hero} />;
-            })}
+            hero.map((character) => (
+              <SearchCard
+                name={character.name}
+                powerstats={character.powerstats}
+                image={character.image}
+              />
+            ))}
         </Row>
       </div>
     );

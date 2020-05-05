@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Row,
   Col,
@@ -9,12 +10,12 @@ import {
   CardBody,
   CardTitle,
   CardText,
-} from "reactstrap";
+} from 'reactstrap';
 
-import styles from "./SearchCard.module.css";
+import styles from './SearchCard.module.css';
 
 function SearchCard({ name, powerstats, image }) {
-  let powerstat = Object.keys(powerstats)
+  const powerstat = Object.keys(powerstats)
     .map((stat) => [stat, powerstats[stat]])
     .slice(0, 3);
 
@@ -34,10 +35,10 @@ function SearchCard({ name, powerstats, image }) {
             {powerstat.map((stat) => (
               <Row>
                 <Col xs="6" className={styles.stat}>
-                  {(stat[0] + "").charAt(0).toUpperCase() + stat[0].substr(1)}
+                  {stat[0].charAt(0).toUpperCase() + stat[0].substr(1)}
                 </Col>
                 <Col xs="6">
-                  <Progress value={parseInt(stat[1])} max="100" />
+                  <Progress value={parseInt(stat[1], 10)} max="100" />
                 </Col>
               </Row>
             ))}
@@ -48,5 +49,10 @@ function SearchCard({ name, powerstats, image }) {
     </Col>
   );
 }
+SearchCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  powerstats: PropTypes.string.isRequired,
+};
 
 export default SearchCard;
