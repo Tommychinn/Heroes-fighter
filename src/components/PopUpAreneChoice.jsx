@@ -8,15 +8,13 @@ function PopUpAreneChoice({ className }) {
 
   const toggle = () => setModal(!modal);
 
-  const closeBtn = <a className="close" onClick={toggle}>&times;</a>
-
   return (
     <div>
       <Button color="danger" onClick={toggle}>
         Choose your arena
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle} close={closeBtn}>CHOISIR VOTRE ARENE</ModalHeader>
+        <ModalHeader toggle={toggle}>CHOISIR VOTRE ARENE</ModalHeader>
         <ModalBody>
         <HomeAreneCont slide={3}/>
         </ModalBody>
