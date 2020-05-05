@@ -53,7 +53,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged --max-warnings=0"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
