@@ -1,29 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Row, Col, Progress } from 'reactstrap';
 
+function DetailsPersoModal({ powerstats }) {
+  const powerstat = Object.keys(powerstats).map((stat) => [
+    stat,
+    powerstats[stat],
+  ]);
 
-function DetailsPersoModal ({ powerstats }) {
+  return (
+    <>
+      {powerstat.map((stat) => (
+        <Row>
+          <Col>{stat[0]}</Col>
+          <Col>
+            <Progress value={parseInt(stat[1], 100)} max="100" />
+          </Col>
+        </Row>
+      ))}
+    </>
+  );
+}
 
-    const powerstat = Object.keys(powerstats).map(stat => (
-         [(stat), powerstats[stat]]
-    ))
-    console.log(powerstat)
-    
-    return (
-        <>
-            {powerstat.map(stat => (
-                <Row>
-                    <Col>{stat[0]}</Col>
-                    <Col>
-                        <Progress value={parseInt(stat[1])} max ="100" />
-                    </Col>
-                </Row> 
-            ))}
+DetailsPersoModal.propTypes = {
+  powerstats: PropTypes.number.isRequired,
+};
 
-        </>
-           )
-       }
-    
-    
 export default DetailsPersoModal;
