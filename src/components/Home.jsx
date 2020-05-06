@@ -11,7 +11,7 @@ function Home() {
       <LetsGoContainer />
       <SlickPersonnages />
       <PopUpAreneChoice />
-      <HomeAreneCont />
+      <HomeAreneCont slide={4} />
     </div>
   );
 }

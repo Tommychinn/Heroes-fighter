@@ -11,7 +11,7 @@ import hulk from './img/hulk.png';
 function NavBar() {
   const itemNav = [
     { image: `${logo}`, title: 'home', link: '/' },
-    { image: `${hulk}`, title: 'characters', link: '/characters' },
+    { image: `${hulk}`, title: 'characters', link: '/allperso' },
   ];
   return (
     <div className={styles.navigation}>
