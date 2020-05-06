@@ -41,5 +41,10 @@ button:hover{
 .modal-content {
   border-radius : 20px !important;
 }
+.collapse{
+  width : 80vw;
+  padding-top: 2vw;
+  padding-left : 15vw
+}
 
 
