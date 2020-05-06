@@ -15,16 +15,6 @@ class SlickPersonnages extends React.Component {
     };
   }
 
-
-function SlickPersonnages() {
-    const settings = {
-        className: "center",
-        infinite: true,
-        centerPadding: "60px",
-        slidesToShow: 4,
-        swipeToSlide: true,
-    };
-
   getHero() {
     axios
       .get('https://superheroapi.com/api.php/1274121622792743/search/a')
@@ -51,6 +41,7 @@ function SlickPersonnages() {
         </Slider>
       </div>
     );
+  }
 }
 
 export default SlickPersonnages;
