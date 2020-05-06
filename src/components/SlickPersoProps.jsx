@@ -10,8 +10,9 @@ import {
   CardBody,
 } from 'reactstrap';
 import styles from './Personnages.module.css';
+import ModalDetailsPerso from './ModalDetailsPerso';
 
-function SlickPersoProps({ name, image }) {
+function SlickPersoProps({ image, name, powerstats, biography }) {
   return (
     <div className={styles.persoCartes}>
       <Card className={styles.perso}>
@@ -41,6 +42,12 @@ function SlickPersoProps({ name, image }) {
             </div>
           </div>
           <Button className={styles.button}>Play</Button>
+          <ModalDetailsPerso
+            powerstats={powerstats}
+            name={name}
+            image={image}
+            biography={biography}
+          />
         </CardBody>
       </Card>
     </div>
@@ -48,7 +55,9 @@ function SlickPersoProps({ name, image }) {
 }
 SlickPersoProps.propTypes = {
   name: PropTypes.string.isRequired,
+  powerstats: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  biography: PropTypes.string.isRequired,
 };
 
 export default SlickPersoProps;

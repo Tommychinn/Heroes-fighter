@@ -15,7 +15,7 @@ function DetailsPersoModal({ powerstats }) {
         <Row>
           <Col>{stat[0]}</Col>
           <Col>
-            <Progress value={parseInt(stat[1], 100)} max="100" />
+            <Progress value={parseInt(stat[1], 10)} max="100" />
           </Col>
         </Row>
       ))}
