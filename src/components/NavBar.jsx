@@ -1,11 +1,12 @@
 import React from 'react';
-import styles from './NavBar.module.css';
 import { Nav, NavItem, NavLink } from 'reactstrap';
+
+import { Link } from 'react-router-dom';
+import styles from './NavBar.module.css';
 import GameRules from './GameRules';
 
 import logo from './img/logo.png';
 import hulk from './img/hulk.png';
-import { Link } from 'react-router-dom';
 
 function NavBar() {
   const itemNav = [
@@ -19,7 +20,7 @@ function NavBar() {
           {itemNav.map((item) => {
             return (
               <NavLink tag={Link} to={item.link}>
-                <img src={item.image} alt={item.title}></img>
+                <img src={item.image} alt={item.title} />
               </NavLink>
             );
           })}
