@@ -1,6 +1,5 @@
 import React from 'react';
 import Slider from 'react-slick';
-
 import axios from 'axios';
 
 import 'slick-carousel/slick/slick.css';
@@ -14,10 +13,6 @@ class SlickPersonnages extends React.Component {
     this.state = {
       hero: [],
     };
-  }
-
-  componentDidMount() {
-    this.getHero();
   }
 
   getHero() {
@@ -53,7 +48,6 @@ class SlickPersonnages extends React.Component {
         </Slider>
       </div>
     );
-  }
 }
 
 export default SlickPersonnages;
