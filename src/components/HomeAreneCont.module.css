@@ -18,3 +18,10 @@
     color: red;
     text-align: left;
 }
+
+
+.areneNormal:hover {
+    cursor : pointer;
+    opacity : 0.7;
+}
+

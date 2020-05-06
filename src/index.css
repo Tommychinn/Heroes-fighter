@@ -35,11 +35,16 @@ button:hover{
 /* END general stylesheet marie homePage */
 
 .modal-dialog {
-  max-width: 800px !important;
-  max-height : 300px !important;
+  max-width: 70vw !important;
+  max-height : 50px !important;
 }
 .modal-content {
   border-radius : 20px !important;
+}
+.collapse{
+  width : 80vw;
+  padding-top: 2vw;
+  padding-left : 15vw
 }
 
 
