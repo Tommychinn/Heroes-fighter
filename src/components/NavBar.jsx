@@ -1,28 +1,29 @@
 import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 
-import GameRules from './GameRules';
+import { Link } from 'react-router-dom';
 import styles from './NavBar.module.css';
+import GameRules from './GameRules';
+
+import logo from './img/logo.png';
+import hulk from './img/hulk.png';
 
 function NavBar() {
+  const itemNav = [
+    { image: `${logo}`, title: 'home', link: '/' },
+    { image: `${hulk}`, title: 'characters', link: '/characters' },
+  ];
   return (
     <div className={styles.navigation}>
       <Nav vertical>
         <NavItem className={styles.navlogo}>
-          <NavLink href="#">
-            <img
-              src="https://zupimages.net/up/20/16/ko7g.png"
-              alt="home logo"
-            />
-          </NavLink>
-        </NavItem>
-        <NavItem className={styles.navlink}>
-          <NavLink href="#">
-            <img
-              src="https://img.icons8.com/color/48/000000/hulk.png"
-              alt="hulk logo player section"
-            />
-          </NavLink>
+          {itemNav.map((item) => {
+            return (
+              <NavLink tag={Link} to={item.link}>
+                <img src={item.image} alt={item.title} />
+              </NavLink>
+            );
+          })}
         </NavItem>
         <GameRules />
       </Nav>
