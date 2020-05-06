@@ -7,16 +7,14 @@ import NavBar from './components/NavBar';
 import HomeAreneCont from './components/HomeAreneCont';
 import PopUpAreneChoice from './components/PopUpAreneChoice';
 import SlickPersonnages from './components/SlickPersonnages';
-import ModalDetailsPerso from './components/ModalDetailsPerso';
 import PersoMostPopular from './components/PersoMostPopular';
 
 function App() {
   return (
     <div className="App">
-      <ModalDetailsPerso />
-      <PopUpAreneChoice />
       <NavBar />
       <div className="body">
+        <PopUpAreneChoice />
         <LetsGoContainer />
         <SlickPersonnages />
         <PersoMostPopular />

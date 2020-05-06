@@ -8,11 +8,17 @@ import {
   CardImg,
   CardTitle,
   CardBody,
+  Row,
+  Col,
+  CardText,
 } from 'reactstrap';
 import styles from './Personnages.module.css';
-import ModalDetailsPerso from './ModalDetailsPerso';
 
-function SlickPersoProps({ image, name, powerstats, biography }) {
+function SlickPersoProps({ name, image, powerstats }) {
+  const powerstat = Object.keys(powerstats)
+    .map((stat) => [stat, powerstats[stat]])
+    .slice(0, 3);
+
   return (
     <div className={styles.persoCartes}>
       <Card className={styles.perso}>
@@ -23,31 +29,21 @@ function SlickPersoProps({ image, name, powerstats, biography }) {
           src={image && image.url}
           alt="Card image cap"
         />
-        <CardBody>
+        <CardBody className={styles.cardbody}>
           <CardTitle className={styles.cardTitle}>{name}</CardTitle>
-          <div>
-            <p>Intelligence</p>
-            <Progress value="3" max="5" />
-          </div>
-          <div>
-            <p>Strength</p>
-            <div>
-              <Progress value="2" max="5" />
-            </div>
-          </div>
-          <div>
-            <p>Power</p>
-            <div>
-              <Progress value="4" max="5" />
-            </div>
-          </div>
+          <CardText>
+            {powerstat.map((stat) => (
+              <Row>
+                <Col xs="5" className={styles.stat}>
+                  {stat[0].charAt(0).toUpperCase() + stat[0].substr(1)}
+                </Col>
+                <Col xs="7">
+                  <Progress value={parseInt(stat[1], 10)} max="100" />
+                </Col>
+              </Row>
+            ))}
+          </CardText>
           <Button className={styles.button}>Play</Button>
-          <ModalDetailsPerso
-            powerstats={powerstats}
-            name={name}
-            image={image}
-            biography={biography}
-          />
         </CardBody>
       </Card>
     </div>
@@ -55,9 +51,8 @@ function SlickPersoProps({ image, name, powerstats, biography }) {
 }
 SlickPersoProps.propTypes = {
   name: PropTypes.string.isRequired,
-  powerstats: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  biography: PropTypes.string.isRequired,
+  powerstats: PropTypes.string.isRequired,
 };
 
 export default SlickPersoProps;
