@@ -1,7 +1,6 @@
-import React from "react";
-import "./App.css";
-import NavBar from "./components/NavBar";
-import PersoMostPopular from "./components/PersoMostPopular";
+import React from 'react';
+import NavBar from './NavBar';
+import PersoMostPopular from './PersoMostPopular';
 
 function PageAllPerso() {
   return (
