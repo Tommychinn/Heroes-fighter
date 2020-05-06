@@ -14,7 +14,7 @@ function DetailsPersoModal({ powerstats }) {
       {powerstat.map((stat) => (
         <Row>
           <Col>{stat[0]}</Col>
-          <Col>
+          <Col className="align-self-center">
             <Progress value={parseInt(stat[1], 10)} max="100" />
           </Col>
         </Row>
