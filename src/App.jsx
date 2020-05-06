@@ -1,19 +1,25 @@
 import React from 'react';
 import './App.css';
-import SlickPersonnages from './components/SlickPersonnages';
 import LetsGoContainer from './components/LetsGoContainer';
+import PersoMostStrong from './components/PersoMostStrong';
 import NavBar from './components/NavBar';
 import HomeAreneCont from './components/HomeAreneCont';
 import PopUpAreneChoice from './components/PopUpAreneChoice';
+import SlickPersonnages from './components/SlickPersonnages';
+import ModalDetailsPerso from './components/ModalDetailsPerso';
+import PersoMostPopular from './components/PersoMostPopular';
 
 function App() {
   return (
     <div className="App">
+      <ModalDetailsPerso />
       <PopUpAreneChoice />
       <NavBar />
       <div className="body">
         <LetsGoContainer />
         <SlickPersonnages />
+        <PersoMostPopular />
+        <PersoMostStrong />
         <HomeAreneCont slide={4} />
       </div>
     </div>
