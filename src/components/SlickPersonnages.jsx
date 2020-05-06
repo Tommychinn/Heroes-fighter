@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Personnages.module.css';
 import SlickPersoProps from './SlickPersoProps';
+import axios from 'axios';
 
 class SlickPersonnages extends React.Component {
   constructor(props) {
