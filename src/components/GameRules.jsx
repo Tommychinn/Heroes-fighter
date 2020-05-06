@@ -1,26 +1,38 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Button, Modal, ModalHeader, Row, Col } from "reactstrap";
+import { Button, Modal, ModalHeader, Row, Col } from 'reactstrap';
 
-import fond1 from "./img/fond-1small.jpg";
+import fond1 from './img/fond-1small.jpg';
 import MenuRules from './MenuRules';
 import ModalBodyRules from './ModalBodyRules';
 
 import styles from './GameRules.module.css';
 
-
-function GameRules(){
-
+function GameRules() {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
 
+  const handleKeyDown = () => {
+    return 'toto';
+  };
+
   return (
     <div>
-      <div onClick={toggle}>
-        <img className={styles.img} src="https://image.flaticon.com/icons/svg/2004/2004760.svg" alt="Logo"/>
+      <div
+        onClick={toggle}
+        role="button"
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+      >
+        <img
+          className={styles.img}
+          src="https://image.flaticon.com/icons/svg/2004/2004760.svg"
+          alt="Logo"
+        />
         <p>
-          Game <br />
+          Game
+          <br />
           Rules
         </p>
       </div>
@@ -33,7 +45,9 @@ function GameRules(){
             <MenuRules />
             <Row className={styles.alignbutton}>
               <Col className="text-center">
-                <Button className={styles.bigbutton} onClick={toggle}>Start</Button>
+                <Button className={styles.bigbutton} onClick={toggle}>
+                  Start
+                </Button>
               </Col>
             </Row>
           </Col>
@@ -42,6 +56,6 @@ function GameRules(){
       </Modal>
     </div>
   );
-};
+}
 
 export default GameRules;

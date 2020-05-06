@@ -29,18 +29,28 @@
 }
 
 .perso {
-    border-radius: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+    border-radius: 50px!important;
 }
 
 .persoImage {
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+    border-top-right-radius: 50px !important;
+    border-top-left-radius: 50px !important;
+    height: 18vw !important;
+    
 }
 
 .cardTitle {
     font-size: 1.25em;
 }
 
-.button {
-    margin-top: 20px;
+
+.stat {
+    text-align : left !important;
+}
+.cardbody {
+    padding-top : 0 !important
+}
+.h6 {
+    color :red;
 }

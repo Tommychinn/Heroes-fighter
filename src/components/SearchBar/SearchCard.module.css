@@ -1,0 +1,10 @@
+.card{
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+    border-radius: 50px!important;
+    margin-top : 4rem
+}
+.persoImg {
+    border-top-right-radius: 50px !important;
+    border-top-left-radius: 50px !important;
+    height: 18vw !important;   
+}

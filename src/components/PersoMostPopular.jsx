@@ -1,13 +1,14 @@
 import React from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
+import { Row, Col } from 'reactstrap';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './Personnages.module.css';
 import SlickPersoProps from './SlickPersoProps';
 
-class SlickPersonnages extends React.Component {
+class PersoMostPopular extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,11 +16,17 @@ class SlickPersonnages extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.getHero();
+  }
+
   getHero() {
     axios
-      .get('https://superheroapi.com/api.php/1274121622792743/search/a')
+      .get(
+        'https://heroes-api-wrapper.herokuapp.com/heroes?heroIds=149,70,213,418,309,157,303,540,620,659,352,349,345,346'
+      )
       .then(({ data }) => {
-        this.setState({ hero: data.results });
+        this.setState({ hero: data });
       });
   }
 
@@ -27,7 +34,11 @@ class SlickPersonnages extends React.Component {
     const { hero } = this.state;
     return (
       <div className={styles.personnages}>
-        <h2>Les personnages</h2>
+        <Row>
+          <Col xs="9">
+            <h2>Les + populaires</h2>
+          </Col>
+        </Row>
         <Slider
           className="center"
           infinite="true"
@@ -38,10 +49,10 @@ class SlickPersonnages extends React.Component {
           {hero.map((character) => {
             return (
               <SlickPersoProps
-                image={character.image}
                 name={character.name}
-                biography={character.biography}
+                image={character.image}
                 powerstats={character.powerstats}
+                biography={character.biography}
               />
             );
           })}
@@ -51,4 +62,4 @@ class SlickPersonnages extends React.Component {
   }
 }
 
-export default SlickPersonnages;
+export default PersoMostPopular;
