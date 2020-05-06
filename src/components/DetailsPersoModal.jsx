@@ -22,7 +22,9 @@ function DetailsPersoModal({ powerstats }) {
     </>
   );
 }
+
 DetailsPersoModal.propTypes = {
-  powerstats: PropTypes.string.isRequired,
+  powerstats: PropTypes.number.isRequired,
 };
+
 export default DetailsPersoModal;
