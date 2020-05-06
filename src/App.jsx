@@ -8,19 +8,12 @@ import HomeAreneCont from './components/HomeAreneCont';
 import PopUpAreneChoice from './components/PopUpAreneChoice';
 import SlickPersonnages from './components/SlickPersonnages';
 import PersoMostPopular from './components/PersoMostPopular';
+import RouterApp from './components/RouterApp';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <div className="body">
-        <PopUpAreneChoice />
-        <LetsGoContainer />
-        <SlickPersonnages />
-        <PersoMostPopular />
-        <PersoMostStrong />
-        <HomeAreneCont slide={4} />
-      </div>
+      <RouterApp />
     </div>
   );
 }
