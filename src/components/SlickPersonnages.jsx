@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
+import { Row, Col } from 'reactstrap';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -13,21 +14,48 @@ class SlickPersonnages extends React.Component {
     this.state = {
       hero: [],
     };
+    // this.randomize = this.randomizeHero.bind(this);
+  }
+
+  componentDidMount() {
+    // const { hero } = this.state;
+    this.getHero();
+    // this.setState({ hero: this.randomizeHero(hero) });
   }
 
   getHero() {
     axios
-      .get('https://superheroapi.com/api.php/1274121622792743/search/a')
+      .get('https://superheroapi.com/api.php/1274121622792743/search/an')
       .then(({ data }) => {
         this.setState({ hero: data.results });
       });
   }
 
+  // randomizeHero(tab) {
+  //   let i = 0;
+  //   let j = 0;
+  //   let tmp = 0;
+  //   for (i = tab.length - 1; i > 0; i--) {
+  //     j = Math.floor(Math.random() * (i + 1));
+  //     tmp = tab[i];
+  //     tab[i] = tab[j];
+  //     tab[j] = tmp;
+  //   }
+  //   return tab;
+  // }
+
   render() {
     const { hero } = this.state;
     return (
       <div className={styles.personnages}>
-        <h2>Les personnages</h2>
+        <Row>
+          <Col xs="9">
+            <h2>Les personnages</h2>
+          </Col>
+          <Col xs="3">
+            <h6 className={styles.h6}>Tous les personnages</h6>
+          </Col>
+        </Row>
         <Slider
           className="center"
           infinite="true"
@@ -38,10 +66,10 @@ class SlickPersonnages extends React.Component {
           {hero.map((character) => {
             return (
               <SlickPersoProps
-                image={character.image}
                 name={character.name}
-                biography={character.biography}
+                image={character.image}
                 powerstats={character.powerstats}
+                biography={character.biography}
               />
             );
           })}
