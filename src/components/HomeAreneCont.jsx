@@ -45,4 +45,5 @@ function HomeAreneCont({ slide }) {
 HomeAreneCont.propTypes = {
   slide: PropTypes.number.isRequired,
 };
+
 export default HomeAreneCont;

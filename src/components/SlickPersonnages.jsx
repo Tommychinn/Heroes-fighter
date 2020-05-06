@@ -48,6 +48,7 @@ class SlickPersonnages extends React.Component {
         </Slider>
       </div>
     );
+  }
 }
 
 export default SlickPersonnages;
