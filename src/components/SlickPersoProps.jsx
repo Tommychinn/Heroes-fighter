@@ -13,7 +13,6 @@ import styles from './Personnages.module.css';
 import ModalDetailsPerso from './ModalDetailsPerso';
 
 function SlickPersoProps({ image, name, powerstats, biography }) {
-
   return (
     <div className={styles.persoCartes}>
       <Card className={styles.perso}>
