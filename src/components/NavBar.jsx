@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
+
 import GameRules from './GameRules';
 import styles from './NavBar.module.css';
 
