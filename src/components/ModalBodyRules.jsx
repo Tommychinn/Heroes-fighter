@@ -9,15 +9,16 @@ function ModalBodyRules() {
       <ModalBody className={styles.modalbody}>
         <div className={styles.text}>
           <h5 className={styles.h5} id="Goal">
-            Goal of game
+            But du jeu
           </h5>
           <p className={styles.prules}>
-            The goal of the game is simple : by playing your cards against those
-            of your opponent, you must successfully fight in order to gain
-            victory.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+            debitis perspiciatis sapiente incidunt qui, atque voluptate dolorum
+            modi aperiam voluptatem harum unde earum, possimus eveniet animi cum
+            porro iste iusto!
           </p>
           <h5 className={styles.h5} id="Elements">
-            Elements of game
+            Eléments du jeu
           </h5>
           <p className={styles.prules}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
@@ -29,19 +30,20 @@ function ModalBodyRules() {
             magni labore esse non expedita! Iure, tempora fuga!
           </p>
           <h5 className={styles.h5} id="Course">
-            Course the game
+            Déroulement du jeu
           </h5>
           <p className={styles.prules}>
-            At the start of the game you choose 5 characters cards and an arena
-            in which you want to fight. Once in the arena, you must have your
-            cards fight against that of your opponent. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Quia culpa ab fugit adipisci
-            doloremque labore veniam eveniet voluptatibus, sed repellendus eum
-            unde! Nesciunt molestiae repudiandae corrupti alias, sint quasi.
-            Nihil!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+            debitis perspiciatis sapiente incidunt qui, atque voluptate dolorum
+            modi aperiam voluptatem harum unde earum, possimus eveniet animi cum
+            porro iste iusto! Lorem ipsum dolor sit amet consectetur,
+            adipisicing elit. Distinctio neque asperiores officia similique
+            consequuntur? Voluptatem, provident aliquam! Delectus deleniti eum
+            ipsa, iure omnis dolore distinctio. Laudantium eveniet quibusdam
+            doloribus amet.
           </p>
           <h5 className={styles.h5} id="End">
-            End of game
+            Fin de la partie
           </h5>
           <p className={styles.prules}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam

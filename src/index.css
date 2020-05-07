@@ -35,7 +35,7 @@ button:hover{
 /* END general stylesheet marie homePage */
 
 .modal-dialog {
-  max-width: 70vw !important;
+  max-width: 50vw !important;
   max-height : 50px !important;
 }
 .modal-content {

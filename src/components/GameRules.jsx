@@ -37,7 +37,7 @@ function GameRules() {
         </p>
       </div>
       <Modal isOpen={modal} toggle={toggle} className="{className}">
-        <ModalHeader toggle={toggle}>
+        <ModalHeader>
           <img src={fond1} alt="avengers" className={styles.avengers} />
         </ModalHeader>
         <Row className={styles.row2}>
@@ -46,7 +46,7 @@ function GameRules() {
             <Row className={styles.alignbutton}>
               <Col className="text-center">
                 <Button className={styles.bigbutton} onClick={toggle}>
-                  Start
+                  Annuler
                 </Button>
               </Col>
             </Row>
