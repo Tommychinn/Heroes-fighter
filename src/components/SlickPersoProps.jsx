@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import {
   Progress,
   Card,
-  Button,
   CardImg,
   CardTitle,
   CardBody,
@@ -12,9 +11,10 @@ import {
   Col,
   CardText,
 } from 'reactstrap';
+import ModalDetailsPerso from './ModalDetailsPerso';
 import styles from './Personnages.module.css';
 
-function SlickPersoProps({ name, image, powerstats }) {
+function SlickPersoProps({ name, image, powerstats, biography, id }) {
   const powerstat = Object.keys(powerstats)
     .map((stat) => [stat, powerstats[stat]])
     .slice(0, 3);
@@ -43,7 +43,13 @@ function SlickPersoProps({ name, image, powerstats }) {
               </Row>
             ))}
           </CardText>
-          <Button className={styles.button}>Play</Button>
+          <ModalDetailsPerso
+            image={image}
+            name={name}
+            powerstats={powerstats}
+            biography={biography}
+            id={id}
+          />
         </CardBody>
       </Card>
     </div>
@@ -53,6 +59,8 @@ SlickPersoProps.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   powerstats: PropTypes.string.isRequired,
+  biography: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default SlickPersoProps;

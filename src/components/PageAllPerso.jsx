@@ -1,14 +1,17 @@
 import React from 'react';
-import NavBar from './NavBar';
+
 import PersoMostPopular from './PersoMostPopular';
+import SearchCharacter from './SearchBar/SearchCharacter';
+import PersoMostStrong from './PersoMostStrong';
+import SlickPersonnages from './SlickPersonnages';
 
 function PageAllPerso() {
   return (
-    <div className="App">
-      <NavBar />
-      <div className="body">
-        <PersoMostPopular />
-      </div>
+    <div className="body">
+      <SearchCharacter />
+      <SlickPersonnages />
+      <PersoMostPopular />
+      <PersoMostStrong />
     </div>
   );
 }

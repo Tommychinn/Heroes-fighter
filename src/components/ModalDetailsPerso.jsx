@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Modal,
@@ -13,7 +14,7 @@ import {
 import DetailsPersoModal from './DetailsPersoModal';
 import styles from './resize.module.css';
 
-function ModalDetailsPerso({ name, image, powerstats, biography }) {
+function ModalDetailsPerso({ name, image, powerstats, biography, id }) {
   // const { className } = { name, image, powerstats, biography };
 
   const [modal, setModal] = useState(false);
@@ -39,12 +40,10 @@ function ModalDetailsPerso({ name, image, powerstats, biography }) {
         tabIndex={0}
         onKeyDown={handleKeyDown}
       >
-        <p>Détails perso</p>
+        <Button>Jouer</Button>
       </div>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>
-          {biography && biography.publisher}
-        </ModalHeader>
+        <ModalHeader>{biography && biography.publisher}</ModalHeader>
         <ModalBody>
           <Container>
             <Row>
@@ -57,7 +56,7 @@ function ModalDetailsPerso({ name, image, powerstats, biography }) {
                   />
                 </Row>
                 <Row>
-                  <Col lg="4">
+                  <Col lg="6">
                     <h3>Pouvoirs</h3>
                     <DetailsPersoModal powerstats={powerstats} />
                   </Col>
@@ -97,11 +96,11 @@ function ModalDetailsPerso({ name, image, powerstats, biography }) {
           </Container>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>
-            Do Something
+          <Button tag={Link} to={`/arenes/${id}`}>
+            Go !
           </Button>
           <Button color="secondary" onClick={toggle}>
-            Cancel
+            Annuler
           </Button>
         </ModalFooter>
       </Modal>
@@ -113,6 +112,7 @@ ModalDetailsPerso.propTypes = {
   powerstats: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   biography: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default ModalDetailsPerso;

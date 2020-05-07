@@ -3,7 +3,7 @@ import { Progress } from 'reactstrap';
 import PropTypes from 'prop-types';
 import styles from './CombatArena.module.css';
 
-function CombatArenaProgress({ name }) {
+function CombatArenaProgress({ name, powerstats }) {
   return (
     <>
       <div className={styles.name}>
@@ -15,24 +15,42 @@ function CombatArenaProgress({ name }) {
         </Progress>
       </div>
       <div className={styles.stats}>
-        <Progress className={styles.statsProgress} value={75}>
+        <Progress
+          className={styles.statsProgress}
+          value={powerstats && powerstats.intelligence}
+        >
           Intelligence
         </Progress>
-        <Progress className={styles.statsProgress} value={100}>
+        <Progress
+          className={styles.statsProgress}
+          value={powerstats && powerstats.strength}
+        >
           Strength
         </Progress>
-        <Progress className={styles.statsProgress} value={100}>
+        <Progress
+          className={styles.statsProgress}
+          value={powerstats && powerstats.speed}
+        >
           Speed
         </Progress>
       </div>
       <div className={styles.stats}>
-        <Progress className={styles.statsProgress} value={65}>
+        <Progress
+          className={styles.statsProgress}
+          value={powerstats && powerstats.durability}
+        >
           Durability
         </Progress>
-        <Progress className={styles.statsProgress} value={90}>
+        <Progress
+          className={styles.statsProgress}
+          value={powerstats && powerstats.power}
+        >
           Power
         </Progress>
-        <Progress className={styles.statsProgress} value={90}>
+        <Progress
+          className={styles.statsProgress}
+          value={powerstats && powerstats.combat}
+        >
           Combat
         </Progress>
       </div>
@@ -41,6 +59,7 @@ function CombatArenaProgress({ name }) {
 }
 CombatArenaProgress.propTypes = {
   name: PropTypes.string.isRequired,
+  powerstats: PropTypes.string.isRequired,
 };
 
 export default CombatArenaProgress;

@@ -1,11 +1,11 @@
 .row {
-    align-items: flex-end;
+  align-items: flex-end;
 }
 
 .input {
-    margin-top : 3rem;
-    width : 25rem
+  margin-top: 1rem;
+  width: 25rem;
 }
 .searchresults {
-    padding : 3rem 10rem;
+  padding: 1rem 10rem;
 }
