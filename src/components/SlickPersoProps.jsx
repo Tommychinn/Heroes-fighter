@@ -14,7 +14,7 @@ import {
 import ModalDetailsPerso from './ModalDetailsPerso';
 import styles from './Personnages.module.css';
 
-function SlickPersoProps({ name, image, powerstats, biography }) {
+function SlickPersoProps({ name, image, powerstats, biography, id }) {
   const powerstat = Object.keys(powerstats)
     .map((stat) => [stat, powerstats[stat]])
     .slice(0, 3);
@@ -48,6 +48,7 @@ function SlickPersoProps({ name, image, powerstats, biography }) {
             name={name}
             powerstats={powerstats}
             biography={biography}
+            id={id}
           />
         </CardBody>
       </Card>
@@ -59,6 +60,7 @@ SlickPersoProps.propTypes = {
   image: PropTypes.string.isRequired,
   powerstats: PropTypes.string.isRequired,
   biography: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default SlickPersoProps;

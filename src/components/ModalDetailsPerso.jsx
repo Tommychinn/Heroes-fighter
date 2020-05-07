@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Modal,
@@ -12,9 +13,8 @@ import {
 } from 'reactstrap';
 import DetailsPersoModal from './DetailsPersoModal';
 import styles from './resize.module.css';
-import PopUpAreneChoice from './PopUpAreneChoice';
 
-function ModalDetailsPerso({ name, image, powerstats, biography }) {
+function ModalDetailsPerso({ name, image, powerstats, biography, id }) {
   // const { className } = { name, image, powerstats, biography };
 
   const [modal, setModal] = useState(false);
@@ -96,12 +96,9 @@ function ModalDetailsPerso({ name, image, powerstats, biography }) {
           </Container>
         </ModalBody>
         <ModalFooter>
-          <PopUpAreneChoice
-            name={name}
-            biography={biography}
-            image={image}
-            powerstats={powerstats}
-          />
+          <Button tag={Link} to={`/arenes/${id}`}>
+            Go !
+          </Button>
           <Button color="secondary" onClick={toggle}>
             Annuler
           </Button>
@@ -115,6 +112,7 @@ ModalDetailsPerso.propTypes = {
   powerstats: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   biography: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default ModalDetailsPerso;

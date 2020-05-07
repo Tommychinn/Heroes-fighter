@@ -13,7 +13,7 @@ export default function RouterApp() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/allPerso" component={PageAllPerso} />
-        <Route path="/arenes" component={CombatArena} />
+        <Route path="/arenes/:id" component={CombatArena} />
       </Switch>
     </BrowserRouter>
   );
