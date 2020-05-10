@@ -15,7 +15,7 @@ function NavBar() {
   ];
   return (
     <div className={styles.navigation}>
-      <Nav vertical>
+      <Nav vertical className={styles.nav}>
         <NavItem className={styles.navlogo}>
           {itemNav.map((item) => {
             return (

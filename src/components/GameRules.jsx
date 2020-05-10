@@ -24,17 +24,13 @@ function GameRules() {
         role="button"
         tabIndex={0}
         onKeyDown={handleKeyDown}
+        className={styles.cursor}
       >
         <img
           className={styles.img}
           src="https://image.flaticon.com/icons/svg/2004/2004760.svg"
           alt="Logo"
         />
-        <p>
-          Game
-          <br />
-          Rules
-        </p>
       </div>
       <Modal isOpen={modal} toggle={toggle} className="{className}">
         <ModalHeader>

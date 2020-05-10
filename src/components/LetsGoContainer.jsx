@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Card, Row, Col, Container } from 'reactstrap';
 
 import styles from './letsGoContainer.module.css';
@@ -10,7 +11,14 @@ function LetsGoContainer() {
         <Row className={styles.info_box}>
           <Col>
             <p className="textColor">HELLO HAVE FUN</p>
-            <Button variant="primary">LET’S GO</Button>
+            <Button
+              className={styles.button}
+              tag={Link}
+              to="./allPerso"
+              variant="primary"
+            >
+              LET’S GO
+            </Button>
           </Col>
         </Row>
       </Card>
