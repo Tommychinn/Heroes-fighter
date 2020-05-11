@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
-import { Row, Col } from 'reactstrap';
+import { Row } from 'reactstrap';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -49,12 +49,7 @@ class SlickPersonnages extends React.Component {
     return (
       <div className={styles.personnages}>
         <Row>
-          <Col xs="9">
-            <h2>Les personnages</h2>
-          </Col>
-          <Col xs="3">
-            <h6 className={styles.h6}>Tous les personnages</h6>
-          </Col>
+          <h2>Les personnages</h2>
         </Row>
         <Slider
           className="center"

@@ -1,11 +1,13 @@
 import React from 'react';
-import Background from './arena-images/arena04.jpg';
 import styles from './CombatArena.module.css';
 
 function CombatArenaBackground() {
   return (
     <div className={styles.background}>
-      <img src={Background} alt="" />
+      <img
+        src="https://c4.wallpaperflare.com/wallpaper/853/26/556/space-art-artwork-concept-art-fantasy-art-wallpaper-preview.jpg"
+        alt=""
+      />
     </div>
   );
 }

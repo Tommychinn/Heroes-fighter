@@ -13,11 +13,13 @@ class CombatArena extends Component {
     super(props);
     this.state = {
       heroId: [],
+      adversary: [],
     };
   }
 
   componentDidMount() {
     this.getHeroId();
+    this.getAdversary();
   }
 
   getHeroId() {
@@ -29,10 +31,20 @@ class CombatArena extends Component {
     ).then(({ data }) => this.setState({ heroId: data }));
   }
 
+  getAdversary() {
+    Axios.get(
+      `https://www.superheroapi.com/api.php/2564696700461860/${Math.floor(
+        Math.random() * 732
+      )}`
+    ).then(({ data }) => {
+      this.setState({ adversary: data });
+    });
+  }
+
   render() {
-    const { heroId } = this.state;
+    const { heroId, adversary } = this.state;
     return (
-      <>
+      <div className={styles.arene}>
         <CombatArenaBackground />
         <Container>
           <Row>
@@ -46,7 +58,10 @@ class CombatArena extends Component {
               <p>VS</p>
             </Col>
             <Col className={styles.persoLevels} xs="5">
-              <CombatArenaProgress name="Black Lightning" />
+              <CombatArenaProgress
+                name={adversary.name}
+                powerstats={adversary.powerstats}
+              />
             </Col>
           </Row>
         </Container>
@@ -63,13 +78,13 @@ class CombatArena extends Component {
             </Col>
             <Col xs="5" className={styles.cardD}>
               <CombatArenaCard
-                name="Black Lightning"
-                url="https://www.superherodb.com/pictures2/portraits/10/100/1128.jpg"
+                name={adversary.name}
+                url={adversary.image && adversary.image.url}
               />
             </Col>
           </Row>
         </Container>
-      </>
+      </div>
     );
   }
 }
