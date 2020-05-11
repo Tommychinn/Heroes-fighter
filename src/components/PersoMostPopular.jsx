@@ -23,7 +23,7 @@ class PersoMostPopular extends React.Component {
   getHero() {
     axios
       .get(
-        'https://heroes-api-wrapper.herokuapp.com/heroes?heroIds=149,70,213,418,309,157,303,540,620,659,352,349,345,346'
+        'https://heroes-api-wrapper.herokuapp.com/heroes?heroIds=540,620,659,352,349,345,346,30,149,70,213,418,309,157,303,540,620,659,352,349,345,346,30,149,70'
       )
       .then(({ data }) => {
         this.setState({ hero: data });
