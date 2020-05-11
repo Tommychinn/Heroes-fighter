@@ -1,0 +1,17 @@
+/* .modal {
+    display: flex;
+    align-items: center;
+}
+
+.modalButton{
+    display: flex;
+    justify-content: center;
+} */
+
+h1 {
+    text-align : center;
+} 
+.confetti {
+    margin-left: -25vw;
+    
+}

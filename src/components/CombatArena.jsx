@@ -7,6 +7,8 @@ import styles from './CombatArena.module.css';
 import CombatArenaBackground from './CombatArenaBackground';
 import CombatArenaProgress from './CombatArenaProgress';
 import CombatArenaCard from './CombatArenaCard';
+import EndModalWinner from './EndModalWinner';
+import EndModalLooser from './EndModalLooser';
 
 class CombatArena extends Component {
   constructor(props) {
@@ -17,17 +19,11 @@ class CombatArena extends Component {
       counterAdversary: '100',
       myCounter: '100',
       attackClickable: true,
+      disabled: '',
     };
     this.handleAttack = this.handleAttack.bind(this);
     this.handleDeath = this.handleDeath.bind(this);
   }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   const { attackClickable } = this.state;
-  //   if (prevState.attackClickable !== attackClickable) {
-  //     this.toggleButton();
-  //   }
-  // }
 
   componentDidMount() {
     this.getHeroId();
@@ -69,26 +65,28 @@ class CombatArena extends Component {
         counterAdversary: counterAdversary - counterAdversary,
       });
     }
-    setTimeout(() => {
-      this.toggleButton();
-      if (myCounter >= 30) {
-        this.setState({
-          myCounter: myCounter - Math.floor(Math.random() * 30),
-        });
-      } else {
-        this.setState({
-          myCounter: myCounter - myCounter,
-        });
-      }
-    }, 1500);
+    if (counterAdversary > 0) {
+      setTimeout(() => {
+        this.toggleButton();
+        if (myCounter >= 30) {
+          this.setState({
+            myCounter: myCounter - Math.floor(Math.random() * 30),
+          });
+        } else {
+          this.setState({
+            myCounter: myCounter - myCounter,
+          });
+        }
+      }, 1500);
+    }
     this.toggleButton();
   }
 
   handleDeath() {
     const { counterAdversary, myCounter } = this.state;
-    if (counterAdversary >= 45) {
+    if (counterAdversary >= 30) {
       this.setState({
-        counterAdversary: counterAdversary - 45,
+        counterAdversary: counterAdversary - 30,
         myCounter: myCounter - 10,
       });
     } else {
@@ -97,17 +95,22 @@ class CombatArena extends Component {
         myCounter: myCounter - 10,
       });
     }
-    setTimeout(() => {
-      if (myCounter >= 30) {
-        this.setState({
-          myCounter: myCounter - Math.floor(Math.random() * 50),
-        });
-      } else {
-        this.setState({
-          myCounter: myCounter - myCounter,
-        });
-      }
-    }, 1500);
+    if (counterAdversary > 0) {
+      setTimeout(() => {
+        this.toggleButton();
+        if (myCounter >= 30) {
+          this.setState({
+            myCounter: myCounter - Math.floor(Math.random() * 50),
+          });
+        } else {
+          this.setState({
+            myCounter: myCounter - myCounter,
+          });
+        }
+      }, 1500);
+    }
+    this.toggleButton();
+    this.setState({ disabled: 'disabled' });
   }
 
   render() {
@@ -117,6 +120,7 @@ class CombatArena extends Component {
       counterAdversary,
       myCounter,
       attackClickable,
+      disabled,
     } = this.state;
     return (
       <div className={styles.arene}>
@@ -158,6 +162,7 @@ class CombatArena extends Component {
                 handleAttack={this.handleAttack}
                 handleDeath={this.handleDeath}
                 attackClickable={attackClickable}
+                disabled={disabled}
               />
             </Col>
             <Col xs={{ size: 4, offset: 2 }} className={styles.cardD}>
@@ -176,6 +181,8 @@ class CombatArena extends Component {
             </Col>
           </Row>
         </Container>
+        {counterAdversary === 0 ? <EndModalWinner /> : ''}
+        {myCounter === 0 ? <EndModalLooser /> : ''}
       </div>
     );
   }

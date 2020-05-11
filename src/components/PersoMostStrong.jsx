@@ -66,6 +66,7 @@ class PersoMostStrong extends React.Component {
                   image={character.image}
                   powerstats={character.powerstats}
                   biography={character.biography}
+                  id={character.id}
                 />
               );
             })}
