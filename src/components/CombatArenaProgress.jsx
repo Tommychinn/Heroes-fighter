@@ -14,7 +14,7 @@ function CombatArenaProgress({ name, myCounter }) {
       <Row>
         <Col className={styles.vie}>
           <Progress color="primary" value={myCounter}>
-            Vie
+            {myCounter}
           </Progress>
         </Col>
       </Row>

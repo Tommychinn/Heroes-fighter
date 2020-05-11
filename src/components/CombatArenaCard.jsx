@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Row, Col } from 'reactstrap';
 
-function CombatArenaCard({ url, handleAttack, handleDeath }) {
+function CombatArenaCard({ url, attackClickable, handleAttack, handleDeath }) {
   return (
     <>
       <Row
@@ -16,10 +16,10 @@ function CombatArenaCard({ url, handleAttack, handleDeath }) {
         }}
       >
         <Col className="align-self-end mb-5">
-          <Button onClick={handleAttack} className="m-2">
+          <Button onClick={attackClickable ? handleAttack : ''} className="m-2">
             Attaque #1
           </Button>
-          <Button onClick={handleDeath} className="m-2">
+          <Button onClick={attackClickable ? handleDeath : ''} className="m-2">
             The death
           </Button>
         </Col>
@@ -32,6 +32,7 @@ CombatArenaCard.propTypes = {
   url: PropTypes.string.isRequired,
   handleAttack: PropTypes.string.isRequired,
   handleDeath: PropTypes.string.isRequired,
+  attackClickable: PropTypes.bool.isRequired,
 };
 
 export default CombatArenaCard;

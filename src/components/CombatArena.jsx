@@ -16,14 +16,32 @@ class CombatArena extends Component {
       adversary: [],
       counterAdversary: '100',
       myCounter: '100',
+      attackClickable: true,
     };
     this.handleAttack = this.handleAttack.bind(this);
     this.handleDeath = this.handleDeath.bind(this);
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   const { attackClickable } = this.state;
+  //   if (prevState.attackClickable !== attackClickable) {
+  //     this.toggleButton();
+  //   }
+  // }
+
   componentDidMount() {
     this.getHeroId();
     this.getAdversary();
+  }
+
+  getAdversary() {
+    Axios.get(
+      `https://www.superheroapi.com/api.php/2564696700461860/${Math.floor(
+        Math.random() * 732
+      )}`
+    ).then(({ data }) => {
+      this.setState({ adversary: data });
+    });
   }
 
   getHeroId() {
@@ -35,14 +53,9 @@ class CombatArena extends Component {
     ).then(({ data }) => this.setState({ heroId: data }));
   }
 
-  getAdversary() {
-    Axios.get(
-      `https://www.superheroapi.com/api.php/2564696700461860/${Math.floor(
-        Math.random() * 732
-      )}`
-    ).then(({ data }) => {
-      this.setState({ adversary: data });
-    });
+  toggleButton() {
+    const { attackClickable } = this.state;
+    this.setState({ attackClickable: !attackClickable });
   }
 
   handleAttack() {
@@ -57,22 +70,54 @@ class CombatArena extends Component {
       });
     }
     setTimeout(() => {
-      this.setState({
-        myCounter: myCounter - Math.floor(Math.random() * 50),
-      });
-    }, 3000);
+      this.toggleButton();
+      if (myCounter >= 30) {
+        this.setState({
+          myCounter: myCounter - Math.floor(Math.random() * 30),
+        });
+      } else {
+        this.setState({
+          myCounter: myCounter - myCounter,
+        });
+      }
+    }, 1500);
+    this.toggleButton();
   }
 
   handleDeath() {
     const { counterAdversary, myCounter } = this.state;
-    this.setState({
-      counterAdversary: counterAdversary - 45,
-      myCounter: myCounter - 10,
-    });
+    if (counterAdversary >= 45) {
+      this.setState({
+        counterAdversary: counterAdversary - 45,
+        myCounter: myCounter - 10,
+      });
+    } else {
+      this.setState({
+        counterAdversary: counterAdversary - counterAdversary,
+        myCounter: myCounter - 10,
+      });
+    }
+    setTimeout(() => {
+      if (myCounter >= 30) {
+        this.setState({
+          myCounter: myCounter - Math.floor(Math.random() * 50),
+        });
+      } else {
+        this.setState({
+          myCounter: myCounter - myCounter,
+        });
+      }
+    }, 1500);
   }
 
   render() {
-    const { heroId, adversary, counterAdversary, myCounter } = this.state;
+    const {
+      heroId,
+      adversary,
+      counterAdversary,
+      myCounter,
+      attackClickable,
+    } = this.state;
     return (
       <div className={styles.arene}>
         <CombatArenaBackground />
@@ -97,7 +142,7 @@ class CombatArena extends Component {
               <Row>
                 <Col className={styles.vie}>
                   <Progress color="primary" value={counterAdversary}>
-                    Vie
+                    {counterAdversary}
                   </Progress>
                 </Col>
               </Row>
@@ -112,6 +157,7 @@ class CombatArena extends Component {
                 url={heroId.image && heroId.image.url}
                 handleAttack={this.handleAttack}
                 handleDeath={this.handleDeath}
+                attackClickable={attackClickable}
               />
             </Col>
             <Col xs={{ size: 4, offset: 2 }} className={styles.cardD}>
