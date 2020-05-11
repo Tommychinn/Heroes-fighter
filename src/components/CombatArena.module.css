@@ -1,98 +1,99 @@
 .background {
-    position: absolute;
+  position: absolute;
 }
 
 .background img {
-    background-size: cover;
-    min-width: 100%;
-    min-height: 100%;
-    position: fixed;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    top: 0;
-    bottom: 0;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  top: 0;
+  bottom: 0;
 }
 
-
-.persoLevels{
-    background-image: url(./img/whiteBackground.png);
-    top: 10vh;
-    height: 20vh;
-    padding: 30px;
-    opacity: 0.7;
-    border-radius: 30px;
+.persoLevels {
+  background-image: url(./img/whiteBackground.png);
+  top: 5vh;
+  height: 15vh;
+  padding: 10px;
+  opacity: 0.7;
+  border-radius: 30px;
 }
 
 .persoLevels .name {
-    color: black;
-    float: left;
-    width: 50%;
-    height: 40px;
-    font-weight: bold;
-    font-size: 1.4em;
+  color: black;
+  float: left;
+  width: 50%;
+  height: 40px;
+  font-weight: bold;
+  font-size: 1.4em;
 }
 
 .persoLevels .vie {
-    float: right;
-    width: 50%;
-    height: 40px;
+  /* float: right; */
+  width: 50%;
+  height: 40px;
+  margin : 0 50px;
 }
 
 .persoLevels .stats {
-    float: right;
-    width: 50%;
+  float: right;
+  width: 50%;
 }
 
 .statsProgress {
-    width: 80%;
-    margin: 10px;
+  width: 80%;
+  margin: 10px;
 }
 
 .versus {
-    font-size: 5em;
-    color: white;
-    padding-top: 13vh;
-    font-weight: bold;
+  font-size: 5em;
+  color: white;
+  padding-top: 13vh;
+  font-weight: bold;
 }
 
 .attac {
-    font-size: 2em;
-    color: white;
-    padding-top: 50vh;
-    font-weight: bold;
+  font-size: 2em;
+  color: white;
+  padding-top: 50vh;
+  font-weight: bold;
 }
 
 .persoAttac {
-    
-    margin-top: 4vh;
-    height: 65vh;
-    border-radius: 30px;
-    padding: 30px;
-    opacity: 1;
+  height: 65vh;
+  border-radius: 30px;
+  /* padding: 30px; */
+  opacity: 1;
 }
 
 .perso {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .persoImage {
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
-.cardD img, .cardG img {
-    width: 22vw;
-    border-radius: 50px;
-    height: 30vw;
-    object-fit: cover;
-    transition: .3s ease-in-out;
+.cardD img,
+.cardG img {
+  width: 22vw;
+  border-radius: 50px;
+  height: 30vw;
+  object-fit: cover;
+  transition: 0.3s ease-in-out;
 }
 
-.cardD:hover img {
+/*.cardD:hover img {
 	margin-left: -50vw;
 }
 
 .cardG:hover img {
 	margin-left: 30vw;
-}
+}*/
+
+
