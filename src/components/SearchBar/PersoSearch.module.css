@@ -1,0 +1,57 @@
+.personnages {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.personnages img {
+    width: 100%;
+    height: 20vw;
+}
+
+.personnages button::before {
+    color: black !important;
+}
+
+.personnages h2 {
+    color: red;
+    text-align: left;
+}
+
+.personnages .playButton {
+    padding-top: 20px;
+}
+
+.persoCartes {
+    border-radius: 20px;
+    padding: 20px;
+    width:25% !important;
+}
+
+.perso {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+    border-radius: 50px!important;
+}
+
+.persoImage {
+    border-top-right-radius: 50px !important;
+    border-top-left-radius: 50px !important;
+    height: 18vw !important;
+    
+}
+
+.cardTitle {
+    font-size: 1.25em;
+}
+
+
+.stat {
+    text-align : left !important;
+}
+.cardbody {
+    padding-top : 0 !important
+}
+.h6 {
+    color :red;
+}

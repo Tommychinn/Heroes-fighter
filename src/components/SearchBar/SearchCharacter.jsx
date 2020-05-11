@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Row, Col, Label } from 'reactstrap';
 import { DebounceInput } from 'react-debounce-input';
 
-import SlickPersoProps from '../SlickPersoProps';
+import SlickPersoSearch from './SlickPersoSearch';
 import styles from './SearchCharacter.module.css';
 
 class SearchCharacter extends Component {
@@ -63,7 +63,7 @@ class SearchCharacter extends Component {
         <Row className={styles.searchresults}>
           {hero &&
             hero.map((character) => (
-              <SlickPersoProps
+              <SlickPersoSearch
                 name={character.name}
                 powerstats={character.powerstats}
                 image={character.image}
