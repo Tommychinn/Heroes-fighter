@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
-import { Row } from 'reactstrap';
+import { Row, Spinner } from 'reactstrap';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -13,6 +13,7 @@ class SlickPersonnages extends React.Component {
     super(props);
     this.state = {
       hero: [],
+      isLoading: false,
     };
     // this.randomize = this.randomizeHero.bind(this);
   }
@@ -28,7 +29,17 @@ class SlickPersonnages extends React.Component {
       .get('https://superheroapi.com/api.php/1274121622792743/search/an')
       .then(({ data }) => {
         this.setState({ hero: data.results });
-      });
+      })
+      .catch((err) => {
+        this.setState({
+          error: err,
+        });
+      })
+      .finally(() =>
+        this.setState({
+          isLoading: false,
+        })
+      );
   }
 
   // randomizeHero(tab) {
@@ -45,7 +56,23 @@ class SlickPersonnages extends React.Component {
   // }
 
   render() {
-    const { hero } = this.state;
+    const { isLoading, error, hero } = this.state;
+
+    if (isLoading)
+      return (
+        <div>
+          <Spinner color="dark" />
+          <Spinner color="light" type="grow" />
+          <Spinner color="info" />
+          <Spinner color="warning" type="grow" />
+          <Spinner color="danger" />
+          <Spinner color="success" type="grow" />
+          <Spinner color="secondary" />
+          <Spinner color="primary" type="grow" />
+        </div>
+      );
+    if (error) return <div>Error...</div>;
+
     return (
       <div className={styles.personnages}>
         <Row>
