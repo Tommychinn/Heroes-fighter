@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Progress } from 'reactstrap';
+import { Container, Row, Col, Progress, Spinner } from 'reactstrap';
 import Axios from 'axios';
 
 import styles from './CombatArena.module.css';
@@ -20,6 +20,7 @@ class CombatArena extends Component {
       myCounter: '100',
       attackClickable: true,
       disabled: '',
+      isLoading: true,
     };
     this.handleAttack = this.handleAttack.bind(this);
     this.handleDeath = this.handleDeath.bind(this);
@@ -35,9 +36,20 @@ class CombatArena extends Component {
       `https://www.superheroapi.com/api.php/2564696700461860/${Math.floor(
         Math.random() * 732
       )}`
-    ).then(({ data }) => {
-      this.setState({ adversary: data });
-    });
+    )
+      .then(({ data }) => {
+        this.setState({ adversary: data });
+      })
+      .catch((err) => {
+        this.setState({
+          error: err,
+        });
+      })
+      .finally(() =>
+        this.setState({
+          isLoading: false,
+        })
+      );
   }
 
   getHeroId() {
@@ -121,7 +133,24 @@ class CombatArena extends Component {
       myCounter,
       attackClickable,
       disabled,
+      isLoading,
+      error,
     } = this.state;
+
+    if (isLoading)
+      return (
+        <div>
+          <Spinner color="dark" />
+          <Spinner color="light" type="grow" />
+          <Spinner color="info" />
+          <Spinner color="warning" type="grow" />
+          <Spinner color="danger" />
+          <Spinner color="success" type="grow" />
+          <Spinner color="secondary" />
+          <Spinner color="primary" type="grow" />
+        </div>
+      );
+    if (error) return <div>Error...</div>;
     return (
       <div className={styles.arene}>
         <CombatArenaBackground />

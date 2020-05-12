@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Spinner } from 'reactstrap';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -13,6 +13,7 @@ class PersoMostPopular extends React.Component {
     super(props);
     this.state = {
       hero: [],
+      isLoading: true,
     };
   }
 
@@ -27,11 +28,35 @@ class PersoMostPopular extends React.Component {
       )
       .then(({ data }) => {
         this.setState({ hero: data });
-      });
+      })
+      .catch((err) => {
+        this.setState({
+          error: err,
+        });
+      })
+      .finally(() =>
+        this.setState({
+          isLoading: false,
+        })
+      );
   }
 
   render() {
-    const { hero } = this.state;
+    const { hero, isLoading, error } = this.state;
+    if (isLoading)
+      return (
+        <div>
+          <Spinner color="primary" />
+          <Spinner color="secondary" type="grow" />
+          <Spinner color="success" />
+          <Spinner color="danger" type="grow" />
+          <Spinner color="warning" />
+          <Spinner color="info" type="grow" />
+          <Spinner color="light" />
+          <Spinner color="dark" type="grow" />
+        </div>
+      );
+    if (error) return <div>Error...</div>;
     return (
       <div className={styles.personnages}>
         <Row>

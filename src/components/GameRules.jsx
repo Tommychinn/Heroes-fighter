@@ -18,7 +18,7 @@ function GameRules() {
   };
 
   return (
-    <div>
+    <>
       <div
         onClick={toggle}
         role="button"
@@ -32,7 +32,7 @@ function GameRules() {
           alt="Logo"
         />
       </div>
-      <Modal isOpen={modal} toggle={toggle} className="{className}">
+      <Modal isOpen={modal} toggle={toggle} className={styles.background}>
         <ModalHeader>
           <img src={fond1} alt="avengers" className={styles.avengers} />
         </ModalHeader>
@@ -50,7 +50,7 @@ function GameRules() {
           <ModalBodyRules />
         </Row>
       </Modal>
-    </div>
+    </>
   );
 }
 

@@ -3,13 +3,14 @@ import { Button, Modal, ModalBody, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Confetti from 'react-confetti';
 import styles from './EndModal.module.css';
+import './EndModal.css';
 
 function EndModalWinner() {
   return (
     <div>
-      <Modal isOpen="true">
+      <Modal isOpen="true" className={styles.background}>
         <Confetti className={styles.confetti} />
-        <ModalBody>
+        <ModalBody className={styles.modal}>
           <Row>
             <Col>
               <h1>Vous avez gagné !</h1>

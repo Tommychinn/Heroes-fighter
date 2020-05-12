@@ -27,8 +27,10 @@ function NavBar() {
               </NavLink>
             );
           })}
+          <NavLink className={styles.navlink}>
+            <GameRules />
+          </NavLink>
         </NavItem>
-        <GameRules />
       </Nav>
     </div>
   );

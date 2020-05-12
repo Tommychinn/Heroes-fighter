@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Row, Col, Label } from 'reactstrap';
+import { Row, Col, Label, Spinner } from 'reactstrap';
 import { DebounceInput } from 'react-debounce-input';
 
 import SlickPersoSearch from './SlickPersoSearch';
@@ -12,6 +12,7 @@ class SearchCharacter extends Component {
     this.state = {
       hero: [],
       value: '',
+      isLoading: true,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -33,7 +34,17 @@ class SearchCharacter extends Component {
       .get(`https://superheroapi.com/api.php/1274121622792743/search/${value}`)
       .then(({ data }) => {
         this.setState({ hero: data.results });
-      });
+      })
+      .catch((err) => {
+        this.setState({
+          error: err,
+        });
+      })
+      .finally(() =>
+        this.setState({
+          isLoading: false,
+        })
+      );
   }
 
   handleChange(e) {
@@ -41,8 +52,22 @@ class SearchCharacter extends Component {
   }
 
   render() {
-    const { hero } = this.state;
-    const { value } = this.state;
+    const { hero, value, isLoading, error } = this.state;
+
+    if (isLoading)
+      return (
+        <div>
+          <Spinner color="primary" />
+          <Spinner color="secondary" type="grow" />
+          <Spinner color="success" />
+          <Spinner color="danger" type="grow" />
+          <Spinner color="warning" />
+          <Spinner color="info" type="grow" />
+          <Spinner color="light" />
+          <Spinner color="dark" type="grow" />
+        </div>
+      );
+    if (error) return <div>Error...</div>;
     return (
       <div>
         <Row>
