@@ -11,9 +11,13 @@ function CombatArenaProgress({ name, myCounter }) {
           <p>{name}</p>
         </Col>
       </Row>
-      <Row>
-        <Col className={styles.vie}>
-          <Progress color="primary" value={myCounter}>
+      <Row style={{ height: '100%' }}>
+        <Col md={{ size: 8, offset: 2 }}>
+          <Progress
+            color="primary"
+            value={myCounter}
+            style={{ height: '25%', borderRadius: '500px' }}
+          >
             {myCounter}
           </Progress>
         </Col>

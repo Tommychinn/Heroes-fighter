@@ -143,9 +143,13 @@ class CombatArena extends Component {
                   <p>{adversary.name}</p>
                 </Col>
               </Row>
-              <Row>
-                <Col className={styles.vie}>
-                  <Progress color="primary" value={counterAdversary}>
+              <Row style={{ height: '100%' }}>
+                <Col className={styles.vie} md={{ size: 8, offset: 2 }}>
+                  <Progress
+                    color="primary"
+                    value={counterAdversary}
+                    style={{ height: '25%', borderRadius: '500px' }}
+                  >
                     {counterAdversary}
                   </Progress>
                 </Col>
