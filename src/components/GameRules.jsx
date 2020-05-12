@@ -18,7 +18,7 @@ function GameRules() {
   };
 
   return (
-    <div>
+    <>
       <div
         onClick={toggle}
         role="button"
@@ -50,7 +50,7 @@ function GameRules() {
           <ModalBodyRules />
         </Row>
       </Modal>
-    </div>
+    </>
   );
 }
 
