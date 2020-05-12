@@ -20,7 +20,10 @@ function NavBar() {
           {itemNav.map((item) => {
             return (
               <NavLink tag={Link} to={item.link}>
-                <img src={item.image} alt={item.title} />
+                <figure className="image">
+                  <img src={item.image} alt={item.title} />
+                  <figcaption>{item.title}</figcaption>
+                </figure>
               </NavLink>
             );
           })}
