@@ -9,7 +9,6 @@ import CombatArenaBackground from './CombatArenaBackground';
 import CombatArenaProgress from './CombatArenaProgress';
 import CombatArenaCard from './CombatArenaCard';
 import EndModalWinner from './EndModalWinner';
-import EndModalLooser from './EndModalLooser';
 
 class CombatArena extends Component {
   constructor(props) {
@@ -21,6 +20,7 @@ class CombatArena extends Component {
       myCounter: '100',
       attackClickable: true,
       disabled: '',
+      triggerModal: false,
       isLoading: true,
     };
     this.handleAttack = this.handleAttack.bind(this);
@@ -69,30 +69,40 @@ class CombatArena extends Component {
 
   handleAttack() {
     const { counterAdversary, myCounter } = this.state;
-    if (counterAdversary >= 30) {
-      this.setState({
-        counterAdversary: counterAdversary - Math.floor(Math.random() * 30),
-      });
-    } else {
-      this.setState({
-        counterAdversary: counterAdversary - counterAdversary,
-      });
+    if (counterAdversary > 0 && myCounter > 0) {
+      this.attack();
     }
-    if (counterAdversary > 0) {
-      setTimeout(() => {
-        this.toggleButton();
-        if (myCounter >= 30) {
-          this.setState({
-            myCounter: myCounter - Math.floor(Math.random() * 30),
-          });
-        } else {
-          this.setState({
-            myCounter: myCounter - myCounter,
-          });
-        }
-      }, 1500);
+  }
+
+  attack() {
+    const { counterAdversary } = this.state;
+    const value = Math.floor(Math.random() * 30);
+    const shouldModalTrigger = counterAdversary - value <= 0;
+
+    this.setState((state) => ({
+      ...state,
+      counterAdversary: state.counterAdversary - value,
+      attackClickable: false,
+      triggerModal: shouldModalTrigger,
+    }));
+
+    if (!shouldModalTrigger) {
+      setTimeout(() => this.defend(), 1500);
     }
-    this.toggleButton();
+  }
+
+  defend() {
+    const { myCounter } = this.state;
+
+    const value = Math.floor(Math.random() * 30);
+    const shouldModalTrigger = myCounter - value <= 0;
+
+    this.setState((state) => ({
+      ...state,
+      myCounter: state.myCounter - value,
+      attackClickable: true,
+      triggerModal: shouldModalTrigger,
+    }));
   }
 
   handleDeath() {
@@ -134,6 +144,7 @@ class CombatArena extends Component {
       myCounter,
       attackClickable,
       disabled,
+      triggerModal,
       isLoading,
       error,
     } = this.state;
@@ -215,8 +226,11 @@ class CombatArena extends Component {
             </Col>
           </Row>
         </Container>
-        {counterAdversary === 0 ? <EndModalWinner /> : ''}
-        {myCounter === 0 ? <EndModalLooser /> : ''}
+        <EndModalWinner
+          isOpen={triggerModal}
+          myCounter={myCounter}
+          counterAdversary={counterAdversary}
+        />
       </div>
     );
   }
