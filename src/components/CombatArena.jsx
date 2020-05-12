@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Progress } from 'reactstrap';
 import Axios from 'axios';
+import Fade from 'react-reveal/Fade';
 
 import styles from './CombatArena.module.css';
 import CombatArenaBackground from './CombatArenaBackground';
@@ -127,30 +128,34 @@ class CombatArena extends Component {
         <CombatArenaBackground />
         <Container>
           <Row className="justify-content-center">
-            <Col className={styles.persoLevels} xs="4">
-              <CombatArenaProgress
-                name={heroId.name}
-                powerstats={heroId.powerstats}
-                myCounter={myCounter}
-              />
-            </Col>
+            <Fade left className={styles.fade}>
+              <Col className={styles.persoLevels} xs="4">
+                <CombatArenaProgress
+                  name={heroId.name}
+                  powerstats={heroId.powerstats}
+                  myCounter={myCounter}
+                />
+              </Col>
+            </Fade>
             <Col className={styles.versus} xs="2">
               <p>VS</p>
             </Col>
-            <Col className={styles.persoLevels} xs="4">
-              <Row className="m-3">
-                <Col className={styles.name}>
-                  <p>{adversary.name}</p>
-                </Col>
-              </Row>
-              <Row>
-                <Col className={styles.vie}>
-                  <Progress color="primary" value={counterAdversary}>
-                    {counterAdversary}
-                  </Progress>
-                </Col>
-              </Row>
-            </Col>
+            <Fade right className={styles.fade}>
+              <Col className={styles.persoLevels} xs="4">
+                <Row className="m-3">
+                  <Col className={styles.name}>
+                    <p>{adversary.name}</p>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className={styles.vie}>
+                    <Progress color="primary" value={counterAdversary}>
+                      {counterAdversary}
+                    </Progress>
+                  </Col>
+                </Row>
+              </Col>
+            </Fade>
           </Row>
         </Container>
         <Container className={styles.persoAttac}>

@@ -21,6 +21,8 @@
   padding: 10px;
   opacity: 0.7;
   border-radius: 30px;
+  max-width: 100% !important;
+  width : 25vw !important;
 }
 
 .persoLevels .name {
@@ -88,12 +90,7 @@
   transition: 0.3s ease-in-out;
 }
 
-/*.cardD:hover img {
-	margin-left: -50vw;
+.fade {
+  width:100% !important;
 }
-
-.cardG:hover img {
-	margin-left: 30vw;
-}*/
-
 
