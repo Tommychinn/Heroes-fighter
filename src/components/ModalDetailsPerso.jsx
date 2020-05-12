@@ -56,7 +56,7 @@ function ModalDetailsPerso({ name, image, powerstats, biography, id }) {
                   />
                 </Row>
                 <Row>
-                  <Col lg="6">
+                  <Col lg="10">
                     <h3>Pouvoirs</h3>
                     <DetailsPersoModal powerstats={powerstats} />
                   </Col>
