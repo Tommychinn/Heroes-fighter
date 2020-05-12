@@ -19,13 +19,15 @@ function NavBar() {
         <NavItem className={styles.navlogo}>
           {itemNav.map((item) => {
             return (
-              <NavLink tag={Link} to={item.link}>
+              <NavLink className={styles.navlink} tag={Link} to={item.link}>
                 <img src={item.image} alt={item.title} />
               </NavLink>
             );
           })}
+          <NavLink className={styles.navlink}>
+            <GameRules />
+          </NavLink>
         </NavItem>
-        <GameRules />
       </Nav>
     </div>
   );
