@@ -34,11 +34,8 @@
   font-size: 1.4em;
 }
 
-.persoLevels .vie {
-  /* float: right; */
-  width: 50%;
-  height: 40px;
-  margin : 0 50px;
+.progressBar {
+  height: 10%;
 }
 
 .persoLevels .stats {
@@ -93,4 +90,3 @@
 .fade {
   width:100% !important;
 }
-

@@ -19,8 +19,11 @@ function NavBar() {
         <NavItem className={styles.navlogo}>
           {itemNav.map((item) => {
             return (
-              <NavLink className={styles.navlink} tag={Link} to={item.link}>
-                <img src={item.image} alt={item.title} />
+              <NavLink tag={Link} to={item.link}>
+                <figure className="image">
+                  <img src={item.image} alt={item.title} />
+                  <figcaption>{item.title}</figcaption>
+                </figure>
               </NavLink>
             );
           })}
