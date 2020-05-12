@@ -20,12 +20,17 @@ function NavBar() {
           {itemNav.map((item) => {
             return (
               <NavLink tag={Link} to={item.link}>
-                <img src={item.image} alt={item.title} />
+                <figure className="image">
+                  <img src={item.image} alt={item.title} />
+                  <figcaption>{item.title}</figcaption>
+                </figure>
               </NavLink>
             );
           })}
+          <NavLink className={styles.navlink}>
+            <GameRules />
+          </NavLink>
         </NavItem>
-        <GameRules />
       </Nav>
     </div>
   );

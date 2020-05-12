@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import Confetti from 'react-confetti';
 import PropTypes from 'prop-types';
 import styles from './EndModal.module.css';
+import './EndModal.css';
 
 function EndModalWinner({ isOpen, myCounter, counterAdversary }) {
   return (
     <div>
-      <Modal isOpen={isOpen}>
+      <Modal isOpen={isOpen} className={styles.background>
         <Confetti className={styles.confetti} />
-        <ModalBody>
+        <ModalBody className={styles.modal}>
           <Row>
             <Col>
               {myCounter > counterAdversary ? (
