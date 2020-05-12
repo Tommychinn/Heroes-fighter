@@ -9,7 +9,7 @@ import './EndModal.css';
 function EndModalWinner({ isOpen, myCounter, counterAdversary }) {
   return (
     <div>
-      <Modal isOpen={isOpen} className={styles.background>
+      <Modal isOpen={isOpen} className={styles.background}>
         <Confetti className={styles.confetti} />
         <ModalBody className={styles.modal}>
           <Row>
