@@ -10,6 +10,7 @@ function CombatArenaCard({
   handleAttackCombat,
   handleAttackPower,
   myCounter,
+  disabled,
 }) {
   return (
     <>
@@ -38,7 +39,7 @@ function CombatArenaCard({
                 ? 'danger'
                 : ''
             }
-            value={myCounter}
+            value={myCounter <= 0 ? '0' : myCounter}
             style={{ height: '25%', borderRadius: '500px' }}
           >
             {myCounter}
@@ -48,24 +49,28 @@ function CombatArenaCard({
         <Row>
           <Col className="align-self-end mb-5">
             <Button
+              disabled={disabled}
               onClick={attackClickable ? handleAttackStrength : ''}
               className="m-2"
             >
               Force
             </Button>
             <Button
+              disabled={disabled}
               onClick={attackClickable ? handleAttackSpeed : ''}
               className="m-2"
             >
               Vitesse
             </Button>
             <Button
+              disabled={disabled}
               onClick={attackClickable ? handleAttackPower : ''}
               className="m-2"
             >
               Puissance
             </Button>
             <Button
+              disabled={disabled}
               onClick={attackClickable ? handleAttackCombat : ''}
               className="m-2"
             >
@@ -86,6 +91,7 @@ CombatArenaCard.propTypes = {
   handleAttackCombat: PropTypes.string.isRequired,
   attackClickable: PropTypes.bool.isRequired,
   myCounter: PropTypes.string.isRequired,
+  disabled: PropTypes.string.isRequired,
 };
 
 export default CombatArenaCard;
