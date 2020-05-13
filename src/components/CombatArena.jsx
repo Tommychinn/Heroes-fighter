@@ -310,10 +310,7 @@ class CombatArena extends Component {
                   borderRadius: '50px',
                 }}
               >
-                <Col
-                  style={{ height: '15%', paddingTop: '5%' }}
-                  md={{ size: 8, offset: 2 }}
-                >
+                <Col md={{ size: 8, offset: 2 }}>
                   <Progress
                     color={
                       counterAdversary >= 50
@@ -325,7 +322,11 @@ class CombatArena extends Component {
                         : ''
                     }
                     value={counterAdversary <= 0 ? '0' : counterAdversary}
-                    style={{ height: '25%', borderRadius: '500px' }}
+                    style={{
+                      height: '9%',
+                      borderRadius: '500px',
+                      marginTop: '5%',
+                    }}
                   >
                     {counterAdversary}
                   </Progress>
