@@ -18,7 +18,10 @@
   "rules": {
     "react/jsx-no-bind": [1, { "allowArrowFunctions": true }],
     "prettier/prettier": "error",
-    "no-nested-ternary": "off"
+    "no-nested-ternary": "off",
+    "class-methods-use-this": "off",
+    "no-plusplus":"off",
+    "no-param-reassign": "off"
   },
   "extends": ["airbnb", 
     "plugin:prettier/recommended",
