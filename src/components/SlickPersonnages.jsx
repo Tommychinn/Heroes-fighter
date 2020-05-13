@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
-import { Row, Spinner } from 'reactstrap';
+import { Row, Spinner, Col } from 'reactstrap';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -123,13 +123,17 @@ class SlickPersonnages extends React.Component {
         <Slider {...this.settings}>
           {hero.map((character) => {
             return (
-              <SlickPersoProps
-                name={character.name}
-                image={character.image}
-                powerstats={character.powerstats}
-                biography={character.biography}
-                id={character.id}
-              />
+              <Row>
+                <Col>
+                  <SlickPersoProps
+                    name={character.name}
+                    image={character.image}
+                    powerstats={character.powerstats}
+                    biography={character.biography}
+                    id={character.id}
+                  />
+                </Col>
+              </Row>
             );
           })}
         </Slider>

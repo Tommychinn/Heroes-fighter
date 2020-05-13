@@ -31,10 +31,20 @@
   padding-top: 30px;
 }
 
+@media screen and (max-width: 780px) {
+    .btn {
+        width: 15vw;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .slick-list {
-        width: 60%;
+        /* width: 60%; */
         /* display: flex;
         justify-content: center; */
+    }
+
+    .btn {
+        width: 25vw;
     }
 }

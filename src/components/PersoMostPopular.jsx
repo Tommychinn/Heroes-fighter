@@ -101,13 +101,17 @@ class PersoMostPopular extends React.Component {
         <Slider {...this.settings}>
           {hero.map((character) => {
             return (
-              <SlickPersoProps
-                name={character.name}
-                image={character.image}
-                powerstats={character.powerstats}
-                biography={character.biography}
-                id={character.id}
-              />
+              <Row>
+                <Col sm={{ size: 12, offset: 0 }} xs={{ size: 10, offset: 1 }}>
+                  <SlickPersoProps
+                    name={character.name}
+                    image={character.image}
+                    powerstats={character.powerstats}
+                    biography={character.biography}
+                    id={character.id}
+                  />
+                </Col>
+              </Row>
             );
           })}
         </Slider>
