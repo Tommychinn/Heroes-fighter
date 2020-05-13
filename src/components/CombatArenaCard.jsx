@@ -25,10 +25,7 @@ function CombatArenaCard({
         }}
       >
         {/* <Row style={{ height: '100%' }}> */}
-        <Col
-          style={{ height: '15%', paddingTop: '5%' }}
-          md={{ size: 8, offset: 2 }}
-        >
+        <Col md={{ size: 8, offset: 2 }}>
           <Progress
             color={
               myCounter >= 50
@@ -40,7 +37,7 @@ function CombatArenaCard({
                 : ''
             }
             value={myCounter <= 0 ? '0' : myCounter}
-            style={{ height: '25%', borderRadius: '500px' }}
+            style={{ height: '25%', borderRadius: '500px', marginTop: '5%' }}
           >
             {myCounter}
           </Progress>
