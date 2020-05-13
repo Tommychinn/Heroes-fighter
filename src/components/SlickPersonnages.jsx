@@ -28,7 +28,15 @@ class SlickPersonnages extends React.Component {
     axios
       .get('https://superheroapi.com/api.php/1274121622792743/search/an')
       .then(({ data }) => {
-        this.setState({ hero: data.results });
+        this.setState({
+          hero: data.results.filter(
+            (character) =>
+              character.powerstats.speed > 0 &&
+              character.powerstats.combat > 0 &&
+              character.powerstats.strength > 0 &&
+              character.powerstats.power > 0
+          ),
+        });
       })
       .catch((err) => {
         this.setState({

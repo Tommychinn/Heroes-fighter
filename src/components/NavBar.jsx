@@ -28,7 +28,10 @@ function NavBar() {
             );
           })}
           <NavLink className={styles.navlink}>
-            <GameRules />
+            <figure className="image">
+              <GameRules />
+              <figcaption>Game rules</figcaption>
+            </figure>
           </NavLink>
         </NavItem>
       </Nav>
