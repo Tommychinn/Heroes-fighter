@@ -1,14 +1,14 @@
 import React from 'react';
-import { Progress, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
+import { Row, Col, Progress } from 'reactstrap';
 import styles from './CombatArena.module.css';
 
-function CombatArenaProgress({ name, powerstats }) {
+function CombatArenaCardAdversary({ name, powerstats }) {
   return (
     <>
       <Row className="m-1">
-        <Col>
-          <h4 className={styles.h4}>{name}</h4>
+        <Col className={styles.name}>
+          <h4>{name}</h4>
         </Col>
       </Row>
       <Row>
@@ -34,9 +34,9 @@ function CombatArenaProgress({ name, powerstats }) {
     </>
   );
 }
-CombatArenaProgress.propTypes = {
+CombatArenaCardAdversary.propTypes = {
   name: PropTypes.string.isRequired,
   powerstats: PropTypes.string.isRequired,
 };
 
-export default CombatArenaProgress;
+export default CombatArenaCardAdversary;

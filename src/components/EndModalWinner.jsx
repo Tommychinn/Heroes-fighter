@@ -10,16 +10,18 @@ function EndModalWinner({ isOpen, myCounter, counterAdversary }) {
   return (
     <div>
       <Modal isOpen={isOpen} className={styles.background}>
-        <Confetti className={styles.confetti} />
         <ModalBody className={styles.modal}>
           <Row>
-            <Col>
-              {myCounter > counterAdversary ? (
+            {myCounter > counterAdversary ? (
+              <Col>
+                <Confetti className={styles.confetti} />
                 <h1>Vous avez gagné !</h1>
-              ) : (
+              </Col>
+            ) : (
+              <Col>
                 <h1>Vous avez perdu !</h1>
-              )}
-            </Col>
+              </Col>
+            )}
           </Row>
           <Row>
             <Col xs={{ size: 2, offset: 5 }}>
