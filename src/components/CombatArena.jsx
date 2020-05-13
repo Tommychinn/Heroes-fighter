@@ -43,6 +43,15 @@ class CombatArena extends Component {
     )
       .then(({ data }) => {
         this.setState({ adversary: data });
+        const { adversary } = this.state;
+        if (
+          (adversary.powerstats && adversary.powerstats.strength) === 'null' ||
+          (adversary.powerstats && adversary.powerstats.speed) === 'null' ||
+          (adversary.powerstats && adversary.powerstats.combat) === 'null' ||
+          (adversary.powerstats && adversary.powerstats.power) === 'null'
+        ) {
+          this.getAdversary();
+        }
       })
       .catch((err) => {
         this.setState({
@@ -54,15 +63,6 @@ class CombatArena extends Component {
           isLoading: false,
         })
       );
-    const { adversary } = this.state;
-    if (
-      (adversary.powerstats && adversary.powerstats.strength) === 'null' ||
-      (adversary.powerstats && adversary.powerstats.speed) === 'null' ||
-      (adversary.powerstats && adversary.powerstats.combat) === 'null' ||
-      (adversary.powerstats && adversary.powerstats.power) === 'null'
-    ) {
-      this.getAdversary();
-    }
   }
 
   getHeroId() {
