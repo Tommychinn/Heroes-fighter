@@ -14,6 +14,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
+  "parser": "babel-eslint",
   "plugins": ["react", "prettier"],
   "rules": {
     "react/jsx-no-bind": [1, { "allowArrowFunctions": true }],
@@ -21,7 +22,8 @@
     "no-nested-ternary": "off",
     "class-methods-use-this": "off",
     "no-plusplus":"off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "react/jsx-props-no-spreading": "off"
   },
   "extends": ["airbnb", 
     "plugin:prettier/recommended",
