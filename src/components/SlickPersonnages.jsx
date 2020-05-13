@@ -15,7 +15,7 @@ class SlickPersonnages extends React.Component {
       hero: [],
       isLoading: false,
     };
-    // this.randomize = this.randomizeHero.bind(this);
+    this.randomize = this.randomizeHero.bind(this);
   }
 
   componentDidMount() {
@@ -42,18 +42,18 @@ class SlickPersonnages extends React.Component {
       );
   }
 
-  // randomizeHero(tab) {
-  //   let i = 0;
-  //   let j = 0;
-  //   let tmp = 0;
-  //   for (i = tab.length - 1; i > 0; i--) {
-  //     j = Math.floor(Math.random() * (i + 1));
-  //     tmp = tab[i];
-  //     tab[i] = tab[j];
-  //     tab[j] = tmp;
-  //   }
-  //   return tab;
-  // }
+  randomizeHero(tab) {
+    let i = 0;
+    let j = 0;
+    let tmp = 0;
+    for (i = tab.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      tmp = tab[i];
+      tab[i] = tab[j];
+      tab[j] = tmp;
+    }
+    return tab;
+  }
 
   render() {
     const { isLoading, error, hero } = this.state;
