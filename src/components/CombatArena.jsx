@@ -24,7 +24,6 @@ class CombatArena extends Component {
       isLoading: true,
     };
     this.handleAttack = this.handleAttack.bind(this);
-    this.handleDeath = this.handleDeath.bind(this);
   }
 
   componentDidMount() {
@@ -75,66 +74,122 @@ class CombatArena extends Component {
   }
 
   attack() {
-    const { counterAdversary } = this.state;
-    const value = Math.floor(Math.random() * 30);
-    const shouldModalTrigger = counterAdversary - value <= 0;
-
-    this.setState((state) => ({
-      ...state,
-      counterAdversary: state.counterAdversary - value,
-      attackClickable: false,
-      triggerModal: shouldModalTrigger,
-    }));
-
+    const { heroId, adversary, counterAdversary } = this.state;
+    const shouldModalTrigger = counterAdversary <= 0;
+    if (heroId.powerstats.strength >= adversary.powerstats.strength) {
+      if (heroId.powerstats.strength - adversary.powerstats.strength === 100) {
+        this.setState({ counterAdversary: counterAdversary - 100 });
+      } else if (
+        heroId.powerstats.strength - adversary.powerstats.strength >
+        70
+      ) {
+        this.setState({
+          counterAdversary:
+            counterAdversary - (30 + Math.floor(Math.random() * 10)),
+        });
+      } else if (
+        heroId.powerstats.strength - adversary.powerstats.strength >
+        50
+      ) {
+        this.setState({
+          counterAdversary:
+            counterAdversary - (20 + Math.floor(Math.random() * 10)),
+        });
+      } else if (
+        heroId.powerstats.strength - adversary.powerstats.strength >
+        30
+      ) {
+        this.setState({
+          counterAdversary:
+            counterAdversary - (10 + Math.floor(Math.random() * 10)),
+        });
+      } else if (
+        heroId.powerstats.strength - adversary.powerstats.strength <
+        10
+      ) {
+        this.setState({
+          counterAdversary: counterAdversary - Math.floor(Math.random() * 10),
+        });
+      }
+    }
+    if (heroId.powerstats.strength <= adversary.powerstats.strength) {
+      this.setState({
+        counterAdversary: counterAdversary - Math.floor(Math.random() * 10),
+      });
+    }
     if (!shouldModalTrigger) {
       setTimeout(() => this.defend(), 1500);
     }
   }
 
   defend() {
-    const { myCounter } = this.state;
-
-    const value = Math.floor(Math.random() * 30);
-    const shouldModalTrigger = myCounter - value <= 0;
-
-    this.setState((state) => ({
-      ...state,
-      myCounter: state.myCounter - value,
-      attackClickable: true,
-      triggerModal: shouldModalTrigger,
-    }));
-  }
-
-  handleDeath() {
-    const { counterAdversary, myCounter } = this.state;
-    if (counterAdversary >= 30) {
+    const { heroId, adversary, myCounter } = this.state;
+    if (heroId.powerstats.strength <= adversary.powerstats.strength) {
+      if (adversary.powerstats.strength - heroId.powerstats.strength === 100) {
+        this.setState({ myCounter: myCounter - 100 });
+      } else if (
+        adversary.powerstats.strength - heroId.powerstats.strength >
+        70
+      ) {
+        this.setState({
+          myCounter: myCounter - (30 + Math.floor(Math.random() * 10)),
+        });
+      } else if (
+        adversary.powerstats.strength - heroId.powerstats.strength >
+        50
+      ) {
+        this.setState({
+          myCounter: myCounter - (20 + Math.floor(Math.random() * 10)),
+        });
+      } else if (
+        adversary.powerstats.strength - heroId.powerstats.strength >
+        30
+      ) {
+        this.setState({
+          myCounter: myCounter - (10 + Math.floor(Math.random() * 10)),
+        });
+      } else if (
+        adversary.powerstats.strength - heroId.powerstats.strength <
+        10
+      ) {
+        this.setState({
+          myCounter: myCounter - Math.floor(Math.random() * 10),
+        });
+      }
+    }
+    if (adversary.powerstats.strength <= heroId.powerstats.strength) {
       this.setState({
-        counterAdversary: counterAdversary - 30,
-        myCounter: myCounter - 10,
-      });
-    } else {
-      this.setState({
-        counterAdversary: counterAdversary - counterAdversary,
-        myCounter: myCounter - 10,
+        myCounter: myCounter - Math.floor(Math.random() * 10),
       });
     }
-    if (counterAdversary > 0) {
-      setTimeout(() => {
-        this.toggleButton();
-        if (myCounter >= 30) {
-          this.setState({
-            myCounter: myCounter - Math.floor(Math.random() * 50),
-          });
-        } else {
-          this.setState({
-            myCounter: myCounter - myCounter,
-          });
-        }
-      }, 1500);
-    }
-    this.toggleButton();
-    this.setState({ disabled: 'disabled' });
   }
+
+  // attack() {
+  //   const { counterAdversary } = this.state;
+  //   const value = Math.floor(Math.random() * 30);
+  //   const shouldModalTrigger = counterAdversary - value <= 0;
+  //   this.setState((state) => ({
+  //     ...state,
+  //     counterAdversary: state.counterAdversary - value,
+  //     attackClickable: false,
+  //     triggerModal: shouldModalTrigger,
+  //   }));
+  //   if (!shouldModalTrigger) {
+  //     setTimeout(() => this.defend(), 1500);
+  //   }
+  // }
+
+  // defend() {
+  //   const { myCounter } = this.state;
+  //   const value = Math.floor(Math.random() * 30);
+  //   const shouldModalTrigger = myCounter - value <= 0;
+  //   this.setState((state) => ({
+  //     ...state,
+  //     myCounter: state.myCounter - value,
+  //     attackClickable: true,
+  //     triggerModal: shouldModalTrigger,
+  //   }));
+  // }
 
   render() {
     const {
@@ -182,17 +237,22 @@ class CombatArena extends Component {
             </Col>
             <Fade right className={styles.fade}>
               <Col className={styles.persoLevels} xs="4">
-                <Row className="m-3">
+                <Row className="m-1">
                   <Col className={styles.name}>
-                    <p>{adversary.name}</p>
+                    <h4>{adversary.name}</h4>
                   </Col>
                 </Row>
                 <Row>
-                  <Col className={styles.vie}>
-                    <Progress color="primary" value={counterAdversary}>
-                      {counterAdversary}
-                    </Progress>
-                  </Col>
+                  <Col>Force</Col>
+                  <Col>?</Col>
+                  <Col>Vitesse</Col>
+                  <Col>?</Col>
+                </Row>
+                <Row>
+                  <Col>Puissance</Col>
+                  <Col>?</Col>
+                  <Col>Combat</Col>
+                  <Col>?</Col>
                 </Row>
               </Col>
             </Fade>
@@ -208,6 +268,7 @@ class CombatArena extends Component {
                 handleDeath={this.handleDeath}
                 attackClickable={attackClickable}
                 disabled={disabled}
+                myCounter={myCounter}
               />
             </Col>
             <Col xs={{ size: 4, offset: 2 }} className={styles.cardD}>
@@ -222,7 +283,20 @@ class CombatArena extends Component {
                   height: '65vh',
                   borderRadius: '50px',
                 }}
-              />
+              >
+                <Col
+                  style={{ height: '15%', paddingTop: '5%' }}
+                  md={{ size: 8, offset: 2 }}
+                >
+                  <Progress
+                    color="primary"
+                    value={counterAdversary}
+                    style={{ height: '25%', borderRadius: '500px' }}
+                  >
+                    {counterAdversary}
+                  </Progress>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>

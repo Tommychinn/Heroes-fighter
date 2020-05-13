@@ -3,15 +3,35 @@ import { Progress, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 import styles from './CombatArena.module.css';
 
-function CombatArenaProgress({ name, myCounter }) {
+function CombatArenaProgress({ name, powerstats }) {
   return (
     <>
-      <Row className="m-3">
-        <Col className={styles.name}>
-          <p>{name}</p>
+      <Row className="m-1">
+        <Col>
+          <h4 className={styles.h4}>{name}</h4>
         </Col>
       </Row>
-      <Row style={{ height: '100%' }}>
+      <Row>
+        <Col>Force</Col>
+        <Col>
+          <Progress value={powerstats && powerstats.strength} />
+        </Col>
+        <Col>Vitesse</Col>
+        <Col>
+          <Progress value={powerstats && powerstats.speed} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>Puissance</Col>
+        <Col>
+          <Progress value={powerstats && powerstats.power} />
+        </Col>
+        <Col>Combat</Col>
+        <Col>
+          <Progress value={powerstats && powerstats.combat} />
+        </Col>
+      </Row>
+      {/* <Row style={{ height: '100%' }}>
         <Col md={{ size: 8, offset: 2 }}>
           <Progress
             color="primary"
@@ -21,13 +41,13 @@ function CombatArenaProgress({ name, myCounter }) {
             {myCounter}
           </Progress>
         </Col>
-      </Row>
+      </Row> */}
     </>
   );
 }
 CombatArenaProgress.propTypes = {
   name: PropTypes.string.isRequired,
-  myCounter: PropTypes.string.isRequired,
+  powerstats: PropTypes.string.isRequired,
 };
 
 export default CombatArenaProgress;

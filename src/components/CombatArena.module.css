@@ -65,7 +65,6 @@
 .persoAttac {
   height: 65vh;
   border-radius: 30px;
-  /* padding: 30px; */
   opacity: 1;
 }
 
@@ -89,4 +88,7 @@
 
 .fade {
   width:100% !important;
+}
+.h4 {
+  font-style: bold;
 }
