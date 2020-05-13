@@ -30,3 +30,11 @@
   margin-left : 100px;
   padding-top: 30px;
 }
+
+@media screen and (max-width: 600px) {
+    .slick-list {
+        width: 60%;
+        /* display: flex;
+        justify-content: center; */
+    }
+}
