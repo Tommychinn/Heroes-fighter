@@ -19,9 +19,9 @@ class SlickPersonnages extends React.Component {
   }
 
   componentDidMount() {
-    // const { hero } = this.state;
+    const { hero } = this.state;
     this.getHero();
-    // this.setState({ hero: this.randomizeHero(hero) });
+    this.setState({ hero: this.randomizeHero(hero) });
   }
 
   getHero() {
