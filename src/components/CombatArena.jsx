@@ -9,7 +9,7 @@ import CombatArenaBackground from './CombatArenaBackground';
 import CombatArenaProgress from './CombatArenaProgress';
 import CombatArenaCard from './CombatArenaCard';
 import EndModalWinner from './EndModalWinner';
-import CombatArenaCardAdversary from './CombatArenaCardAdversary';
+import CombatArenaProgressAdversary from './CombatArenaProgressAdversary';
 
 class CombatArena extends Component {
   constructor(props) {
@@ -117,6 +117,7 @@ class CombatArena extends Component {
       this.setState((state) => ({
         ...state,
         counterAdversary: counterAdversary - value,
+        attackClickable: false,
         triggerModal: shouldModalTrigger,
       }));
     } else if (value <= 0) {
@@ -124,24 +125,28 @@ class CombatArena extends Component {
         this.setState((state) => ({
           ...state,
           counterAdversary: counterAdversary - 5,
+          attackClickable: false,
           triggerModal: shouldModalTrigger,
         }));
       } else if (value > -40) {
         this.setState((state) => ({
           ...state,
           counterAdversary: counterAdversary - 10,
+          attackClickable: false,
           triggerModal: shouldModalTrigger,
         }));
       } else if (value > -60) {
         this.setState((state) => ({
           ...state,
           counterAdversary: counterAdversary - 15,
+          attackClickable: false,
           triggerModal: shouldModalTrigger,
         }));
       } else if (value <= 0) {
         this.setState((state) => ({
           ...state,
           counterAdversary: counterAdversary - 20,
+          attackClickable: false,
           triggerModal: shouldModalTrigger,
         }));
       }
@@ -150,17 +155,6 @@ class CombatArena extends Component {
       setTimeout(() => this.defend(defendName), 1500);
     }
   }
-
-  // verificationLife(attackName) {
-  //   const { counterAdversary, myCounter } = this.state;
-  //   if (counterAdversary <= 0) {
-  //     this.setState({ counterAdversary: 0 });
-  //   } else if (myCounter <= 0) {
-  //     this.setState({ myCounter: 0 });
-  //   } else {
-  //     setTimeout(() => this.defend(attackName), 1500);
-  //   }
-  // }
 
   defend(attackName) {
     const { heroId, adversary, myCounter } = this.state;
@@ -172,6 +166,7 @@ class CombatArena extends Component {
       this.setState((state) => ({
         ...state,
         myCounter: myCounter - value,
+        attackClickable: true,
         triggerModal: shouldModalTrigger,
       }));
     } else if (value <= 0) {
@@ -179,24 +174,28 @@ class CombatArena extends Component {
         this.setState((state) => ({
           ...state,
           myCounter: myCounter - 5,
+          attackClickable: true,
           triggerModal: shouldModalTrigger,
         }));
       } else if (value > -40) {
         this.setState((state) => ({
           ...state,
           myCounter: myCounter - 10,
+          attackClickable: true,
           triggerModal: shouldModalTrigger,
         }));
       } else if (value > -60) {
         this.setState((state) => ({
           ...state,
           myCounter: myCounter - 15,
+          attackClickable: true,
           triggerModal: shouldModalTrigger,
         }));
       } else if (value <= 0) {
         this.setState((state) => ({
           ...state,
           myCounter: myCounter - 20,
+          attackClickable: true,
           triggerModal: shouldModalTrigger,
         }));
       }
@@ -275,7 +274,7 @@ class CombatArena extends Component {
             </Col>
             <Fade right className={styles.fade}>
               <Col className={styles.persoLevels} xs="4">
-                <CombatArenaCardAdversary
+                <CombatArenaProgressAdversary
                   name={adversary.name}
                   powerstats={adversary.powerstats}
                 />
