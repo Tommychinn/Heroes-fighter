@@ -31,17 +31,6 @@ function CombatArenaProgress({ name, powerstats }) {
           <Progress value={powerstats && powerstats.combat} />
         </Col>
       </Row>
-      {/* <Row style={{ height: '100%' }}>
-        <Col md={{ size: 8, offset: 2 }}>
-          <Progress
-            color="primary"
-            value={myCounter}
-            style={{ height: '25%', borderRadius: '500px' }}
-          >
-            {myCounter}
-          </Progress>
-        </Col>
-      </Row> */}
     </>
   );
 }

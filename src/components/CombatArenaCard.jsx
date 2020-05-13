@@ -5,9 +5,10 @@ import { Button, Row, Col, Progress } from 'reactstrap';
 function CombatArenaCard({
   url,
   attackClickable,
-  handleAttack,
-  handleDeath,
-  disabled,
+  handleAttackStrength,
+  handleAttackSpeed,
+  handleAttackCombat,
+  handleAttackPower,
   myCounter,
 }) {
   return (
@@ -28,7 +29,15 @@ function CombatArenaCard({
           md={{ size: 8, offset: 2 }}
         >
           <Progress
-            color="primary"
+            color={
+              myCounter >= 50
+                ? 'success'
+                : myCounter >= 20
+                ? 'warning'
+                : myCounter >= 0
+                ? 'danger'
+                : ''
+            }
             value={myCounter}
             style={{ height: '25%', borderRadius: '500px' }}
           >
@@ -39,17 +48,28 @@ function CombatArenaCard({
         <Row>
           <Col className="align-self-end mb-5">
             <Button
-              onClick={attackClickable ? handleAttack : ''}
+              onClick={attackClickable ? handleAttackStrength : ''}
               className="m-2"
             >
-              Attaque #1
+              Force
             </Button>
             <Button
-              disabled={disabled}
-              onClick={attackClickable ? handleDeath : ''}
+              onClick={attackClickable ? handleAttackSpeed : ''}
               className="m-2"
             >
-              The death
+              Vitesse
+            </Button>
+            <Button
+              onClick={attackClickable ? handleAttackPower : ''}
+              className="m-2"
+            >
+              Puissance
+            </Button>
+            <Button
+              onClick={attackClickable ? handleAttackCombat : ''}
+              className="m-2"
+            >
+              Combat
             </Button>
           </Col>
         </Row>
@@ -60,10 +80,11 @@ function CombatArenaCard({
 
 CombatArenaCard.propTypes = {
   url: PropTypes.string.isRequired,
-  handleAttack: PropTypes.string.isRequired,
-  handleDeath: PropTypes.string.isRequired,
+  handleAttackSpeed: PropTypes.string.isRequired,
+  handleAttackStrength: PropTypes.string.isRequired,
+  handleAttackPower: PropTypes.string.isRequired,
+  handleAttackCombat: PropTypes.string.isRequired,
   attackClickable: PropTypes.bool.isRequired,
-  disabled: PropTypes.string.isRequired,
   myCounter: PropTypes.string.isRequired,
 };
 

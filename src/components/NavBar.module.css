@@ -15,6 +15,7 @@
 }
 figure {
   position: relative;
+  margin: 20px 0 70px 0 !important;
 }
 figcaption {
   opacity: 0;

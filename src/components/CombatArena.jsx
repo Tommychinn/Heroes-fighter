@@ -23,7 +23,10 @@ class CombatArena extends Component {
       triggerModal: false,
       isLoading: true,
     };
-    this.handleAttack = this.handleAttack.bind(this);
+    this.handleAttackStrength = this.handleAttackStrength.bind(this);
+    this.handleAttackSpeed = this.handleAttackSpeed.bind(this);
+    this.handleAttackCombat = this.handleAttackCombat.bind(this);
+    this.handleAttackPower = this.handleAttackPower.bind(this);
   }
 
   componentDidMount() {
@@ -66,101 +69,269 @@ class CombatArena extends Component {
     this.setState({ attackClickable: !attackClickable });
   }
 
-  handleAttack() {
+  handleAttackStrength() {
     const { counterAdversary, myCounter } = this.state;
     if (counterAdversary > 0 && myCounter > 0) {
-      this.attack();
+      this.attackStrength();
     }
   }
 
-  attack() {
+  handleAttackSpeed() {
+    const { counterAdversary, myCounter } = this.state;
+    if (counterAdversary > 0 && myCounter > 0) {
+      this.attackSpeed();
+    }
+  }
+
+  handleAttackCombat() {
+    const { counterAdversary, myCounter } = this.state;
+    if (counterAdversary > 0 && myCounter > 0) {
+      this.attackCombat();
+    }
+  }
+
+  handleAttackPower() {
+    const { counterAdversary, myCounter } = this.state;
+    if (counterAdversary > 0 && myCounter > 0) {
+      this.attackPower();
+    }
+  }
+
+  attackStrength() {
     const { heroId, adversary, counterAdversary } = this.state;
-    const shouldModalTrigger = counterAdversary <= 0;
     if (heroId.powerstats.strength >= adversary.powerstats.strength) {
-      if (heroId.powerstats.strength - adversary.powerstats.strength === 100) {
-        this.setState({ counterAdversary: counterAdversary - 100 });
-      } else if (
-        heroId.powerstats.strength - adversary.powerstats.strength >
-        70
-      ) {
-        this.setState({
-          counterAdversary:
-            counterAdversary - (30 + Math.floor(Math.random() * 10)),
-        });
-      } else if (
-        heroId.powerstats.strength - adversary.powerstats.strength >
-        50
-      ) {
-        this.setState({
-          counterAdversary:
-            counterAdversary - (20 + Math.floor(Math.random() * 10)),
-        });
-      } else if (
-        heroId.powerstats.strength - adversary.powerstats.strength >
-        30
-      ) {
-        this.setState({
-          counterAdversary:
-            counterAdversary - (10 + Math.floor(Math.random() * 10)),
-        });
-      } else if (
-        heroId.powerstats.strength - adversary.powerstats.strength <
-        10
-      ) {
-        this.setState({
-          counterAdversary: counterAdversary - Math.floor(Math.random() * 10),
-        });
+      const difference =
+        heroId.powerstats.strength - adversary.powerstats.strength;
+      this.setState({
+        counterAdversary: counterAdversary - difference / 2,
+      });
+    } else if (heroId.powerstats.strength <= adversary.powerstats.strength) {
+      const difference2 =
+        adversary.powerstats.strength - heroId.powerstats.strength;
+      if (difference2 < 20) {
+        this.setState({ counterAdversary: counterAdversary - 20 });
+      } else if (difference2 < 40) {
+        this.setState({ counterAdversary: counterAdversary - 10 });
+      } else if (difference2 < 60) {
+        this.setState({ counterAdversary: counterAdversary - 5 });
+      } else {
+        this.setState({ counterAdversary: counterAdversary - 2 });
       }
     }
-    if (heroId.powerstats.strength <= adversary.powerstats.strength) {
-      this.setState({
-        counterAdversary: counterAdversary - Math.floor(Math.random() * 10),
-      });
+    if (counterAdversary <= 0) {
+      this.setState({ counterAdversary: 0 });
     }
-    if (!shouldModalTrigger) {
-      setTimeout(() => this.defend(), 1500);
+    this.verificationLifeStrength();
+  }
+
+  attackSpeed() {
+    const { heroId, adversary, counterAdversary } = this.state;
+    if (heroId.powerstats.speed >= adversary.powerstats.speed) {
+      const difference = heroId.powerstats.speed - adversary.powerstats.speed;
+      this.setState({
+        counterAdversary: counterAdversary - difference / 2,
+      });
+    } else if (heroId.powerstats.speed <= adversary.powerstats.speed) {
+      const difference2 = adversary.powerstats.speed - heroId.powerstats.speed;
+      if (difference2 < 20) {
+        this.setState({ counterAdversary: counterAdversary - 20 });
+      } else if (difference2 < 40) {
+        this.setState({ counterAdversary: counterAdversary - 10 });
+      } else if (difference2 < 60) {
+        this.setState({ counterAdversary: counterAdversary - 5 });
+      } else {
+        this.setState({ counterAdversary: counterAdversary - 2 });
+      }
+    }
+    if (counterAdversary <= 0) {
+      this.setState({ counterAdversary: 0 });
+    }
+    this.verificationLifeSpeed();
+  }
+
+  attackPower() {
+    const { heroId, adversary, counterAdversary } = this.state;
+    if (heroId.powerstats.power >= adversary.powerstats.power) {
+      const difference = heroId.powerstats.power - adversary.powerstats.power;
+      this.setState({
+        counterAdversary: counterAdversary - difference / 2,
+      });
+    } else if (heroId.powerstats.power <= adversary.powerstats.power) {
+      const difference2 = adversary.powerstats.power - heroId.powerstats.power;
+      if (difference2 < 20) {
+        this.setState({ counterAdversary: counterAdversary - 20 });
+      } else if (difference2 < 40) {
+        this.setState({ counterAdversary: counterAdversary - 10 });
+      } else if (difference2 < 60) {
+        this.setState({ counterAdversary: counterAdversary - 5 });
+      } else {
+        this.setState({ counterAdversary: counterAdversary - 2 });
+      }
+    }
+    if (counterAdversary <= 0) {
+      this.setState({ counterAdversary: 0 });
+    }
+    this.verificationLifePower();
+  }
+
+  attackCombat() {
+    const { heroId, adversary, counterAdversary } = this.state;
+    if (heroId.powerstats.combat >= adversary.powerstats.combat) {
+      const difference = heroId.powerstats.combat - adversary.powerstats.combat;
+      this.setState({
+        counterAdversary: counterAdversary - difference / 2,
+      });
+    } else if (heroId.powerstats.combat <= adversary.powerstats.combat) {
+      const difference2 =
+        adversary.powerstats.combat - heroId.powerstats.combat;
+      if (difference2 < 20) {
+        this.setState({ counterAdversary: counterAdversary - 20 });
+      } else if (difference2 < 40) {
+        this.setState({ counterAdversary: counterAdversary - 10 });
+      } else if (difference2 < 60) {
+        this.setState({ counterAdversary: counterAdversary - 5 });
+      } else {
+        this.setState({ counterAdversary: counterAdversary - 2 });
+      }
+    }
+    if (counterAdversary <= 0) {
+      this.setState({ counterAdversary: 0 });
+    }
+    this.verificationLifeCombat();
+  }
+
+  verificationLifeStrength() {
+    const { counterAdversary, myCounter } = this.state;
+    if (counterAdversary <= 0) {
+      this.setState({ counterAdversary: 0 });
+    } else if (myCounter <= 0) {
+      this.setState({ myCounter: 0 });
+    } else {
+      setTimeout(() => this.defendSpeed(), 1500);
     }
   }
 
-  defend() {
+  verificationLifeSpeed() {
+    const { counterAdversary, myCounter } = this.state;
+    if (counterAdversary <= 0) {
+      this.setState({ counterAdversary: 0 });
+    } else if (myCounter <= 0) {
+      this.setState({ myCounter: 0 });
+    } else {
+      setTimeout(() => this.defendCombat(), 1500);
+    }
+  }
+
+  verificationLifeCombat() {
+    const { counterAdversary, myCounter } = this.state;
+    if (counterAdversary <= 0) {
+      this.setState({ counterAdversary: 0 });
+    } else if (myCounter <= 0) {
+      this.setState({ myCounter: 0 });
+    } else {
+      setTimeout(() => this.defendPower(), 1500);
+    }
+  }
+
+  verificationLifePower() {
+    const { counterAdversary, myCounter } = this.state;
+    if (counterAdversary <= 0) {
+      this.setState({ counterAdversary: 0 });
+    } else if (myCounter <= 0) {
+      this.setState({ myCounter: 0 });
+    } else {
+      setTimeout(() => this.defendStrength(), 1500);
+    }
+  }
+
+  defendStrength() {
     const { heroId, adversary, myCounter } = this.state;
-    if (heroId.powerstats.strength <= adversary.powerstats.strength) {
-      if (adversary.powerstats.strength - heroId.powerstats.strength === 100) {
-        this.setState({ myCounter: myCounter - 100 });
-      } else if (
-        adversary.powerstats.strength - heroId.powerstats.strength >
-        70
-      ) {
-        this.setState({
-          myCounter: myCounter - (30 + Math.floor(Math.random() * 10)),
-        });
-      } else if (
-        adversary.powerstats.strength - heroId.powerstats.strength >
-        50
-      ) {
-        this.setState({
-          myCounter: myCounter - (20 + Math.floor(Math.random() * 10)),
-        });
-      } else if (
-        adversary.powerstats.strength - heroId.powerstats.strength >
-        30
-      ) {
-        this.setState({
-          myCounter: myCounter - (10 + Math.floor(Math.random() * 10)),
-        });
-      } else if (
-        adversary.powerstats.strength - heroId.powerstats.strength <
-        10
-      ) {
-        this.setState({
-          myCounter: myCounter - Math.floor(Math.random() * 10),
-        });
+    if (adversary.powerstats.strength >= heroId.powerstats.strength) {
+      const difference =
+        adversary.powerstats.strength - heroId.powerstats.strength;
+      this.setState({ myCounter: myCounter - difference / 2 });
+    } else if (adversary.powerstats.strength <= heroId.powerstats.strength) {
+      const difference2 =
+        heroId.powerstats.strength - adversary.powerstats.strength;
+      if (difference2 < 20) {
+        this.setState({ myCounter: myCounter - 20 });
+      } else if (difference2 < 40) {
+        this.setState({ myCounter: myCounter - 10 });
+      } else if (difference2 < 60) {
+        this.setState({ myCounter: myCounter - 5 });
+      } else {
+        this.setState({ myCounter: myCounter - 2 });
       }
     }
-    if (adversary.powerstats.strength <= heroId.powerstats.strength) {
-      this.setState({
-        myCounter: myCounter - Math.floor(Math.random() * 10),
-      });
+    if (myCounter <= 0) {
+      this.setState({ myCounter: 0 });
+    }
+  }
+
+  defendSpeed() {
+    const { heroId, adversary, myCounter } = this.state;
+    if (adversary.powerstats.speed >= heroId.powerstats.speed) {
+      const difference = adversary.powerstats.speed - heroId.powerstats.speed;
+      this.setState({ myCounter: myCounter - difference / 2 });
+    } else if (adversary.powerstats.speed <= heroId.powerstats.speed) {
+      const difference2 = heroId.powerstats.speed - adversary.powerstats.speed;
+      if (difference2 < 20) {
+        this.setState({ myCounter: myCounter - 20 });
+      } else if (difference2 < 40) {
+        this.setState({ myCounter: myCounter - 10 });
+      } else if (difference2 < 60) {
+        this.setState({ myCounter: myCounter - 5 });
+      } else {
+        this.setState({ myCounter: myCounter - 2 });
+      }
+    }
+    if (myCounter <= 0) {
+      this.setState({ myCounter: 0 });
+    }
+  }
+
+  defendPower() {
+    const { heroId, adversary, myCounter } = this.state;
+    if (adversary.powerstats.power >= heroId.powerstats.power) {
+      const difference = adversary.powerstats.power - heroId.powerstats.power;
+      this.setState({ myCounter: myCounter - difference / 2 });
+    } else if (adversary.powerstats.power <= heroId.powerstats.power) {
+      const difference2 = heroId.powerstats.power - adversary.powerstats.power;
+      if (difference2 < 20) {
+        this.setState({ myCounter: myCounter - 20 });
+      } else if (difference2 < 40) {
+        this.setState({ myCounter: myCounter - 10 });
+      } else if (difference2 < 60) {
+        this.setState({ myCounter: myCounter - 5 });
+      } else {
+        this.setState({ myCounter: myCounter - 2 });
+      }
+    }
+    if (myCounter <= 0) {
+      this.setState({ myCounter: 0 });
+    }
+  }
+
+  defendCombat() {
+    const { heroId, adversary, myCounter } = this.state;
+    if (adversary.powerstats.combat >= heroId.powerstats.combat) {
+      const difference = adversary.powerstats.combat - heroId.powerstats.combat;
+      this.setState({ myCounter: myCounter - difference / 2 });
+    } else if (adversary.powerstats.combat <= heroId.powerstats.combat) {
+      const difference2 =
+        heroId.powerstats.combat - adversary.powerstats.combat;
+      if (difference2 < 20) {
+        this.setState({ myCounter: myCounter - 20 });
+      } else if (difference2 < 40) {
+        this.setState({ myCounter: myCounter - 10 });
+      } else if (difference2 < 60) {
+        this.setState({ myCounter: myCounter - 5 });
+      } else {
+        this.setState({ myCounter: myCounter - 2 });
+      }
+    }
+    if (myCounter <= 0) {
+      this.setState({ myCounter: 0 });
     }
   }
 
@@ -244,15 +415,35 @@ class CombatArena extends Component {
                 </Row>
                 <Row>
                   <Col>Force</Col>
-                  <Col>?</Col>
+                  <Col>
+                    <Progress
+                      value={
+                        adversary.powerstats && adversary.powerstats.strength
+                      }
+                    />
+                  </Col>
                   <Col>Vitesse</Col>
-                  <Col>?</Col>
+                  <Col>
+                    <Progress
+                      value={adversary.powerstats && adversary.powerstats.speed}
+                    />
+                  </Col>
                 </Row>
                 <Row>
                   <Col>Puissance</Col>
-                  <Col>?</Col>
+                  <Col>
+                    <Progress
+                      value={adversary.powerstats && adversary.powerstats.power}
+                    />
+                  </Col>
                   <Col>Combat</Col>
-                  <Col>?</Col>
+                  <Col>
+                    <Progress
+                      value={
+                        adversary.powerstats && adversary.powerstats.combat
+                      }
+                    />
+                  </Col>
                 </Row>
               </Col>
             </Fade>
@@ -264,8 +455,10 @@ class CombatArena extends Component {
               <CombatArenaCard
                 name={heroId.name}
                 url={heroId.image && heroId.image.url}
-                handleAttack={this.handleAttack}
-                handleDeath={this.handleDeath}
+                handleAttackStrength={this.handleAttackStrength}
+                handleAttackSpeed={this.handleAttackSpeed}
+                handleAttackCombat={this.handleAttackCombat}
+                handleAttackPower={this.handleAttackPower}
                 attackClickable={attackClickable}
                 disabled={disabled}
                 myCounter={myCounter}
@@ -289,7 +482,15 @@ class CombatArena extends Component {
                   md={{ size: 8, offset: 2 }}
                 >
                   <Progress
-                    color="primary"
+                    color={
+                      counterAdversary >= 50
+                        ? 'success'
+                        : counterAdversary >= 20
+                        ? 'warning'
+                        : counterAdversary >= 0
+                        ? 'danger'
+                        : ''
+                    }
                     value={counterAdversary}
                     style={{ height: '25%', borderRadius: '500px' }}
                   >
