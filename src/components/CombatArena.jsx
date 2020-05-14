@@ -356,16 +356,17 @@ class CombatArena extends Component {
                           : counterAdversary >= 0
                           ? 'danger'
                           : ''
-                      }                    
-                    value={counterAdversary <= 0 ? '0' : counterAdversary}
-                    style={{
-                      height: '5%',
-                      borderRadius: '500px',
-                      marginTop: '5%',
-                    }}
-                  >
-                    {counterAdversary}
-                  </Progress>
+                      }
+                      value={counterAdversary <= 0 ? '0' : counterAdversary}
+                      style={{
+                        height: '5%',
+                        borderRadius: '500px',
+                        marginTop: '5%',
+                      }}
+                    >
+                      {counterAdversary}
+                    </Progress>
+                  )}
                 </Col>
               </Row>
             </Col>

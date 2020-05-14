@@ -6,7 +6,6 @@ import { Flash } from 'react-motions';
 
 import styles from './CombatArena.module.css';
 
-
 function CombatArenaCard({
   url,
   attackClickable,
@@ -63,13 +62,13 @@ function CombatArenaCard({
                   : myCounter >= 0
                   ? 'danger'
                   : ''
-              
-            }
-            value={myCounter <= 0 ? '0' : myCounter}
-            style={{ height: '15%', borderRadius: '500px', marginTop: '5%' }}
-          >
-            {myCounter}
-          </Progress>
+              }
+              value={myCounter <= 0 ? '0' : myCounter}
+              style={{ height: '15%', borderRadius: '500px', marginTop: '5%' }}
+            >
+              {myCounter}
+            </Progress>
+          )}
         </Col>
         {/* </Row> */}
         <Row>
