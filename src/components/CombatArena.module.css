@@ -1,94 +1,44 @@
 .background {
-  position: absolute;
-}
-
-.background img {
   background-size: cover;
-  min-width: 100%;
-  min-height: 100%;
-  position: fixed;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  top: 0;
-  bottom: 0;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/853/26/556/space-art-artwork-concept-art-fantasy-art-wallpaper-preview.jpg');
 }
 
 .persoLevels {
-  background-image: url(./img/whiteBackground.png);
-  top: 5vh;
-  height: 15vh;
-  padding: 10px;
-  opacity: 0.7;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 3vh;
   border-radius: 30px;
-  max-width: 100% !important;
-  width : 25vw !important;
-}
-
-.persoLevels .name {
-  color: black;
-  float: left;
-  width: 50%;
-  height: 40px;
-  font-weight: bold;
-  font-size: 1.4em;
-}
-
-.progressBar {
-  height: 10%;
-}
-
-.persoLevels .stats {
-  float: right;
-  width: 50%;
-}
-
-.statsProgress {
-  width: 80%;
-  margin: 10px;
+  width: 100%;
 }
 
 .versus {
   font-size: 5em;
   color: white;
-  padding-top: 13vh;
   font-weight: bold;
 }
 
-.attac {
-  font-size: 2em;
-  color: white;
-  padding-top: 50vh;
-  font-weight: bold;
-}
-
-.persoAttac {
-  height: 65vh;
-  border-radius: 30px;
-  opacity: 1;
-}
-
-.perso {
-  border-radius: 20px;
-}
-
-.persoImage {
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-}
-
-.cardD img,
-.cardG img {
-  width: 22vw;
-  border-radius: 50px;
-  height: 30vw;
-  object-fit: cover;
-  transition: 0.3s ease-in-out;
-}
-
-.fade {
-  width:100% !important;
-}
 .h4 {
   font-style: bold;
+  font-size : 2rem;
+}
+.h2 {
+  position: absolute;
+  top: 50vh;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1vw;
+  color: black;
+  border-radius: 500px;
+}
+.sentences {
+  display:flex;
+  justify-content: space-evenly;
+}
+.h2, .h4{
+  font-family: 'Bangers', cursive;
+}
+.button {
+  font-family: 'Bangers', cursive !important;
+  font-size:1.3rem !important;  
 }

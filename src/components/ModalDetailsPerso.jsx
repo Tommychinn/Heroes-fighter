@@ -40,10 +40,12 @@ function ModalDetailsPerso({ name, image, powerstats, biography, id }) {
         tabIndex={0}
         onKeyDown={handleKeyDown}
       >
-        <Button>Jouer</Button>
+        <Button className={styles.button}>Play</Button>
       </div>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader>{biography && biography.publisher}</ModalHeader>
+        <ModalHeader className={styles.modalHeader}>
+          Universe : {biography && biography.publisher}
+        </ModalHeader>
         <ModalBody>
           <Container>
             <Row>
@@ -57,14 +59,14 @@ function ModalDetailsPerso({ name, image, powerstats, biography, id }) {
                 </Row>
                 <Row>
                   <Col lg="10">
-                    <h3>Pouvoirs</h3>
+                    <h3 className={styles.h3}>Powerstats</h3>
                     <DetailsPersoModal powerstats={powerstats} />
                   </Col>
                 </Row>
               </Col>
               <Col lg="8">
                 <Row>
-                  <h3>{name}</h3>
+                  <h3 className={styles.h3}>{name}</h3>
                 </Row>
                 <Col>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -79,7 +81,7 @@ function ModalDetailsPerso({ name, image, powerstats, biography, id }) {
 
                 {/* /*Ligne Texte Equipements */}
                 <Row>
-                  <h3>Equipements</h3>
+                  <h3 className={styles.h3}>Equipments</h3>
                 </Row>
                 <Col>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
@@ -96,10 +98,10 @@ function ModalDetailsPerso({ name, image, powerstats, biography, id }) {
           </Container>
         </ModalBody>
         <ModalFooter>
-          <Button tag={Link} to={`/arenes/${id}`}>
+          <Button className={styles.button} tag={Link} to={`/arenes/${id}`}>
             Go !
           </Button>
-          <Button color="secondary" onClick={toggle}>
+          <Button className={styles.button} onClick={toggle}>
             Annuler
           </Button>
         </ModalFooter>

@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Row, Col, Progress } from 'reactstrap';
+
 import { Flash } from 'react-motions';
+
+import styles from './CombatArena.module.css';
+
 
 function CombatArenaCard({
   url,
@@ -41,7 +45,7 @@ function CombatArenaCard({
                 }
                 value={myCounter <= 0 ? '0' : myCounter}
                 style={{
-                  height: '25%',
+                  height: '15%',
                   borderRadius: '500px',
                   marginTop: '5%',
                 }}
@@ -59,13 +63,13 @@ function CombatArenaCard({
                   : myCounter >= 0
                   ? 'danger'
                   : ''
-              }
-              value={myCounter <= 0 ? '0' : myCounter}
-              style={{ height: '25%', borderRadius: '500px', marginTop: '5%' }}
-            >
-              {myCounter}
-            </Progress>
-          )}
+              
+            }
+            value={myCounter <= 0 ? '0' : myCounter}
+            style={{ height: '15%', borderRadius: '500px', marginTop: '5%' }}
+          >
+            {myCounter}
+          </Progress>
         </Col>
         {/* </Row> */}
         <Row>
@@ -73,28 +77,28 @@ function CombatArenaCard({
             <Button
               disabled={disabled}
               onClick={attackClickable ? handleAttackStrength : ''}
-              className="m-2"
+              className={`${styles.button} m-2`}
             >
               Force
             </Button>
             <Button
               disabled={disabled}
               onClick={attackClickable ? handleAttackSpeed : ''}
-              className="m-2"
+              className={`${styles.button} m-2`}
             >
               Vitesse
             </Button>
             <Button
               disabled={disabled}
               onClick={attackClickable ? handleAttackPower : ''}
-              className="m-2"
+              className={`${styles.button} m-2`}
             >
               Puissance
             </Button>
             <Button
               disabled={disabled}
               onClick={attackClickable ? handleAttackCombat : ''}
-              className="m-2"
+              className={`${styles.button} m-2`}
             >
               Combat
             </Button>

@@ -6,7 +6,6 @@ import Axios from 'axios';
 import Fade from 'react-reveal/Fade';
 
 import styles from './CombatArena.module.css';
-import CombatArenaBackground from './CombatArenaBackground';
 import CombatArenaProgress from './CombatArenaProgress';
 import CombatArenaCard from './CombatArenaCard';
 import EndModalWinner from './EndModalWinner';
@@ -24,6 +23,10 @@ class CombatArena extends Component {
       disabled: '',
       triggerModal: false,
       isLoading: true,
+      sentence1: false,
+      sentence2: false,
+      attack: '',
+      defend: '',
     };
     this.handleAttackStrength = this.handleAttackStrength.bind(this);
     this.handleAttackSpeed = this.handleAttackSpeed.bind(this);
@@ -109,11 +112,11 @@ class CombatArena extends Component {
   }
 
   attack(attackName, defendName) {
-    const { heroId, adversary, counterAdversary } = this.state;
+    const { heroId, adversary, counterAdversary, sentence1 } = this.state;
     const value =
       (heroId.powerstats[attackName] - adversary.powerstats[attackName]) / 2;
     const shouldModalTrigger = counterAdversary - value <= 0;
-
+    this.setState({ sentence1: !sentence1, attack: attackName });
     if (value > 0) {
       this.setState((state) => ({
         ...state,
@@ -152,17 +155,18 @@ class CombatArena extends Component {
         }));
       }
     }
+    setTimeout(() => this.setState({ sentence1: false }), 1500);
     if (!shouldModalTrigger) {
-      setTimeout(() => this.defend(defendName), 1500);
+      setTimeout(() => this.defend(defendName), 2000);
     }
   }
 
   defend(attackName) {
-    const { heroId, adversary, myCounter } = this.state;
+    const { heroId, adversary, myCounter, sentence2 } = this.state;
     const value =
       (adversary.powerstats[attackName] - heroId.powerstats[attackName]) / 2;
     const shouldModalTrigger = myCounter - value <= 0;
-
+    this.setState({ sentence2: !sentence2, defend: attackName });
     if (value > 0) {
       this.setState((state) => ({
         ...state,
@@ -201,6 +205,7 @@ class CombatArena extends Component {
         }));
       }
     }
+    setTimeout(() => this.setState({ sentence2: false }), 2000);
   }
 
   // attack() {
@@ -241,6 +246,10 @@ class CombatArena extends Component {
       triggerModal,
       isLoading,
       error,
+      sentence1,
+      sentence2,
+      attack,
+      defend,
     } = this.state;
     if (isLoading)
       return (
@@ -258,34 +267,33 @@ class CombatArena extends Component {
     if (error) return <div>Error...</div>;
     return (
       <div className={styles.arene}>
-        <CombatArenaBackground />
-        <Container>
+        <Container className={styles.background} fluid>
           <Row className="justify-content-center">
-            <Fade left className={styles.fade}>
-              <Col className={styles.persoLevels} xs="4">
+            <Col className={`${styles.persoLevels} mt-5`} xs="10" md="3">
+              <Fade left className={styles.fade}>
                 <CombatArenaProgress
                   name={heroId.name}
                   powerstats={heroId.powerstats}
                   myCounter={myCounter}
                 />
-              </Col>
-            </Fade>
-            <Col className={styles.versus} xs="2">
+              </Fade>
+            </Col>
+
+            <Col className={`${styles.versus} mt-5`} xs="1" md="2">
               <p>VS</p>
             </Col>
-            <Fade right className={styles.fade}>
-              <Col className={styles.persoLevels} xs="4">
+
+            <Col className={`${styles.persoLevels} mt-5`} xs="10" md="3">
+              <Fade right className={styles.fade}>
                 <CombatArenaProgressAdversary
                   name={adversary.name}
                   powerstats={adversary.powerstats}
                 />
-              </Col>
-            </Fade>
+              </Fade>
+            </Col>
           </Row>
-        </Container>
-        <Container className={styles.persoAttac}>
-          <Row className="justify-content-center">
-            <Col xs="4" className={styles.cardG}>
+          <Row className={`${styles.persoAttac} justify-content-center`}>
+            <Col xs="10" md="3" className={`${styles.cardG} mt-5`}>
               <CombatArenaCard
                 name={heroId.name}
                 url={heroId.image && heroId.image.url}
@@ -298,7 +306,11 @@ class CombatArena extends Component {
                 myCounter={myCounter}
               />
             </Col>
-            <Col xs={{ size: 4, offset: 2 }} className={styles.cardD}>
+            <Col
+              xs="10"
+              md={{ size: 3, offset: 2 }}
+              className={`${styles.cardD}  mt-5`}
+            >
               <Row
                 style={{
                   backgroundImage: `url(${
@@ -344,17 +356,16 @@ class CombatArena extends Component {
                           : counterAdversary >= 0
                           ? 'danger'
                           : ''
-                      }
-                      value={counterAdversary <= 0 ? '0' : counterAdversary}
-                      style={{
-                        height: '9%',
-                        borderRadius: '500px',
-                        marginTop: '5%',
-                      }}
-                    >
-                      {counterAdversary}
-                    </Progress>
-                  )}
+                      }                    
+                    value={counterAdversary <= 0 ? '0' : counterAdversary}
+                    style={{
+                      height: '5%',
+                      borderRadius: '500px',
+                      marginTop: '5%',
+                    }}
+                  >
+                    {counterAdversary}
+                  </Progress>
                 </Col>
               </Row>
             </Col>
@@ -364,7 +375,31 @@ class CombatArena extends Component {
           isOpen={triggerModal}
           myCounter={myCounter}
           counterAdversary={counterAdversary}
+          nameAdversary={adversary.name}
+          name={heroId.name}
         />
+        <div className={styles.sentences}>
+          {sentence2 ? (
+            <Fade top>
+              <h2 className={styles.h2}>
+                <b>{adversary.name}</b> attack with {defend}{' '}
+                <b>{heroId.name}</b>
+              </h2>
+            </Fade>
+          ) : (
+            ''
+          )}
+          {sentence1 ? (
+            <Fade top>
+              <h2 className={styles.h2}>
+                <b>{heroId.name}</b> attack with {attack}{' '}
+                <b>{adversary.name}</b>
+              </h2>
+            </Fade>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
     );
   }

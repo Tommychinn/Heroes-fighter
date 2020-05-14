@@ -3,3 +3,14 @@
     width: 200px;
     height: 210px;
 }
+
+.button {
+    font-family: 'Bangers', cursive !important;
+    font-size:1.3rem !important;  
+}
+
+
+.h3 {
+    font-family: 'Bangers', cursive !important;
+    font-size: 2rem !important;  
+}
