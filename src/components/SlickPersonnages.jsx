@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
-import { Row, Spinner, Col } from 'reactstrap';
+import { Row, Spinner } from 'reactstrap';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -27,7 +27,7 @@ class SlickPersonnages extends React.Component {
     swipeToSlide: true,
     responsive: [
       {
-        breakpoint: 1300,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -35,7 +35,7 @@ class SlickPersonnages extends React.Component {
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -123,17 +123,13 @@ class SlickPersonnages extends React.Component {
         <Slider {...this.settings}>
           {hero.map((character) => {
             return (
-              <Row>
-                <Col>
-                  <SlickPersoProps
-                    name={character.name}
-                    image={character.image}
-                    powerstats={character.powerstats}
-                    biography={character.biography}
-                    id={character.id}
-                  />
-                </Col>
-              </Row>
+              <SlickPersoProps
+                name={character.name}
+                image={character.image}
+                powerstats={character.powerstats}
+                biography={character.biography}
+                id={character.id}
+              />
             );
           })}
         </Slider>

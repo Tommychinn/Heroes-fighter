@@ -27,7 +27,7 @@ class PersoMostStrong extends React.Component {
     swipeToSlide: true,
     responsive: [
       {
-        breakpoint: 1300,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -35,7 +35,7 @@ class PersoMostStrong extends React.Component {
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
