@@ -5,7 +5,6 @@ import Axios from 'axios';
 import Fade from 'react-reveal/Fade';
 
 import styles from './CombatArena.module.css';
-import CombatArenaBackground from './CombatArenaBackground';
 import CombatArenaProgress from './CombatArenaProgress';
 import CombatArenaCard from './CombatArenaCard';
 import EndModalWinner from './EndModalWinner';
@@ -267,34 +266,33 @@ class CombatArena extends Component {
     if (error) return <div>Error...</div>;
     return (
       <div className={styles.arene}>
-        <CombatArenaBackground />
-        <Container>
+        <Container className={styles.background} fluid>
           <Row className="justify-content-center">
-            <Fade left className={styles.fade}>
-              <Col className={styles.persoLevels} xs="4">
+            <Col className={`${styles.persoLevels} mt-5`} xs="10" md="3">
+              <Fade left className={styles.fade}>
                 <CombatArenaProgress
                   name={heroId.name}
                   powerstats={heroId.powerstats}
                   myCounter={myCounter}
                 />
-              </Col>
-            </Fade>
-            <Col className={styles.versus} xs="2">
+              </Fade>
+            </Col>
+
+            <Col className={`${styles.versus} mt-5`} xs="1" md="2">
               <p>VS</p>
             </Col>
-            <Fade right className={styles.fade}>
-              <Col className={styles.persoLevels} xs="4">
+
+            <Col className={`${styles.persoLevels} mt-5`} xs="10" md="3">
+              <Fade right className={styles.fade}>
                 <CombatArenaProgressAdversary
                   name={adversary.name}
                   powerstats={adversary.powerstats}
                 />
-              </Col>
-            </Fade>
+              </Fade>
+            </Col>
           </Row>
-        </Container>
-        <Container className={styles.persoAttac}>
-          <Row className="justify-content-center">
-            <Col xs="4" className={styles.cardG}>
+          <Row className={`${styles.persoAttac} justify-content-center`}>
+            <Col xs="10" md="3" className={`${styles.cardG} mt-5`}>
               <CombatArenaCard
                 name={heroId.name}
                 url={heroId.image && heroId.image.url}
@@ -307,7 +305,11 @@ class CombatArena extends Component {
                 myCounter={myCounter}
               />
             </Col>
-            <Col xs={{ size: 4, offset: 2 }} className={styles.cardD}>
+            <Col
+              xs="10"
+              md={{ size: 3, offset: 2 }}
+              className={`${styles.cardD}  mt-5`}
+            >
               <Row
                 style={{
                   backgroundImage: `url(${
@@ -333,7 +335,7 @@ class CombatArena extends Component {
                     }
                     value={counterAdversary <= 0 ? '0' : counterAdversary}
                     style={{
-                      height: '9%',
+                      height: '5%',
                       borderRadius: '500px',
                       marginTop: '5%',
                     }}

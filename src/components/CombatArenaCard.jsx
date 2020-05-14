@@ -38,7 +38,7 @@ function CombatArenaCard({
                 : ''
             }
             value={myCounter <= 0 ? '0' : myCounter}
-            style={{ height: '25%', borderRadius: '500px', marginTop: '5%' }}
+            style={{ height: '15%', borderRadius: '500px', marginTop: '5%' }}
           >
             {myCounter}
           </Progress>
