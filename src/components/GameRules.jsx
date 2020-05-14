@@ -42,7 +42,7 @@ function GameRules() {
             <Row className={styles.alignbutton}>
               <Col className="text-center">
                 <Button className={styles.bigbutton} onClick={toggle}>
-                  Annuler
+                  Cancel
                 </Button>
               </Col>
             </Row>

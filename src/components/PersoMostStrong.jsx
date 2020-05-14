@@ -80,7 +80,7 @@ class PersoMostStrong extends React.Component {
       <div className={styles.personnages}>
         <Row>
           <Col xs="9">
-            <h2>Les + forts</h2>
+            <h2 className={styles.h2}>The more strong</h2>
           </Col>
         </Row>
         <Slider

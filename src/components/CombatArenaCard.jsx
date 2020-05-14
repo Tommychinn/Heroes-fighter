@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Row, Col, Progress } from 'reactstrap';
+import styles from './CombatArena.module.css';
 
 function CombatArenaCard({
   url,
@@ -48,28 +49,28 @@ function CombatArenaCard({
             <Button
               disabled={disabled}
               onClick={attackClickable ? handleAttackStrength : ''}
-              className="m-2"
+              className={`${styles.button} m-2`}
             >
               Force
             </Button>
             <Button
               disabled={disabled}
               onClick={attackClickable ? handleAttackSpeed : ''}
-              className="m-2"
+              className={`${styles.button} m-2`}
             >
               Vitesse
             </Button>
             <Button
               disabled={disabled}
               onClick={attackClickable ? handleAttackPower : ''}
-              className="m-2"
+              className={`${styles.button} m-2`}
             >
               Puissance
             </Button>
             <Button
               disabled={disabled}
               onClick={attackClickable ? handleAttackCombat : ''}
-              className="m-2"
+              className={`${styles.button} m-2`}
             >
               Combat
             </Button>

@@ -4,9 +4,15 @@ import { Link } from 'react-router-dom';
 import Confetti from 'react-confetti';
 import PropTypes from 'prop-types';
 import styles from './EndModal.module.css';
-import './EndModal.css';
+import './EndModalWinner.module.css';
 
-function EndModalWinner({ isOpen, myCounter, counterAdversary }) {
+function EndModalWinner({
+  isOpen,
+  myCounter,
+  counterAdversary,
+  name,
+  nameAdversary,
+}) {
   return (
     <div>
       <Modal isOpen={isOpen} className={styles.background}>
@@ -15,17 +21,24 @@ function EndModalWinner({ isOpen, myCounter, counterAdversary }) {
             {myCounter > counterAdversary ? (
               <Col>
                 <Confetti className={styles.confetti} />
-                <h1>Vous avez gagné !</h1>
+                <h1>You win !</h1>
+                <h2>{name} is the best hero.</h2>
               </Col>
             ) : (
               <Col>
-                <h1>Vous avez perdu !</h1>
+                <h1>You loose !</h1>
+                <h2>{nameAdversary} crushed you.</h2>
               </Col>
             )}
           </Row>
           <Row>
             <Col xs={{ size: 2, offset: 5 }}>
-              <Button color="secondary" tag={Link} to="/allPerso">
+              <Button
+                className={styles.button}
+                color="secondary"
+                tag={Link}
+                to="/allPerso"
+              >
                 Retour
               </Button>
             </Col>
@@ -40,6 +53,8 @@ EndModalWinner.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   myCounter: PropTypes.string.isRequired,
   counterAdversary: PropTypes.string.isRequired,
+  nameAdversary: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default EndModalWinner;

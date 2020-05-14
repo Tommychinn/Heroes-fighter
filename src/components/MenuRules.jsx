@@ -14,26 +14,26 @@ function MenuRules() {
             src="https://image.flaticon.com/icons/svg/2004/2004760.svg"
             alt="Avengers"
           />
-          Regles du jeu
+          Game rules
         </h4>
         <h6 className={styles.h6}>
           <a className={styles.h6a} href="#Goal">
-            But du jeu
+            Goal of game
           </a>
         </h6>
         <h6 className={styles.h6}>
           <a className={styles.h6a} href="#Elements">
-            Eléments du jeu
+            Elements of game
           </a>
         </h6>
         <h6 className={styles.h6}>
           <a className={styles.h6a} href="#Course">
-            Déroulement du jeu
+            Course of the game
           </a>
         </h6>
         <h6 className={styles.h6}>
           <a className={styles.h6a} href="#End">
-            Fin du jeu
+            End of game
           </a>
         </h6>
       </Col>

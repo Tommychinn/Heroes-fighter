@@ -22,7 +22,7 @@
   opacity: 0.7;
   border-radius: 30px;
   max-width: 100% !important;
-  width : 25vw !important;
+  width: 25vw !important;
 }
 
 .persoLevels .name {
@@ -87,8 +87,29 @@
 }
 
 .fade {
-  width:100% !important;
+  width: 100% !important;
 }
 .h4 {
   font-style: bold;
+  font-size : 2rem;
+}
+.h2 {
+  position: absolute;
+  top: 50vh;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1vw;
+  color: black;
+  border-radius: 500px;
+}
+.sentences {
+  display:flex;
+  justify-content: space-evenly;
+}
+.h2, .h4{
+  font-family: 'Bangers', cursive;
+}
+.button {
+  font-family: 'Bangers', cursive !important;
+  font-size:1.3rem !important;  
 }
