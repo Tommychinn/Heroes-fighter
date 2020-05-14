@@ -6,6 +6,8 @@
     align-items: flex-end!important;
     border-radius: 50px!important;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+    font-family: 'Bangers', cursive;
+    font-size:2rem;
 }
 
 .info_box{

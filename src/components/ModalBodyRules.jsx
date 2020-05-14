@@ -9,7 +9,7 @@ function ModalBodyRules() {
       <ModalBody className={styles.modalbody}>
         <div className={styles.text}>
           <h5 className={styles.h5} id="Goal">
-            But du jeu
+            Goal of game
           </h5>
           <p className={styles.prules}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
@@ -18,7 +18,7 @@ function ModalBodyRules() {
             porro iste iusto!
           </p>
           <h5 className={styles.h5} id="Elements">
-            Eléments du jeu
+            Elements of game
           </h5>
           <p className={styles.prules}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
@@ -30,7 +30,7 @@ function ModalBodyRules() {
             magni labore esse non expedita! Iure, tempora fuga!
           </p>
           <h5 className={styles.h5} id="Course">
-            Déroulement du jeu
+            Course of the game
           </h5>
           <p className={styles.prules}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
@@ -43,7 +43,7 @@ function ModalBodyRules() {
             doloribus amet.
           </p>
           <h5 className={styles.h5} id="End">
-            Fin de la partie
+            End of game
           </h5>
           <p className={styles.prules}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam

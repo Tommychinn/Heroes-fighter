@@ -13,6 +13,7 @@ class SearchCharacter extends Component {
       hero: [],
       value: '',
       isLoading: true,
+      search: false,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -33,7 +34,7 @@ class SearchCharacter extends Component {
     axios
       .get(`https://superheroapi.com/api.php/1274121622792743/search/${value}`)
       .then(({ data }) => {
-        this.setState({ hero: data.results });
+        this.setState({ hero: data.results, search: true });
       })
       .catch((err) => {
         this.setState({
@@ -52,7 +53,7 @@ class SearchCharacter extends Component {
   }
 
   render() {
-    const { hero, value, isLoading, error } = this.state;
+    const { hero, value, isLoading, error, search } = this.state;
 
     if (isLoading)
       return (
@@ -81,21 +82,25 @@ class SearchCharacter extends Component {
               onChange={this.handleChange}
               name="text"
               id="search"
-              placeholder="Recherche..."
+              placeholder="Search..."
             />
           </Col>
         </Row>
         <Row className={styles.searchresults}>
-          {hero &&
-            hero.map((character) => (
-              <SlickPersoSearch
-                name={character.name}
-                powerstats={character.powerstats}
-                image={character.image}
-                biography={character.biography}
-                id={character.id}
-              />
-            ))}
+          {search === true
+            ? hero === undefined
+              ? 'Please enter a valid search!'
+              : hero &&
+                hero.map((character) => (
+                  <SlickPersoSearch
+                    name={character.name}
+                    powerstats={character.powerstats}
+                    image={character.image}
+                    biography={character.biography}
+                    id={character.id}
+                  />
+                ))
+            : ''}
         </Row>
       </div>
     );

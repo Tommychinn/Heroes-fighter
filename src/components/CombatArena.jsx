@@ -22,6 +22,10 @@ class CombatArena extends Component {
       disabled: '',
       triggerModal: false,
       isLoading: true,
+      sentence1: false,
+      sentence2: false,
+      attack: '',
+      defend: '',
     };
     this.handleAttackStrength = this.handleAttackStrength.bind(this);
     this.handleAttackSpeed = this.handleAttackSpeed.bind(this);
@@ -107,11 +111,11 @@ class CombatArena extends Component {
   }
 
   attack(attackName, defendName) {
-    const { heroId, adversary, counterAdversary } = this.state;
+    const { heroId, adversary, counterAdversary, sentence1 } = this.state;
     const value =
       (heroId.powerstats[attackName] - adversary.powerstats[attackName]) / 2;
     const shouldModalTrigger = counterAdversary - value <= 0;
-
+    this.setState({ sentence1: !sentence1, attack: attackName });
     if (value > 0) {
       this.setState((state) => ({
         ...state,
@@ -150,17 +154,18 @@ class CombatArena extends Component {
         }));
       }
     }
+    setTimeout(() => this.setState({ sentence1: false }), 1500);
     if (!shouldModalTrigger) {
-      setTimeout(() => this.defend(defendName), 1500);
+      setTimeout(() => this.defend(defendName), 2000);
     }
   }
 
   defend(attackName) {
-    const { heroId, adversary, myCounter } = this.state;
+    const { heroId, adversary, myCounter, sentence2 } = this.state;
     const value =
       (adversary.powerstats[attackName] - heroId.powerstats[attackName]) / 2;
     const shouldModalTrigger = myCounter - value <= 0;
-
+    this.setState({ sentence2: !sentence2, defend: attackName });
     if (value > 0) {
       this.setState((state) => ({
         ...state,
@@ -199,6 +204,7 @@ class CombatArena extends Component {
         }));
       }
     }
+    setTimeout(() => this.setState({ sentence2: false }), 2000);
   }
 
   // attack() {
@@ -239,6 +245,10 @@ class CombatArena extends Component {
       triggerModal,
       isLoading,
       error,
+      sentence1,
+      sentence2,
+      attack,
+      defend,
     } = this.state;
     if (isLoading)
       return (
@@ -341,7 +351,31 @@ class CombatArena extends Component {
           isOpen={triggerModal}
           myCounter={myCounter}
           counterAdversary={counterAdversary}
+          nameAdversary={adversary.name}
+          name={heroId.name}
         />
+        <div className={styles.sentences}>
+          {sentence2 ? (
+            <Fade top>
+              <h2 className={styles.h2}>
+                <b>{adversary.name}</b> attack with {defend}{' '}
+                <b>{heroId.name}</b>
+              </h2>
+            </Fade>
+          ) : (
+            ''
+          )}
+          {sentence1 ? (
+            <Fade top>
+              <h2 className={styles.h2}>
+                <b>{heroId.name}</b> attack with {attack}{' '}
+                <b>{adversary.name}</b>
+              </h2>
+            </Fade>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
     );
   }

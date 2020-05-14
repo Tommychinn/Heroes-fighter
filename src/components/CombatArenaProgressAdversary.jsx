@@ -8,7 +8,7 @@ function CombatArenaProgressAdversary({ name, powerstats }) {
     <>
       <Row className="m-1">
         <Col className={styles.name}>
-          <h4>{name}</h4>
+          <h4 className={styles.h4}>{name}</h4>
         </Col>
       </Row>
       <Row>
