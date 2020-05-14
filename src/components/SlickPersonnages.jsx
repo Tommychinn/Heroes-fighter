@@ -13,7 +13,7 @@ class SlickPersonnages extends React.Component {
     super(props);
     this.state = {
       hero: [],
-      isLoading: false,
+      isLoading: true,
     };
     this.randomize = this.randomizeHero.bind(this);
   }
