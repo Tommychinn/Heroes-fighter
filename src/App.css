@@ -30,3 +30,28 @@
   margin-left : 100px;
   padding-top: 10px;
 }
+
+@media screen and (max-width: 1100px) {
+    .btn {
+        width: 15vw;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .btn {
+        width: 25vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .btn {
+        width: 20vw;
+    }
+}
+
+@media screen and (max-width: 600px) {    
+
+    .btn {
+        width: 40vw;
+    }
+}

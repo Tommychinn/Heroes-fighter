@@ -17,6 +17,40 @@ class PersoMostPopular extends React.Component {
     };
   }
 
+  settings = {
+    className: 'center',
+    infinite: true,
+    centerPadding: '60px',
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 1100,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   componentDidMount() {
     this.getHero();
   }
@@ -64,13 +98,7 @@ class PersoMostPopular extends React.Component {
             <h2 className={styles.h2}>The most popular</h2>
           </Col>
         </Row>
-        <Slider
-          className="center"
-          infinite="true"
-          centerPadding="60px"
-          slidesToShow="4"
-          swipeToSlide="true"
-        >
+        <Slider {...this.settings}>
           {hero.map((character) => {
             return (
               <SlickPersoProps

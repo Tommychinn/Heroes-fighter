@@ -34,10 +34,10 @@ function SlickPersoProps({ name, image, powerstats, biography, id }) {
           <CardText>
             {powerstat.map((stat) => (
               <Row>
-                <Col xs="5" className={styles.stat}>
+                <Col xs="12" sm="5" className={styles.stat}>
                   {stat[0].charAt(0).toUpperCase() + stat[0].substr(1)}
                 </Col>
-                <Col xs="7">
+                <Col xs="12" sm="7">
                   <Progress value={parseInt(stat[1], 10)} max="100" />
                 </Col>
               </Row>

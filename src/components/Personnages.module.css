@@ -34,9 +34,9 @@
 }
 
 .persoImage {
-  border-top-right-radius: 50px !important;
-  border-top-left-radius: 50px !important;
-  height: 18vw !important;
+    border-top-right-radius: 50px !important;
+    border-top-left-radius: 50px !important;
+    height: 17vw !important;
 }
 
 .cardTitle {
@@ -57,4 +57,22 @@
 }
 .h6 {
   color: red;
+}
+
+@media screen and (max-width: 1100px) {
+    .persoImage {
+        height: 25vw !important;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .persoImage {
+        height: 38vw !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .persoImage {
+        height: 58vw !important;
+    }
 }
