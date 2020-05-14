@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Progress, Spinner } from 'reactstrap';
+import { Flash } from 'react-motions';
 import Axios from 'axios';
 import Fade from 'react-reveal/Fade';
 
@@ -323,25 +324,49 @@ class CombatArena extends Component {
                 }}
               >
                 <Col md={{ size: 8, offset: 2 }}>
-                  <Progress
-                    color={
-                      counterAdversary >= 50
-                        ? 'success'
-                        : counterAdversary >= 20
-                        ? 'warning'
-                        : counterAdversary >= 0
-                        ? 'danger'
-                        : ''
-                    }
-                    value={counterAdversary <= 0 ? '0' : counterAdversary}
-                    style={{
-                      height: '5%',
-                      borderRadius: '500px',
-                      marginTop: '5%',
-                    }}
-                  >
-                    {counterAdversary}
-                  </Progress>
+                  {counterAdversary <= 20 ? (
+                    <Flash duration={3} infinite>
+                      <Progress
+                        color={
+                          counterAdversary >= 50
+                            ? 'success'
+                            : counterAdversary >= 20
+                            ? 'warning'
+                            : counterAdversary >= 0
+                            ? 'danger'
+                            : ''
+                        }
+                        value={counterAdversary <= 0 ? '0' : counterAdversary}
+                        style={{
+                          height: '9%',
+                          borderRadius: '500px',
+                          marginTop: '5%',
+                        }}
+                      >
+                        {counterAdversary}
+                      </Progress>
+                    </Flash>
+                  ) : (
+                    <Progress
+                      color={
+                        counterAdversary >= 50
+                          ? 'success'
+                          : counterAdversary >= 20
+                          ? 'warning'
+                          : counterAdversary >= 0
+                          ? 'danger'
+                          : ''
+                      }
+                      value={counterAdversary <= 0 ? '0' : counterAdversary}
+                      style={{
+                        height: '5%',
+                        borderRadius: '500px',
+                        marginTop: '5%',
+                      }}
+                    >
+                      {counterAdversary}
+                    </Progress>
+                  )}
                 </Col>
               </Row>
             </Col>
