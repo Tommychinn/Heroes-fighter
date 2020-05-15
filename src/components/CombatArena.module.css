@@ -42,3 +42,7 @@
   font-family: 'Bangers', cursive !important;
   font-size:1.3rem !important;  
 }
+.h2 .name2 {
+  font-size: 2.5rem;
+  color : red !important;
+}

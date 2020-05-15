@@ -95,7 +95,7 @@ class PersoMostPopular extends React.Component {
       <div className={styles.personnages}>
         <Row>
           <Col xs="9">
-            <h2 className={styles.h2}>The most popular</h2>
+            <h2 className={styles.h2}>Most popular</h2>
           </Col>
         </Row>
         <Slider {...this.settings}>

@@ -122,6 +122,7 @@ class CombatArena extends Component {
         ...state,
         counterAdversary: counterAdversary - value,
         attackClickable: false,
+        disabled: 'disabled',
         triggerModal: shouldModalTrigger,
       }));
     } else if (value <= 0) {
@@ -130,6 +131,7 @@ class CombatArena extends Component {
           ...state,
           counterAdversary: counterAdversary - 5,
           attackClickable: false,
+          disabled: 'disabled',
           triggerModal: shouldModalTrigger,
         }));
       } else if (value > -40) {
@@ -137,6 +139,7 @@ class CombatArena extends Component {
           ...state,
           counterAdversary: counterAdversary - 10,
           attackClickable: false,
+          disabled: 'disabled',
           triggerModal: shouldModalTrigger,
         }));
       } else if (value > -60) {
@@ -144,6 +147,7 @@ class CombatArena extends Component {
           ...state,
           counterAdversary: counterAdversary - 15,
           attackClickable: false,
+          disabled: 'disabled',
           triggerModal: shouldModalTrigger,
         }));
       } else if (value <= 0) {
@@ -151,13 +155,14 @@ class CombatArena extends Component {
           ...state,
           counterAdversary: counterAdversary - 20,
           attackClickable: false,
+          disabled: 'disabled',
           triggerModal: shouldModalTrigger,
         }));
       }
     }
-    setTimeout(() => this.setState({ sentence1: false }), 1500);
+    setTimeout(() => this.setState({ sentence1: false }), 2000);
     if (!shouldModalTrigger) {
-      setTimeout(() => this.defend(defendName), 2000);
+      setTimeout(() => this.defend(defendName), 2500);
     }
   }
 
@@ -205,7 +210,8 @@ class CombatArena extends Component {
         }));
       }
     }
-    setTimeout(() => this.setState({ sentence2: false }), 2000);
+    setTimeout(() => this.setState({ sentence2: false }), 2500);
+    this.setState({ disabled: '' });
   }
 
   // attack() {
@@ -381,21 +387,23 @@ class CombatArena extends Component {
         />
         <div className={styles.sentences}>
           {sentence2 ? (
-            <Fade top>
-              <h2 className={styles.h2}>
-                <b>{adversary.name}</b> attack with {defend}{' '}
-                <b>{heroId.name}</b>
-              </h2>
+            <Fade right>
+              <h3 className={styles.h2}>
+                <b className={styles.name2}>{adversary.name}</b> attack with{' '}
+                {defend}
+              </h3>
             </Fade>
           ) : (
             ''
           )}
           {sentence1 ? (
-            <Fade top>
-              <h2 className={styles.h2}>
-                <b>{heroId.name}</b> attack with {attack}{' '}
-                <b>{adversary.name}</b>
-              </h2>
+            <Fade left>
+              <h3 className={styles.h2}>
+                <b>
+                  <span className={styles.name2}>{heroId.name}</span>
+                </b>{' '}
+                attack with {attack}
+              </h3>
             </Fade>
           ) : (
             ''
