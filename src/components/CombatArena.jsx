@@ -402,7 +402,7 @@ class CombatArena extends Component {
                 <b>
                   <span className={styles.name2}>{heroId.name}</span>
                 </b>{' '}
-                attack with {attack}
+                attacks with {attack}
               </h3>
             </Fade>
           ) : (
