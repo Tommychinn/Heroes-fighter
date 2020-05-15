@@ -26,7 +26,6 @@
 .persoCartes {
     border-radius: 20px;
     padding: 20px;
-    width:25% !important;
 }
 
 .perso {
@@ -37,8 +36,7 @@
 .persoImage {
     border-top-right-radius: 50px !important;
     border-top-left-radius: 50px !important;
-    height: 18vw !important;
-    
+    height: 18vw !important;   
 }
 
 .cardTitle {
@@ -50,8 +48,26 @@
     text-align : left !important;
 }
 .cardbody {
-    padding-top : 0 !important
+    padding-top : 0 !important;
 }
 .h6 {
     color :red;
+}
+
+@media screen and (max-width: 1100px) {
+    .persoImage {
+        height: 25vw !important;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .persoImage {
+        height: 38vw !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .persoImage {
+        height: 58vw !important;
+    }
 }
