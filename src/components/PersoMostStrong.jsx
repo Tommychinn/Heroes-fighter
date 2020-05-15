@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Spinner } from 'reactstrap';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -13,9 +13,44 @@ class PersoMostStrong extends React.Component {
     super(props);
     this.state = {
       hero: [],
+      isLoading: true,
     };
     // this.randomize = this.randomizeHero.bind(this);
   }
+
+  settings = {
+    className: 'center',
+    infinite: true,
+    centerPadding: '60px',
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    swipeToSlide: true,
+    responsive: [
+      {
+        breakpoint: 1100,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   componentDidMount() {
     this.getHero();
@@ -26,8 +61,26 @@ class PersoMostStrong extends React.Component {
     axios
       .get('https://superheroapi.com/api.php/1274121622792743/search/a')
       .then(({ data }) => {
-        this.setState({ hero: data.results });
-      });
+        this.setState({
+          hero: data.results.filter(
+            (character) =>
+              character.powerstats.speed > 0 &&
+              character.powerstats.combat > 0 &&
+              character.powerstats.strength > 0 &&
+              character.powerstats.power > 0
+          ),
+        });
+      })
+      .catch((err) => {
+        this.setState({
+          error: err,
+        });
+      })
+      .finally(() =>
+        this.setState({
+          isLoading: false,
+        })
+      );
   }
 
   // randomizeHero(tab) {
@@ -42,21 +95,29 @@ class PersoMostStrong extends React.Component {
   // }
 
   render() {
-    const { hero } = this.state;
+    const { hero, isLoading, error } = this.state;
+    if (isLoading)
+      return (
+        <div>
+          <Spinner color="dark" />
+          <Spinner color="light" type="grow" />
+          <Spinner color="info" />
+          <Spinner color="warning" type="grow" />
+          <Spinner color="danger" />
+          <Spinner color="success" type="grow" />
+          <Spinner color="secondary" />
+          <Spinner color="primary" type="grow" />
+        </div>
+      );
+    if (error) return <div>Error...</div>;
     return (
       <div className={styles.personnages}>
         <Row>
           <Col xs="9">
-            <h2>Les + forts</h2>
+            <h2 className={styles.h2}>Strongest</h2>
           </Col>
         </Row>
-        <Slider
-          className="center"
-          infinite="true"
-          centerPadding="60px"
-          slidesToShow="4"
-          swipeToSlide="true"
-        >
+        <Slider {...this.settings}>
           {hero
             .filter((character) => character.powerstats.strength > 90)
             .map((character) => {
@@ -66,6 +127,7 @@ class PersoMostStrong extends React.Component {
                   image={character.image}
                   powerstats={character.powerstats}
                   biography={character.biography}
+                  id={character.id}
                 />
               );
             })}

@@ -17,7 +17,7 @@ function LetsGoContainer() {
               to="./allPerso"
               variant="primary"
             >
-              LET’S GO
+              Choose your hero
             </Button>
           </Col>
         </Row>

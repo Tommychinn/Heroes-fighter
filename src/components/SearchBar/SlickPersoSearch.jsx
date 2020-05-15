@@ -11,16 +11,22 @@ import {
   Col,
   CardText,
 } from 'reactstrap';
-import ModalDetailsPerso from './ModalDetailsPerso';
-import styles from './Personnages.module.css';
+import ModalDetailsPerso from '../ModalDetailsPerso';
+import styles from '../Personnages.module.css';
 
-function SlickPersoProps({ name, image, powerstats, biography, id }) {
+export default function SlickPersoSearch({
+  name,
+  image,
+  powerstats,
+  biography,
+  id,
+}) {
   const powerstat = Object.keys(powerstats)
     .map((stat) => [stat, powerstats[stat]])
     .slice(0, 3);
 
   return (
-    <div className={styles.persoCartes}>
+    <Col className={styles.persoCartes}>
       <Card className={styles.perso}>
         <CardImg
           className={styles.persoImage}
@@ -34,10 +40,10 @@ function SlickPersoProps({ name, image, powerstats, biography, id }) {
           <CardText>
             {powerstat.map((stat) => (
               <Row>
-                <Col xs="12" sm="5" className={styles.stat}>
+                <Col xs="5" className={styles.stat}>
                   {stat[0].charAt(0).toUpperCase() + stat[0].substr(1)}
                 </Col>
-                <Col xs="12" sm="7">
+                <Col xs="7">
                   <Progress value={parseInt(stat[1], 10)} max="100" />
                 </Col>
               </Row>
@@ -52,15 +58,13 @@ function SlickPersoProps({ name, image, powerstats, biography, id }) {
           />
         </CardBody>
       </Card>
-    </div>
+    </Col>
   );
 }
-SlickPersoProps.propTypes = {
+SlickPersoSearch.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   powerstats: PropTypes.string.isRequired,
   biography: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };
-
-export default SlickPersoProps;

@@ -2,14 +2,16 @@ import React from 'react';
 
 import LetsGoContainer from './LetsGoContainer';
 import SlickPersonnages from './SlickPersonnages';
-import HomeAreneCont from './HomeAreneCont';
+import TitleAllPerso from './TitleAllPerso';
+// import HomeAreneCont from './HomeAreneCont';
 
 function Home() {
   return (
     <div className="body">
       <LetsGoContainer />
       <SlickPersonnages />
-      <HomeAreneCont slide={4} />
+      <TitleAllPerso />
+      {/* <HomeAreneCont slide={4} /> */}
     </div>
   );
 }

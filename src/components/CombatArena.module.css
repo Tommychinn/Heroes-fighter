@@ -1,98 +1,48 @@
 .background {
-    position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/853/26/556/space-art-artwork-concept-art-fantasy-art-wallpaper-preview.jpg');
 }
 
-.background img {
-    background-size: cover;
-    min-width: 100%;
-    min-height: 100%;
-    position: fixed;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    top: 0;
-    bottom: 0;
-}
-
-
-.persoLevels{
-    background-image: url(./img/whiteBackground.png);
-    top: 10vh;
-    height: 20vh;
-    padding: 30px;
-    opacity: 0.7;
-    border-radius: 30px;
-}
-
-.persoLevels .name {
-    color: black;
-    float: left;
-    width: 50%;
-    height: 40px;
-    font-weight: bold;
-    font-size: 1.4em;
-}
-
-.persoLevels .vie {
-    float: right;
-    width: 50%;
-    height: 40px;
-}
-
-.persoLevels .stats {
-    float: right;
-    width: 50%;
-}
-
-.statsProgress {
-    width: 80%;
-    margin: 10px;
+.persoLevels {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 3vh;
+  border-radius: 30px;
+  width: 100%;
 }
 
 .versus {
-    font-size: 5em;
-    color: white;
-    padding-top: 13vh;
-    font-weight: bold;
+  font-size: 5em;
+  color: white;
+  font-weight: bold;
 }
 
-.attac {
-    font-size: 2em;
-    color: white;
-    padding-top: 50vh;
-    font-weight: bold;
+.h4 {
+  font-style: bold;
+  font-size : 2rem;
 }
-
-.persoAttac {
-    
-    margin-top: 4vh;
-    height: 65vh;
-    border-radius: 30px;
-    padding: 30px;
-    opacity: 1;
+.h2 {
+  position: absolute;
+  top: 50vh;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1vw;
+  color: black;
+  border-radius: 500px;
 }
-
-.perso {
-    border-radius: 20px;
+.sentences {
+  display:flex;
+  justify-content: space-evenly;
 }
-
-.persoImage {
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+.h2, .h4{
+  font-family: 'Bangers', cursive;
 }
-
-.cardD img, .cardG img {
-    width: 22vw;
-    border-radius: 50px;
-    height: 30vw;
-    object-fit: cover;
-    transition: .3s ease-in-out;
+.button {
+  font-family: 'Bangers', cursive !important;
+  font-size:1.3rem !important;  
 }
-
-.cardD:hover img {
-	margin-left: -50vw;
-}
-
-.cardG:hover img {
-	margin-left: 30vw;
+.h2 .name2 {
+  font-size: 2.5rem;
+  color : red !important;
 }
