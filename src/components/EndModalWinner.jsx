@@ -22,11 +22,11 @@ function EndModalWinner({
               <Col>
                 <Confetti className={styles.confetti} />
                 <h1>You win !</h1>
-                <h2>{name} is the best hero.</h2>
+                <h2>{name} is victorious.</h2>
               </Col>
             ) : (
               <Col>
-                <h1>You loose !</h1>
+                <h1>You lose !</h1>
                 <h2>{nameAdversary} crushed you.</h2>
               </Col>
             )}
@@ -39,7 +39,7 @@ function EndModalWinner({
                 tag={Link}
                 to="/allPerso"
               >
-                Retour
+                Play again
               </Button>
             </Col>
           </Row>
