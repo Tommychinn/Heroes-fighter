@@ -78,21 +78,21 @@ function CombatArenaCard({
               onClick={attackClickable ? handleAttackStrength : ''}
               className={`${styles.button} m-2`}
             >
-              Force
+              Strength
             </Button>
             <Button
               disabled={disabled}
               onClick={attackClickable ? handleAttackSpeed : ''}
               className={`${styles.button} m-2`}
             >
-              Vitesse
+              Speed
             </Button>
             <Button
               disabled={disabled}
               onClick={attackClickable ? handleAttackPower : ''}
               className={`${styles.button} m-2`}
             >
-              Puissance
+              Power
             </Button>
             <Button
               disabled={disabled}

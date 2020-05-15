@@ -12,17 +12,17 @@ function CombatArenaProgress({ name, powerstats }) {
         </Col>
       </Row>
       <Row>
-        <Col>Force</Col>
+        <Col>Strength</Col>
         <Col>
           <Progress value={powerstats && powerstats.strength} />
         </Col>
-        <Col>Vitesse</Col>
+        <Col>Speed</Col>
         <Col>
           <Progress value={powerstats && powerstats.speed} />
         </Col>
       </Row>
       <Row>
-        <Col>Puissance</Col>
+        <Col>Power</Col>
         <Col>
           <Progress value={powerstats && powerstats.power} />
         </Col>
