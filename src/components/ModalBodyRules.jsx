@@ -10,40 +10,40 @@ function ModalBodyRules() {
       <ModalBody className={styles.modalbody}>
         <div className={styles.text}>
           <h5 className={styles.h5} id="Goal">
-            But du jeu
+            Game Rules
           </h5>
           <p className={styles.prules}>
-            Le but du jeu est que votre carte affronte celle de votre adversaire
-            et que sa barre de vie arrive à 0.
+            The aim of the game is for your chosen superhero to fight against a
+            worthy adversary, reducing his or her health points to 0.
           </p>
           <h5 className={styles.h5} id="Elements">
-            Eléments du jeu
+            Elements of the Game
           </h5>
           <p className={styles.prules}>
-            Le jeu est composé de cartes de super héros. Chaque héros possède 6
-            &quot;powerstats&quot; : intelligence, force, vitesse, puissance,
-            durabilité et combat. Par exemple :
+            The game centres around superhero cards. Each hero has a range of
+            &quots;powerstats&quot; for example:
           </p>
           <CardRules />
           <h5 className={styles.h5} id="Course">
-            Déroulement de la partie
+            Getting started
           </h5>
           <p className={styles.prules}>
-            Après avoir choisi votre héros pour combattre, vous arrivez dans une
-            arène face à un adversaire choisi aléatoirement. Vous portez à tour
-            de role une attaque à votre adversaire afin de le mettre à terre. Il
-            existe différentes attaques disponibles :
+            After having chosen your hero to fight with, you will be transported
+            to an arena faced by a randomly chosen adversary. You take turns in
+            sending attacks in the direction of the other until a hero emerges
+            victorious!
           </p>
           <h5 className={styles.h5} id="End">
-            Fin de la partie
+            End of the game
           </h5>
           <p className={styles.prules}>
-            La partie est terminée quand la barre de vie de votre personnage ou
-            de celui de votre adversaire est égale à 0.
+            The fight is over when the health bar of either your or your
+            adversary&apos;s hero is reduced to 0. You then have the option to
+            choose another character and play again!
           </p>
           <h5 className={styles.h5bis}>
-            Serez vous capable de battre les héros les plus fort de toute la
-            galaxie?
+            Will you be capable of winning against the most powerful superheroes
+            in all the galaxy?
           </h5>
         </div>
       </ModalBody>
