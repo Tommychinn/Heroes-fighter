@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Row, Col, Progress } from 'reactstrap';
+
+import { Flash } from 'react-motions';
+
 import styles from './CombatArena.module.css';
 
 function CombatArenaCard({
@@ -27,21 +30,45 @@ function CombatArenaCard({
       >
         {/* <Row style={{ height: '100%' }}> */}
         <Col md={{ size: 8, offset: 2 }}>
-          <Progress
-            color={
-              myCounter >= 50
-                ? 'success'
-                : myCounter >= 20
-                ? 'warning'
-                : myCounter >= 0
-                ? 'danger'
-                : ''
-            }
-            value={myCounter <= 0 ? '0' : myCounter}
-            style={{ height: '25%', borderRadius: '500px', marginTop: '5%' }}
-          >
-            {myCounter}
-          </Progress>
+          {myCounter <= 20 ? (
+            <Flash duration={3} infinite>
+              <Progress
+                color={
+                  myCounter >= 50
+                    ? 'success'
+                    : myCounter >= 20
+                    ? 'warning'
+                    : myCounter >= 0
+                    ? 'danger'
+                    : ''
+                }
+                value={myCounter <= 0 ? '0' : myCounter}
+                style={{
+                  height: '15%',
+                  borderRadius: '500px',
+                  marginTop: '5%',
+                }}
+              >
+                {myCounter}
+              </Progress>
+            </Flash>
+          ) : (
+            <Progress
+              color={
+                myCounter >= 50
+                  ? 'success'
+                  : myCounter >= 20
+                  ? 'warning'
+                  : myCounter >= 0
+                  ? 'danger'
+                  : ''
+              }
+              value={myCounter <= 0 ? '0' : myCounter}
+              style={{ height: '15%', borderRadius: '500px', marginTop: '5%' }}
+            >
+              {myCounter}
+            </Progress>
+          )}
         </Col>
         {/* </Row> */}
         <Row>
