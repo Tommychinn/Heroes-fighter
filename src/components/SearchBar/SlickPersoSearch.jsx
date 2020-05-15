@@ -12,15 +12,21 @@ import {
   CardText,
 } from 'reactstrap';
 import ModalDetailsPerso from '../ModalDetailsPerso';
-import styles from './PersoSearch.module.css';
+import styles from '../Personnages.module.css';
 
-function SlickPersoProps({ name, image, powerstats, biography, id }) {
+export default function SlickPersoSearch({
+  name,
+  image,
+  powerstats,
+  biography,
+  id,
+}) {
   const powerstat = Object.keys(powerstats)
     .map((stat) => [stat, powerstats[stat]])
     .slice(0, 3);
 
   return (
-    <div className={styles.persoCartes}>
+    <Col className={styles.persoCartes}>
       <Card className={styles.perso}>
         <CardImg
           className={styles.persoImage}
@@ -52,15 +58,13 @@ function SlickPersoProps({ name, image, powerstats, biography, id }) {
           />
         </CardBody>
       </Card>
-    </div>
+    </Col>
   );
 }
-SlickPersoProps.propTypes = {
+SlickPersoSearch.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   powerstats: PropTypes.string.isRequired,
   biography: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };
-
-export default SlickPersoProps;
