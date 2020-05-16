@@ -1,24 +1,40 @@
 import React from 'react';
-import styles from "./NavBar.module.css";
-import {  Nav,  NavItem,  NavLink,} from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
+
+import { Link } from 'react-router-dom';
+import styles from './NavBar.module.css';
 import GameRules from './GameRules';
 
-function NavBar (props) {
+import logo from './img/logo.png';
+import hulk from './img/hulk.png';
+
+function NavBar() {
+  const itemNav = [
+    { image: `${logo}`, title: 'home', link: '/' },
+    { image: `${hulk}`, title: 'characters', link: '/allperso' },
+  ];
   return (
-    <div className={styles.navigation}>      
-      <Nav vertical>
-         <NavItem className={styles.navlogo}>           
-          <NavLink href="#">
-            <img src="https://zupimages.net/up/20/16/ko7g.png" alt="home logo"></img>
-            </NavLink>
-        </NavItem>
-        <NavItem className={styles.navlink}>
-          <NavLink href="#">
-          <img src="https://img.icons8.com/color/48/000000/hulk.png" alt="hulk logo player section"></img>
+    <div className={styles.navigation}>
+      <Nav vertical className={styles.nav}>
+        <NavItem className={styles.navlogo}>
+          {itemNav.map((item) => {
+            return (
+              <NavLink tag={Link} to={item.link}>
+                <figure className="image">
+                  <img src={item.image} alt={item.title} />
+                  <figcaption>{item.title}</figcaption>
+                </figure>
+              </NavLink>
+            );
+          })}
+          <NavLink className={styles.navlink}>
+            <figure className="image">
+              <GameRules />
+              <figcaption>Game rules</figcaption>
+            </figure>
           </NavLink>
-        </NavItem>       
-        <GameRules />
-      </Nav>    
+        </NavItem>
+      </Nav>
     </div>
   );
 }

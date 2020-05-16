@@ -3,13 +3,14 @@
 }
 .img {
     width : 50px;
+    cursor: pointer;
 }
 .avengers {
     width:100%;
 }
 .alignbutton {
     justify-content : space-around;
-    margin-left:0 ;
+    margin-left:0 !important;
     padding-top : 40px;
     width:100%;
 }

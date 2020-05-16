@@ -25,7 +25,10 @@ button{
   border-radius: 500px!important;
   box-shadow: 1px 1px 8px rgba(0, 0, 0, .4)!important;
 }
-
+button:disabled {
+  background-color: grey !important;
+  border: 2px solid grey !important;
+}
 button:hover{
   background-color: transparent!important;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, .1)!important;
@@ -35,11 +38,26 @@ button:hover{
 /* END general stylesheet marie homePage */
 
 .modal-dialog {
-  max-width: 70vw !important;
+  max-width: 50vw !important;
   max-height : 50px !important;
 }
 .modal-content {
-  border-radius : 20px !important;
+  border-radius : 50px !important;
+}
+.collapse{
+  width : 80vw;
+  padding-top: 2vw;
+  padding-left : 15vw
 }
 
-
+.btn {
+  width: 150px;
+  background-color: #ED1D24!important;
+  border: 2px solid #ED1D24 !important;
+  border-radius: 500px!important;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, .4)!important;
+}
+.modal-title {
+  font-size: 2.5rem !important;
+  font-family: 'Bangers', cursive !important;  
+}

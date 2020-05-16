@@ -1,0 +1,11 @@
+.row {
+  align-items: flex-end;
+}
+
+.input {
+  margin-top: 1rem;
+  width: 25rem;
+}
+.searchresults {
+  padding: 1rem 10rem;
+}

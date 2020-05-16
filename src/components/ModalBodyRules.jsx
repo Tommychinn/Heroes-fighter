@@ -1,5 +1,6 @@
-import React from "react";
-import { ModalBody, Col } from "reactstrap";
+import React from 'react';
+import { ModalBody, Col } from 'reactstrap';
+import CardRules from './CardRules';
 
 import styles from './ModalBodyRules.module.css';
 
@@ -8,43 +9,42 @@ function ModalBodyRules() {
     <Col sm="8" className={styles.rules}>
       <ModalBody className={styles.modalbody}>
         <div className={styles.text}>
-          <h5 className={styles.h5} id="Goal">Goal of game</h5>
+          <h5 className={styles.h5} id="Goal">
+            Game Rules
+          </h5>
           <p className={styles.prules}>
-            The goal of the game is simple : by playing your cards against those
-            of your opponent, you must successfully fight in order to gain
-            victory.
+            The aim of the game is for your chosen superhero to fight against a
+            worthy adversary, reducing his or her health points to 0.
           </p>
-          <h5 className={styles.h5} id="Elements">Elements of game</h5>
+          <h5 className={styles.h5} id="Elements">
+            Elements of the Game
+          </h5>
           <p className={styles.prules}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            aspernatur ab asperiores velit odio, sit repellat dicta totam
-            voluptates doloribus? Pariatur eos ex numquam in magnam inventore
-            distinctio sequi exercitationem. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Maiores explicabo aliquam voluptate
-            alias? Recusandae enim modi fuga amet ducimus obcaecati, eum soluta
-            magni labore esse non expedita! Iure, tempora fuga!
+            The game centres around superhero cards. Each hero has a range of
+            &quot;powerstats&quot; for example:
           </p>
-          <h5 className={styles.h5} id="Course">Course the game</h5>
+          <CardRules />
+          <h5 className={styles.h5} id="Course">
+            Getting started
+          </h5>
           <p className={styles.prules}>
-            At the start of the game you choose 5 characters cards and an arena
-            in which you want to fight. Once in the arena, you must have your
-            cards fight against that of your opponent. Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Quia culpa ab fugit adipisci
-            doloremque labore veniam eveniet voluptatibus, sed repellendus eum
-            unde! Nesciunt molestiae repudiandae corrupti alias, sint quasi.
-            Nihil!
+            After having chosen your hero to fight with, you will be transported
+            to an arena faced by a randomly chosen adversary. You take turns in
+            sending attacks in the direction of the other until a hero emerges
+            victorious!
           </p>
-          <h5 className={styles.h5} id="End">End of game</h5>
+          <h5 className={styles.h5} id="End">
+            End of the game
+          </h5>
           <p className={styles.prules}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-            debitis perspiciatis sapiente incidunt qui, atque voluptate dolorum
-            modi aperiam voluptatem harum unde earum, possimus eveniet animi cum
-            porro iste iusto! Lorem ipsum dolor sit amet consectetur,
-            adipisicing elit. Distinctio neque asperiores officia similique
-            consequuntur? Voluptatem, provident aliquam! Delectus deleniti eum
-            ipsa, iure omnis dolore distinctio. Laudantium eveniet quibusdam
-            doloribus amet.
+            The fight is over when the health bar of either your or your
+            adversary&apos;s hero is reduced to 0. You then have the option to
+            choose another character and play again!
           </p>
+          <h5 className={styles.h5bis}>
+            Will you be capable of winning against the most powerful superheroes
+            in all the galaxy?
+          </h5>
         </div>
       </ModalBody>
     </Col>

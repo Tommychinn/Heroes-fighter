@@ -1,0 +1,18 @@
+.perso {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+    border-radius: 50px!important;
+    width: 250px;
+    height : 400px;
+}
+.persoImage {
+    border-radius: 50px;
+    height: 11vw;
+}
+.stat {
+    text-align : left !important;
+    padding : 0;
+}
+.card {
+    margin-top : 2vw;
+    margin-bottom : 2vw;
+}

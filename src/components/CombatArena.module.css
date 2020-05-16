@@ -1,0 +1,48 @@
+.background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/853/26/556/space-art-artwork-concept-art-fantasy-art-wallpaper-preview.jpg');
+}
+
+.persoLevels {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 3vh;
+  border-radius: 30px;
+  width: 100%;
+}
+
+.versus {
+  font-size: 5em;
+  color: white;
+  font-weight: bold;
+}
+
+.h4 {
+  font-style: bold;
+  font-size : 2rem;
+}
+.h2 {
+  position: absolute;
+  top: 50vh;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1vw;
+  color: black;
+  border-radius: 500px;
+}
+.sentences {
+  display:flex;
+  justify-content: space-evenly;
+}
+.h2, .h4{
+  font-family: 'Bangers', cursive;
+}
+.button {
+  font-family: 'Bangers', cursive !important;
+  font-size:1.3rem !important;  
+}
+.h2 .name2 {
+  font-size: 2.5rem;
+  color : red !important;
+}
