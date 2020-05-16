@@ -102,7 +102,7 @@ function ModalDetailsPerso({ name, image, powerstats, biography, id }) {
             Go !
           </Button>
           <Button className={styles.button} onClick={toggle}>
-            Annuler
+            Close
           </Button>
         </ModalFooter>
       </Modal>

@@ -21,7 +21,7 @@ function ModalBodyRules() {
           </h5>
           <p className={styles.prules}>
             The game centres around superhero cards. Each hero has a range of
-            &quots;powerstats&quot; for example:
+            &quot;powerstats&quot; for example:
           </p>
           <CardRules />
           <h5 className={styles.h5} id="Course">
